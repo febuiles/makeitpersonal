@@ -1,0 +1,15 @@
+<h1>Create new playlist</h1>
+
+<%= form_for(@playlist, :url => fetch_playlist_path, :remote => true) do |f| %>
+  <%= f.text :username %>
+  <%= f.date :start_date %>
+  <%= f.date :end_date %>
+
+  <div id="playlist">
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Generate Playlist", :class => "btn" %>
+  </div>
+<% end %>
+

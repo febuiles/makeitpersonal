@@ -1,0 +1,17 @@
+<% playlist.songs.each do |song| %>
+  <p>
+    <h3>Artist</h3>
+    <%= song.artist %>
+
+    <h3>Song</h3>
+    <%= song.title %>
+
+    <% if song.art %>
+      <h3>Art</h3>
+      <%= image_tag song.art %>
+    <% end %>
+
+    <h3>Time</h3>
+    <%= song.time %>
+  </p>
+<% end %>
