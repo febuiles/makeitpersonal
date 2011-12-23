@@ -1,13 +1,14 @@
 $(function(){
+  var loading = function() {
+    $("div.overlay, div#spinner").fadeIn();
+  };
+
   var success = function(evt, data, status, xhr) {
+    $("div.overlay, div#spinner").fadeOut();
     $("div#playlist").append(data);
   };
 
-  var loading = function() {
-
-  };
-
-  $("#new_playlist")
-    .live('ajax:loading', loading)
-    .live('ajax:success', success);
+ $("#new_playlist")
+    .live("ajax:beforeSend",  loading)
+    .live("ajax:success", success);
 });

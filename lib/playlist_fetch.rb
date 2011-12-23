@@ -1,3 +1,4 @@
+
 module PlaylistFetch
   class Song
     attr_reader :artist, :title, :art, :time
@@ -19,7 +20,9 @@ module PlaylistFetch
     LAST_FM_URL = "http://ws.audioscrobbler.com/2.0/user/{{user}}/recenttracks.xml?limit=200"
 
     def initialize(user, start_date, end_date)
+
       @songs = []
+
       url = LAST_FM_URL.sub("{{user}}", user)
       document = Nokogiri.XML(open(url))
       document.css("recenttracks").css("track").each do |track|
