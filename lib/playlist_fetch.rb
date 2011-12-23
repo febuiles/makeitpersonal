@@ -20,8 +20,9 @@ module PlaylistFetch
     LAST_FM_URL = "http://ws.audioscrobbler.com/2.0/user/{{user}}/recenttracks.xml?limit=200"
 
     def initialize(user, start_date, end_date)
-
       @songs = []
+      @start_date = start_date
+      @end_date = end_date
 
       url = LAST_FM_URL.sub("{{user}}", user)
 #      document = Nokogiri.XML(open(url))
@@ -36,7 +37,8 @@ module PlaylistFetch
     end
 
     def to_playlist
-      songs.map(&:to_json)
+      list = songs.find { |s| s.time > start_date && s.time < end_date }
+      list.map(&:to_json)
     end
 
     private

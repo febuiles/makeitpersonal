@@ -53,24 +53,25 @@ div#playlist
 
 div.song
   margin: 0 auto
-  clear: both
   width: 750px
-  padding: 0 25px
+  padding: 5px 25px
   margin-bottom: 5px
-  height: 45px
+  min-height: 45px
   border-bottom: 1px solid #ddd
+  img, span.artist
+    vertical-align: top
   img
-    display: block
-    float: left
+    height: 34px
+    width: 34px
   span
     font-size: 28px
-    display: block
-    float: left
     margin-left: 15px
   span.artist
     color: #d51007
   span.title
+    display: inline-block
     font-weight: 300
+    max-width: 450px
   span.time
     color: #ccc
     float: right
