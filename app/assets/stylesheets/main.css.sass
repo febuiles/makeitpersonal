@@ -1,5 +1,7 @@
 body
+  font-family: 'Yanone Kaffeesatz', Helvetica, sans-serif
   padding: 25px
+
 
 div#spinner
   background-color: rgba(197, 197, 197, 0.9)
@@ -29,29 +31,44 @@ div.overlay
   left: 0
   z-index: 2
 
-div.song
+div.content
+  width: 850px
   margin: 0 auto
-  clear: both
-  width: 700px
-  margin-bottom: 5px
-  height: 45px
-  font-family: 'Yanone Kaffeesatz', Helvetica, sans-serif
-  border-bottom: 1px solid #ddd
-  img
-    display: block
-    float: left
-  span
-    font-size: 28px
-    display: block
-    float: left
-    margin-left: 15px
-  span.artist
-    color: #d51007
-  span.title
-    color: blac
-    font-weight: 300
-  span.time
-    color: #ccc
-    float: right
 
 
+.btn
+  cursor: pointer
+  display: inline-block
+  background-color: #E6E6E6
+  background-repeat: no-repeat
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6))
+  background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6)
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6)
+  background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6)
+  background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6)
+  background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0)
+  padding: 5px 14px 6px
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75)
+  color: #333
+  font-size: 13px
+  line-height: normal
+  border: 1px solid #CCC
+  border-bottom-color: #BBB
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  border-radius: 4px
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
+  -webkit-transition: 0.1s linear all
+  -moz-transition: 0.1s linear all
+  -ms-transition: 0.1s linear all
+  -o-transition: 0.1s linear all
+
+  border-image: initial
+
+.btn:hover
+  background-position: 0 -20px
+  color: #333
+  text-decoration: none

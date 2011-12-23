@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>LastPlaylist</title>
-  <%= stylesheet_link_tag    "application" %>
-  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400,700' rel='stylesheet' type='text/css'>
+  <head>
+    <title>LastPlaylist</title>
+    <%= stylesheet_link_tag    "application" %>
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400,700' rel='stylesheet' type='text/css'>
 
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div class="overlay"></div>
-<%= yield %>
-
-</body>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="content">
+      <%= yield %>
+    </div>
+  </body>
 </html>
