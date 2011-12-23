@@ -1,17 +1,10 @@
 <% playlist.songs.each do |song| %>
-  <p>
-    <h3>Artist</h3>
-    <%= song.artist %>
-
-    <h3>Song</h3>
-    <%= song.title %>
-
+  <div class="song">
     <% if song.art %>
-      <h3>Art</h3>
       <%= image_tag song.art %>
     <% end %>
-
-    <h3>Time</h3>
-    <%= song.time %>
-  </p>
+    <span class="artist"><%= song.artist %></span>
+    <span class="title"><%= song.title %></span>
+    <span class="time"><%= song.time.strftime("%k:%M") %></span>
+  </div>
 <% end %>

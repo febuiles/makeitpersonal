@@ -1,18 +1,4 @@
 <recenttracks user="febuiles" page="1" perPage="10" totalPages="18576" total="185755">
-  <track nowplaying="true">
-    <artist mbid="008b36fa-676c-48ce-a45e-81aebfbc2dde">Tr3s de Corazón</artist>
-    <name>Cenizas</name>
-    <streamable>1</streamable>
-    <mbid/>
-    <album mbid=""/>
-    <url>
-      http://www.last.fm/music/Tr3s+de+Coraz%C3%B3n/_/Cenizas
-    </url>
-    <image size="small"/>
-    <image size="medium"/>
-    <image size="large"/>
-    <image size="extralarge"/>
-  </track>
   <track>
     <artist mbid="">Tr3sdeCorazón</artist>
     <name>Antídoto (feat. Guillermo)</name>

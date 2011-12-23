@@ -24,11 +24,12 @@ module PlaylistFetch
       @songs = []
 
       url = LAST_FM_URL.sub("{{user}}", user)
-      document = Nokogiri.XML(open(url))
+#      document = Nokogiri.XML(open(url))
+      document = Nokogiri.XML(open("./sample.xml"))
       document.css("recenttracks").css("track").each do |track|
         artist = track.css("artist").first.content
         name = track.css("name").first.content
-        art = track.css("image[size='medium']").first.content
+        art = track.css("image[size='small']").first.content
         time = parse_time(track)
         songs << Song.new(artist, name, art, time)
       end
