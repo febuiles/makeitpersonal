@@ -4,7 +4,6 @@ require 'song'
 
 module LastFm
   class Playlist
-    include Parser
 
     attr_reader :user, :document
 
@@ -14,16 +13,12 @@ module LastFm
 
     def songs
       return @songs unless @songs.nil?
-      songs = []
 
-      document.css("recenttracks").css("track").each do |track|
-        artist = track.css("artist").first.content
-        name = track.css("name").first.content
-        art = track.css("image[size='small']").first.content
-        time = track.css("date")
-        time = time_from_row(time)
-        songs << Song.new(artist, name, art, time)
+      songs = document.css("recenttracks").css("track").map do |track|
+        row = Parser::TrackRow.new(track)
+        Song.new(row.artist, row.title, row.art, row.time)
       end
+
       @songs = songs
     end
 

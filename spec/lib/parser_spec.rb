@@ -5,22 +5,19 @@ include LastFm
 
 describe Parser do
   include Parser
+  let(:row) { Nokogiri::XML(open(File.dirname(__FILE__) + "/../fixtures/song.xml")) }
+  let(:track) { TrackRow.new(row) }
 
-  context "#time_from_row" do
-    let(:row) { double }
-    let(:time) { double(:value => double(:to_i => 1330837200)) }
+  before do
+    Time.stub!(:now).and_return(Time.new(2012, 1, 1))
+  end
 
-    before do
-      row.stub!(:attr).with("uts").and_return(time)
-      Time.stub!(:now).and_return(Time.new(2012, 1, 1))
-    end
-
-    it "returns the row's time in a Time format" do
-      time_from_row(row).should == Time.new(2012, 3, 4)
-    end
-
-    it "returns the current time if the time format is invalid" do
-      time_from_row("something").should == Time.new(2012, 1, 1)
+  context "initialization" do
+    it "sets the row's data" do
+      track.artist.should == "Def Leppard"
+      track.title.should == "Coming Under Fire"
+      track.art.should == "http://userserve-ak.last.fm/serve/34s/29447933.png"
+      track.time.should == Time.at(1324615964)
     end
   end
 end
