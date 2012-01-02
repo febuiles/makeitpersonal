@@ -1,1 +1,12 @@
-<%= playlist.songs %>
+<% playlist.songs.each do |song| %>
+  <div class="song">
+    <% if song.art.present? %>
+      <%= image_tag song.art %>
+    <% else %>
+      <%= image_tag "unknown.png" %>
+    <% end %>
+    <span class="artist"><%= song.artist %></span>
+    <span class="title"><%= song.title %></span>
+    <span class="time"><%= song.time.strftime("%k:%M") %></span>
+  </div>
+<% end %>
