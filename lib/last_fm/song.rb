@@ -13,7 +13,7 @@ module LastFm
 
     def played_between?(start_date, end_date)
       return false unless time
-      time > start_date && time < end_date
+      time >= start_date && time <= end_date
     end
 
     def to_json

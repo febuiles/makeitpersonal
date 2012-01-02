@@ -1,5 +1,4 @@
 require 'fast_spec_helper'
-require 'nokogiri'
 require "last_fm/list"
 
 include LastFm
@@ -41,7 +40,7 @@ describe List do
     let!(:songs) { playlist.between(before, after) }
 
     it "modifies the playlist" do
-      playlist.songs.count.should == 144
+      playlist.songs.count.should == 146
     end
 
     it "returns the songs with date >= start_date" do

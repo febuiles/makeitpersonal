@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'nokogiri'
 require 'parser'
 require 'song'
 
@@ -8,7 +9,7 @@ module LastFm
 
     attr_reader :user, :document
 
-    def initialize(user, mock_call=false)
+    def initialize(user)
       @user = user
       mock_document if mock_call
     end
@@ -49,10 +50,9 @@ module LastFm
       end
     end
 
-    private
-
     def mock_document
-      @document = Nokogiri::XML(open(File.dirname(__FILE__) + "/../../spec/fixtures/sample.xml"))
+      filename = File.dirname(__FILE__) + "/../../spec/fixtures/sample.xml"
+      @document = Nokogiri::XML(open(filename))
     end
   end
 end

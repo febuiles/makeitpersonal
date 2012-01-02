@@ -8,13 +8,14 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-RSpec.configure do |config|
-  config.mock_with :rspec
-end
 
-def stub_last_fm
-  list = mock(:songs => [1, 2, 3])
-  list.stub(:between).and_return(list)
-  list.stub(:to_json).and_return(%w(1 2 3))
-  LastFm::List.stub!(:new).and_return(list)
+# We want to stub the document fetching so we don't hit LastFm servers.
+require 'last_fm/list'
+module LastFm
+  class List
+    def initialize(user)
+      @user = user
+      mock_document
+    end
+  end
 end
