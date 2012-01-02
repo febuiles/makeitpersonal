@@ -4,6 +4,11 @@ module LastFm
   class Song
     attr_reader :artist, :title, :art, :time
 
+    def self.from_json(json)
+      song = JSON.parse(json)
+      Song.new(song["artist"], song["title"], song["art"], DateTime.parse(song["time"]))
+    end
+
     def initialize(artist, title, art, time)
       @artist = artist
       @title = title

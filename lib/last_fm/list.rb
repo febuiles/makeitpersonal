@@ -11,7 +11,6 @@ module LastFm
 
     def initialize(user)
       @user = user
-      mock_document if mock_call
     end
 
     def songs

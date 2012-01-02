@@ -14,6 +14,15 @@ describe Song do
       song.art.should == "fake.png"
       song.time.should == date
     end
+
+    it "accepts a JSON string" do
+      song = Song.from_json("{\"artist\":\"The Gaslight Anthem\",\"title\":\"Lucky\",\"art\":\"fake.png\",\"time\":\"2012-01-02 00:03:17 -0500\"}")
+
+      song.artist.should == "The Gaslight Anthem"
+      song.title.should == "Lucky"
+      song.art.should == "fake.png"
+      song.time.should == Time.new(2012, 1, 2, 0, 3, 17).to_datetime
+    end
   end
 
   context "#to_json" do

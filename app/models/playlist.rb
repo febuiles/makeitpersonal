@@ -1,5 +1,6 @@
 class Playlist
-  include Mongoid::Document, Mongoid::MultiParameterAttributes
+  include Mongoid::Document
+  include Mongoid::MultiParameterAttributes
   include SongPersistable
 
   field :username, :type => String
