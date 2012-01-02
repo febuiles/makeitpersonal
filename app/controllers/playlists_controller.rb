@@ -6,7 +6,7 @@ class PlaylistsController < ApplicationController
   def fetch
     @playlist = Playlist.new(params[:playlist])
     respond_to do |format|
-      if @playlist.valid?
+      if @playlist.save
         format.html { render @playlist }
       else
         format.html { render :text => "Error loading the data." }

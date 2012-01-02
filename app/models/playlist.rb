@@ -10,6 +10,6 @@ class Playlist
   validates_presence_of :username, :start_date, :end_date
 
   def songs
-    LastFm::List.new(username).between(start_date, end_date)
+    LastFm::List.new(username, true).between(start_date, end_date)
   end
 end

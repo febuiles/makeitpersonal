@@ -7,9 +7,9 @@ module LastFm
 
     attr_reader :user, :document
 
-    def initialize(user)
+    def initialize(user, mock_call=false)
       @user = user
-      mock_document if Rails.env == "development"
+      mock_document if mock_call
     end
 
     def songs
