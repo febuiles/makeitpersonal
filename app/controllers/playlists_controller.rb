@@ -14,7 +14,7 @@ class PlaylistsController < ApplicationController
       if @playlist.save
         format.html { render @playlist }
       else
-        format.html { render :text => "Error loading the data." }
+        format.html { render :text => "Error loading the data - #{@playlist.errors.full_messages.join}." }
       end
     end
   end
