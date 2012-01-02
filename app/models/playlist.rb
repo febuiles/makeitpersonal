@@ -7,9 +7,7 @@ class Playlist
 
   validates_presence_of :username, :start_date, :end_date
 
-
-
-  def fetch
-    self.songs = PlaylistFetch::FetchService.new(username, start_date, end_date).songs
+  def songs
+    LastFm::List.new(username).between(start_date, end_date)
   end
 end

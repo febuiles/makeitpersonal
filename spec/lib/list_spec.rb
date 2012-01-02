@@ -1,11 +1,11 @@
 require 'fast_spec_helper'
 require 'nokogiri'
-require "last_fm/playlist"
+require "last_fm/list"
 
 include LastFm
 
-describe Playlist do
-  let(:playlist) { Playlist.new("febuiles") }
+describe List do
+  let(:playlist) { List.new("febuiles") }
   let(:document) { Nokogiri::XML(open(File.dirname(__FILE__) + "/../fixtures/sample.xml")) }
 
   before do
@@ -38,16 +38,19 @@ describe Playlist do
   context "between" do
     let(:before) { Time.at(1324579382) }
     let(:after) { Time.at(1324616219) }
+    let!(:songs) { playlist.between(before, after) }
+
+    it "modifies the playlist" do
+      playlist.songs.count.should == 144
+    end
 
     it "returns the songs with date >= start_date" do
-      songs = playlist.between(before, after)
       songs.each do |s|
         s.time.should >= before
       end
     end
 
     it "returns the songs with date <= end_date" do
-      songs = playlist.between(before, after)
       songs.each do |s|
         s.time.should <= after
       end

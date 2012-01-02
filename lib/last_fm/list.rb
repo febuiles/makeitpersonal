@@ -3,7 +3,7 @@ require 'parser'
 require 'song'
 
 module LastFm
-  class Playlist
+  class List
 
     attr_reader :user, :document
 
@@ -26,13 +26,18 @@ module LastFm
       @document || refresh!
     end
 
+    def between(start_date, end_date)
+      @songs = songs.find_all { |s| s.time > start_date && s.time < end_date }
+    end
+
     def refresh!
       url = "http://ws.audioscrobbler.com/2.0/user/#{user}/recenttracks.xml?limit=200"
+      @songs = nil
       @document = Nokogiri::XML(open(url))
     end
 
-    def between(start_date, end_date)
-      songs.find_all { |s| s.time > start_date && s.time < end_date }
+    def to_json
+      songs.map(&:to_json)
     end
   end
 end

@@ -5,7 +5,7 @@ class PlaylistsController < ApplicationController
 
   def fetch
     @playlist = Playlist.new(params[:playlist])
-    @playlist.fetch
+
     respond_to do |format|
       format.html { render @playlist }
     end
