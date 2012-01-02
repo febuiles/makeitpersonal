@@ -2,13 +2,10 @@ require 'spec_helper'
 
 describe Playlist do
   context "callbacks" do
-    let(:playlist) do
-      Playlist.new(:user => "febuiles", :start_date => Time.at(1324579382), :end_date => Time.now)
-    end
+    let(:playlist) { Fabricate.build(:playlist) }
 
     before do
       stub_last_fm
-      playlist.stub!(:valid?).and_return(true)
     end
 
     it "fetches the lyrics and stores them in the songs field" do
