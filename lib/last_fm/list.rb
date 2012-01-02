@@ -6,10 +6,10 @@ module LastFm
   class List
 
     attr_reader :user, :document
-    attr_accessor :document
 
     def initialize(user)
       @user = user
+      mock_document if Rails.env == "development"
     end
 
     def songs
@@ -39,6 +39,12 @@ module LastFm
 
     def to_json
       songs.map(&:to_json)
+    end
+
+    private
+
+    def mock_document
+      @document = Nokogiri::XML(open(File.dirname(__FILE__) + "/../../spec/fixtures/sample.xml"))
     end
   end
 end
