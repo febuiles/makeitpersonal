@@ -1,3 +1,6 @@
+<div class="welcome">
+  This list was shared by <%= link_to @playlist.username, "http://last.fm/user/#{@playlist.username}" %>. Share yours on <%= link_to "makeitpersonal", "/" %>.
+</div>
 <div id="playlist">
   <%= render @playlist %>
 </div>

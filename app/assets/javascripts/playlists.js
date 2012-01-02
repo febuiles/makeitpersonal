@@ -1,5 +1,4 @@
 $(function(){
-
   var write = function(data) {
     $("div#playlist").text("");
     $("div#playlist").append(data);
@@ -19,7 +18,7 @@ $(function(){
     }
     else
       $("#playlist_username").css("border", "none");
-      showLoading();
+    showLoading();
   };
 
   var error = function() {
@@ -30,10 +29,19 @@ $(function(){
   var success = function(evt, data, status, xhr) {
     hideLoading();
     write(data);
+    addClickSelect();
   };
 
- $("#new_playlist")
+  var addClickSelect = function() {
+    $("p.share input").click(function(){
+      this.select();
+    })
+  }
+
+  $("#new_playlist")
     .live("ajax:beforeSend", before)
     .live("ajax:error",  error)
     .live("ajax:success", success);
+
+  addClickSelect();
 });

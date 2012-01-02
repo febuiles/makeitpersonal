@@ -1,3 +1,7 @@
+<p class="share">
+  Share this playlist <%= text_field_tag :playlist, playlist_url(playlist) %>
+</p>
+
 <% playlist.list.each do |song| %>
   <div class="song">
     <% if song.art.present? %>
