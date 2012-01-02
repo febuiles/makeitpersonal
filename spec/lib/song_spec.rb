@@ -1,5 +1,4 @@
 require 'date'
-require 'json'
 require 'last_fm/song'
 
 include LastFm

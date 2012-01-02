@@ -4,6 +4,7 @@ require 'song'
 
 module LastFm
   class List
+    include Enumerable
 
     attr_reader :user, :document
 
@@ -29,6 +30,7 @@ module LastFm
 
     def between(start_date, end_date)
       @songs = songs.find_all { |song| song.played_between?(start_date, end_date) }
+      self
     end
 
     def refresh!
@@ -39,6 +41,12 @@ module LastFm
 
     def to_json
       songs.map(&:to_json)
+    end
+
+    def each(&block)
+      songs.each do |song|
+        yield(song)
+      end
     end
 
     private

@@ -18,7 +18,7 @@ describe List do
     end
   end
 
-  context "document" do
+  context "#document" do
     before { playlist.stub!(:refresh!).and_return(document) }
 
     it "returns the Nokogiri XML document" do
@@ -26,7 +26,7 @@ describe List do
     end
   end
 
-  context "songs" do
+  context "#songs" do
     let(:songs) { playlist.songs }
 
     it "returns a list of the user songs" do
@@ -35,7 +35,7 @@ describe List do
     end
   end
 
-  context "between" do
+  context "#between" do
     let(:before) { Time.at(1324579382) }
     let(:after) { Time.at(1324616219) }
     let!(:songs) { playlist.between(before, after) }
@@ -55,5 +55,14 @@ describe List do
         s.time.should <= after
       end
     end
+
+    it "returns the playlist" do
+      songs.should be_kind_of(List)
+    end
+  end
+
+  context "#to_json" do
+    subject { playlist.to_json }
+    it { should be_kind_of(Array) }
   end
 end

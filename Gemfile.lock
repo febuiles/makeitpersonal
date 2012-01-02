@@ -38,6 +38,7 @@ GEM
     erubis (2.7.0)
     execjs (1.2.13)
       multi_json (~> 1.0)
+    fabrication (1.2.0)
     hike (1.2.1)
     i18n (0.6.0)
     jquery-rails (1.0.19)
@@ -123,6 +124,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext (~> 1.4)
+  fabrication
   jquery-rails
   mongoid (~> 2.3)
   nokogiri

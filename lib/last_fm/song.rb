@@ -1,3 +1,5 @@
+require 'json'
+
 module LastFm
   class Song
     attr_reader :artist, :title, :art, :time
