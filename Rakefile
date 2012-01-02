@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-LastPlaylist::Application.load_tasks
+Makeitpersonal::Application.load_tasks

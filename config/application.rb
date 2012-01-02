@@ -13,7 +13,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module LastPlaylist
+module Makeitpersonal
   class Application < Rails::Application
     config.time_zone = 'Eastern Time (US & Canada)'
     config.encoding = "utf-8"
