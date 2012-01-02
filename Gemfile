@@ -5,6 +5,10 @@ gem "mongoid", "~> 2.3"
 gem "bson_ext", "~> 1.4"
 gem "nokogiri"
 
+group :development, :test do
+  gem "rspec-rails"
+end
+
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'uglifier', '>= 1.0.3'
