@@ -3,6 +3,10 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.new
   end
 
+  def show
+    @playlist = Playlist.find(params[:id])
+  end
+
   def fetch
     @playlist = Playlist.new(params[:playlist])
 
