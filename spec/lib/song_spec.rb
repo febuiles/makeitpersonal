@@ -26,4 +26,15 @@ describe Song do
       values["time"].should == "2012-01-01"
     end
   end
+
+  context "#played_between?" do
+    it "returns true if the song was played between start_date and end_date" do
+      song.played_between?(DateTime.new(2011, 1, 1), DateTime.now).should be_true
+    end
+
+    it "returns false if the time for the song's not set" do
+      song = Song.new(nil, nil, nil, nil)
+      song.played_between?(mock, mock).should be_false
+    end
+  end
 end

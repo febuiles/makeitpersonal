@@ -6,6 +6,7 @@ module LastFm
   class List
 
     attr_reader :user, :document
+    attr_accessor :document
 
     def initialize(user)
       @user = user
@@ -27,7 +28,7 @@ module LastFm
     end
 
     def between(start_date, end_date)
-      @songs = songs.find_all { |s| s.time > start_date && s.time < end_date }
+      @songs = songs.find_all { |song| song.played_between?(start_date, end_date) }
     end
 
     def refresh!

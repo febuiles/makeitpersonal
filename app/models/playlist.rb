@@ -1,5 +1,7 @@
 class Playlist
   include Mongoid::Document
+  include Mongoid::MultiParameterAttributes
+
   field :username, :type => String
   field :start_date, :type => DateTime
   field :end_date, :type => DateTime
