@@ -13,7 +13,7 @@ module LastFm
     end
 
     def songs
-      returns @songs unless @songs.nil?
+      return @songs unless @songs.nil?
       songs = []
 
       document.css("recenttracks").css("track").each do |track|
@@ -34,6 +34,10 @@ module LastFm
     def refresh!
       url = "http://ws.audioscrobbler.com/2.0/user/#{user}/recenttracks.xml?limit=200"
       @document = Nokogiri::XML(open(url))
+    end
+
+    def between(start_date, end_date)
+      songs.find_all { |s| s.time > start_date && s.time < end_date }
     end
   end
 end

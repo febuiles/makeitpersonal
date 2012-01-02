@@ -8,6 +8,10 @@ describe Playlist do
   let(:playlist) { Playlist.new("febuiles") }
   let(:document) { Nokogiri::XML(open(File.dirname(__FILE__) + "/../fixtures/sample.xml")) }
 
+  before do
+    playlist.stub!(:document).and_return(document)
+  end
+
   context "playlist creation" do
     it "contains the username" do
       playlist.user.should == "febuiles"
@@ -25,13 +29,28 @@ describe Playlist do
   context "songs" do
     let(:songs) { playlist.songs }
 
-    before do
-      playlist.stub!(:document).and_return(document)
-    end
-
     it "returns a list of the user songs" do
       songs.count.should == 201
       songs.first.should be_kind_of(Song)
+    end
+  end
+
+  context "between" do
+    let(:before) { Time.at(1324579382) }
+    let(:after) { Time.at(1324616219) }
+
+    it "returns the songs with date >= start_date" do
+      songs = playlist.between(before, after)
+      songs.each do |s|
+        s.time.should >= before
+      end
+    end
+
+    it "returns the songs with date <= end_date" do
+      songs = playlist.between(before, after)
+      songs.each do |s|
+        s.time.should <= after
+      end
     end
   end
 end
