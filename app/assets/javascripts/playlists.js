@@ -12,6 +12,16 @@ $(function(){
     $("div.overlay, div#spinner").fadeOut();
   };
 
+  var before = function() {
+    if ($("#playlist_username").val() == "") {
+      $("#playlist_username").css("border", "3px solid #D51007");
+      return false;
+    }
+    else
+      $("#playlist_username").css("border", "none");
+      showLoading();
+  };
+
   var error = function() {
     hideLoading();
     write("There has been an error processing the data. Please try again.");
@@ -23,7 +33,7 @@ $(function(){
   };
 
  $("#new_playlist")
-    .live("ajax:beforeSend", showLoading)
+    .live("ajax:beforeSend", before)
     .live("ajax:error",  error)
     .live("ajax:success", success);
 });
