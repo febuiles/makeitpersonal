@@ -6,6 +6,7 @@ gem "bson_ext", "~> 1.4"
 gem "pg"
 gem "nokogiri"
 gem 'jquery-rails'
+gem "airbrake"
 
 group :development, :test do
   gem "rspec-rails"
