@@ -1,0 +1,15 @@
+default: &global
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  min_messages: warning
+  username: federico
+  password:
+
+development:
+  <<: *global
+  database: makeitpersonal_development
+
+test:
+  <<: *global
+  database: makeitpersonal_test
