@@ -17,7 +17,12 @@ module Lyrics
     end
 
     def lyrics
-      process(text_from_wikia)
+      lyrics = process(text_from_wikia)
+      if lyrics.include?("PUT LYRICS HERE") # song doesn't exist on Wikia yet
+        ""
+      else
+        lyrics
+      end
     end
 
     private

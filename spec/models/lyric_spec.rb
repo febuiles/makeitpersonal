@@ -6,7 +6,7 @@ describe Lyric do
   subject { Lyric.from_params(params).text }
 
   before do
-    fetcher.stub!(:fetch).and_return("ZOMGLYRICS")
+    fetcher.stub!(:lyrics).and_return("ZOMGLYRICS")
     Lyrics::Fetcher.stub!(:new).and_return(fetcher)
     Lyric.destroy_all
   end
@@ -33,6 +33,13 @@ describe Lyric do
       subject
       Lyrics::Fetcher.should_not_receive(:new)
       subject
+    end
+
+    it "doesn't save invalid lyrics in the database" do
+      fetcher.stub!(:lyrics).and_return("")
+      expect {
+        Lyric.from_params(params)
+      }.not_to raise_error
     end
   end
 end

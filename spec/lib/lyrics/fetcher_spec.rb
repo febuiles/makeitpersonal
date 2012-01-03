@@ -16,7 +16,7 @@ describe Fetcher do
     end
   end
 
-  context "lyrics"  do
+  context "#lyrics"  do
     let(:document) { File.dirname(__FILE__) + "/../../fixtures/song.html" }
 
     before do
@@ -30,6 +30,12 @@ describe Fetcher do
 
     it "parses the document and returns the lyrics" do
       fetcher.lyrics.should == "\nZOMGLYRICS\n"
+    end
+
+    it "returns blank if no lyrics exist for the song" do
+      fake_document = File.dirname(__FILE__) + "/../../fixtures/song_doesnt_exist.html"
+      fetcher.stub!(:text_from_wikia).and_return(Nokogiri::HTML(open(fake_document)))
+      fetcher.lyrics.should == ""
     end
   end
 end
