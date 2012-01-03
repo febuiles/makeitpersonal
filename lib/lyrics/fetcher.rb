@@ -17,12 +17,20 @@ module Lyrics
     end
 
     def lyrics
+      process(text_from_wikia)
+    end
+
+    private
+
+    def process(text)
+      regex = /<lyrics>(.*)<\/lyrics>/m
+      regex.match(text).captures.first
+    end
+
+    def text_from_wikia
       url = "http://lyrics.wikia.com/index.php?title=#{artist}:#{title}&action=edit"
       document = Nokogiri::HTML(open(url))
       textarea = document.css("#wpTextbox1").first.text
-
-      regex = /<lyrics>(.*)<\/lyrics>/m
-      regex.match(textarea).captures.first
     end
   end
 end
