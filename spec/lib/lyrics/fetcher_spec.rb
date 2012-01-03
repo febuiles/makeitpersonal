@@ -37,5 +37,11 @@ describe Fetcher do
       fetcher.stub!(:text_from_wikia).and_return(Nokogiri::HTML(open(fake_document)))
       fetcher.lyrics.should == ""
     end
+
+    it "returns blank if the page doesn't contain any lyrics div" do
+      fake_document = File.dirname(__FILE__) + "/../../fixtures/song_with_redirect.html"
+      fetcher.stub!(:text_from_wikia).and_return(Nokogiri::HTML(open(fake_document)))
+      fetcher.lyrics.should == ""
+    end
   end
 end
