@@ -11,11 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120103054026) do
+ActiveRecord::Schema.define(:version => 20120103063452) do
 
   create_table "lyrics", :force => true do |t|
-    t.string "key"
     t.text   "text"
+    t.string "artist"
+    t.string "title"
   end
 
 end

@@ -23,7 +23,7 @@ describe PlaylistsController do
 
     it "shows an error the list's not valid" do
       post :fetch
-      response.body.should == "Error loading the data."
+      response.body.should include("Error loading the data")
     end
   end
 end

@@ -3,7 +3,6 @@ require 'spec_helper'
 describe Lyric do
   let(:params) { { :artist => "The Gaslight Anthem", :title => "Great Expectations" } }
   let(:fetcher) { double }
-  subject { Lyric.from_params(params).text }
 
   before do
     fetcher.stub!(:lyrics).and_return("ZOMGLYRICS")
@@ -11,7 +10,16 @@ describe Lyric do
     Lyric.destroy_all
   end
 
+  context ".by_params" do
+    it "formats the params array and returns the matching lyrics" do
+      lyric = Fabricate(:lyric)
+      Lyric.by_params(params).should == lyric
+    end
+  end
+
   context ".from_params" do
+    subject { Lyric.from_params(params).text }
+
     it "returns the lyrics" do
       subject.should == "ZOMGLYRICS"
     end
@@ -22,11 +30,8 @@ describe Lyric do
 
     it "formats the artist and title before saving them to the database" do
       subject
-
-      key = Lyrics::KeyCreator.key_for(params)
-      expect {
-        Lyric.find_by_key(key)
-      }.not_to raise_error
+      Lyric.by_params(params).artist.should == "the-gaslight-anthem"
+      Lyric.by_params(params).title.should == "great-expectations"
     end
 
     it "returns the lyrics from the database if the song already exists" do
