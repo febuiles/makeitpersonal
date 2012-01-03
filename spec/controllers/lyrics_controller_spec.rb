@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LyricsController do
   let(:params) { { :artist => "The Gaslight Anthem", :title => "Not so great expectations" } }
-  let(:lyric) { mock(:lyrics => "ZOMGLYRICS")}
+  let(:lyric) { mock(:text => "ZOMGLYRICS")}
 
   before do
     Lyric.should_receive(:by_params).and_return(lyric)
