@@ -1,7 +1,11 @@
 class LyricsController < ApplicationController
   def lyrics
-    render :text => Lyric.from_params(params).text
-  rescue NoMethodError
-    render :text => "Sorry, we don't have any lyrics for this song"
+    @lyric = Lyric.by_params(params)
+
+    if @lyric.fetch_and_save
+      render :text => @lyric.lyrics
+    else
+      render :text => "Sorry, we don't have any lyrics for this song"
+    end
   end
 end
