@@ -5,7 +5,3 @@
 require File.expand_path('../config/application', __FILE__)
 
 Makeitpersonal::Application.load_tasks
-
-task :ping do
-  exec "ls"
-end
