@@ -10,7 +10,7 @@ module LastFm
     attr_reader :user, :document
 
     def initialize(user)
-      @user = user
+      @user = user.strip
     end
 
     def songs

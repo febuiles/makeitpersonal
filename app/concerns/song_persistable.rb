@@ -5,7 +5,7 @@ module SongPersistable
   end
 
   def fetch_songs
-    if songs.blank?
+    if songs.empty?
       begin
         self.songs = LastFm::List.new(username).between(start_date, end_date).to_json
       rescue OpenURI::HTTPError

@@ -8,12 +8,17 @@ describe List do
   let(:document) { Nokogiri::XML(open(File.dirname(__FILE__) + "/../fixtures/sample.xml")) }
 
   before do
+    playlist.send(:mock_document)
     playlist.stub!(:document).and_return(document)
   end
 
   context "playlist creation" do
     it "contains the username" do
       playlist.user.should == "febuiles"
+    end
+
+    it "formats the username" do
+      List.new("   febuiles    ").user.should == "febuiles"
     end
   end
 

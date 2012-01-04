@@ -13,10 +13,6 @@ describe SongPersistable do
     let(:song_list) { [1, 2, 3] }
     let(:songs) { [] }
 
-    def songs=(songs)
-      p songs
-    end
-
     it "doesn't reassign songs" do
       self.stub!(:songs).and_return(song_list)
       self.should_not_receive(:songs=)
