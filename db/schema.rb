@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107074112) do
+ActiveRecord::Schema.define(:version => 20120107082028) do
 
   create_table "lyrics", :force => true do |t|
     t.text   "text"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120107074112) do
     t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "youtube_url"
   end
 
 end
