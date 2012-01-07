@@ -1,11 +1,4 @@
 class LyricsController < ApplicationController
-  def new
-    @lyric = Lyric.new
-  end
-
-  def create
-  end
-
   def lyrics
     @lyric = Lyric.by_params(params[:lyric] || params)
 

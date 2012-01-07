@@ -1,10 +1,10 @@
 <h1>Share a song</h1>
 
-<%= form_for @lyric, :url => fetch_lyrics_path, :remote => true, :method => :get do |f| %>
+<%= form_for @lyric do |f| %>
   <div class="wrap">
     <div class="field">
       <%= f.label :artist %>
-      <%= f.text_field :artist %>
+      <%= f.text_field :artist, :autofocus => true %>
     </div>
 
     <div class="field">
@@ -13,11 +13,11 @@
     </div>
 
     <div class="field hidden">
-      <%= f.label :text, "Lyrics" %>
-      <%= f.text_area :text %>
+      <%= f.label :lyrics, "Lyrics" %>
+      <%= f.text_area :lyrics %>
     </div>
 
-    <%= f.submit "Fetch lyrics", :class => "btn" %>
+    <%= link_to "Fetch lyrics", "#", :class => "btn", :id => "fetch_lyrics" %>
 
     <div class="actions hidden">
       <%= f.submit "Save song", :class => "btn" %>
