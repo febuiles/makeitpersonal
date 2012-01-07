@@ -1,8 +1,10 @@
 Makeitpersonal::Application.routes.draw do
-  resources :playlists
+
   post "playlists/fetch", :to => "playlists#fetch", :as => "fetch_playlist"
 
-  match "/lyrics", :to => "lyrics#lyrics"
+  get "/lyrics", :to => "lyrics#lyrics", :as => "fetch_lyrics"
+  resources :lyrics, :except => [:index]
+
   match "/:id", :to => "playlists#show", :as => "playlist"
   root :to => "playlists#new"
 end
