@@ -4,8 +4,8 @@ require "last_fm/parser"
 include LastFm
 
 describe Parser do
-  include Parser
-  let(:row) { Nokogiri::XML(open(File.dirname(__FILE__) + "/../fixtures/song.xml")) }
+  include LastFm::Parser
+  let(:row) { Nokogiri::XML(open(File.dirname(__FILE__) + "/../../fixtures/song.xml")) }
   let(:track) { TrackRow.new(row) }
 
   before do

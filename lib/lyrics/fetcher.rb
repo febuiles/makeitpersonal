@@ -17,7 +17,7 @@ module Lyrics
       @title.titleize.gsub(" ", "_")
     end
 
-    def lyrics
+    def result
       process(text_from_wikia)
     end
 
@@ -26,7 +26,7 @@ module Lyrics
     def process(text)
       regex = /<lyrics>(.*?)<\/lyrics>/m
       if match = regex.match(text)
-        Lyrics::Parser.new(match.captures.first).lyrics
+        Lyrics::Parser.new(match.captures.first).result
       else
         look_for_redirects(text)
       end
@@ -41,7 +41,7 @@ module Lyrics
     def look_for_redirects(text)
       regex = /REDIRECT \[\[([\w\s]+):([\w\s]+)/m
       if match = regex.match(text)
-        Fetcher.new(match.captures[0], match.captures[1]).lyrics
+        Fetcher.new(match.captures[0], match.captures[1]).result
       else
         ""
       end

@@ -1,11 +1,13 @@
 require 'spec_helper'
+require 'lyrics/parser'
 
 describe Lyric do
   let(:params) { { :artist => "The Gaslight Anthem", :title => "Great Expectations" } }
   let(:fetcher) { double }
 
   before do
-    fetcher.stub!(:lyrics).and_return("ZOMGLYRICS")
+    result = Lyrics::ParserResult.new(:ok, "ZOMGLYRICS")
+    fetcher.stub!(:result).and_return(result)
     Lyrics::Fetcher.stub!(:new).and_return(fetcher)
     Lyric.destroy_all
   end
@@ -46,7 +48,7 @@ describe Lyric do
     end
 
     it "doesn't save invalid lyrics in the database" do
-      fetcher.stub!(:lyrics).and_return("")
+      fetcher.stub(:result).and_return(Lyrics::ParserResult.new(:fail))
       lyric.fetch_and_save.should be_false
     end
   end
