@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require_relative './parser'
 
 module Lyrics
   class Fetcher
@@ -17,20 +18,15 @@ module Lyrics
     end
 
     def lyrics
-      lyrics = process(text_from_wikia)
-      if lyrics.include?("PUT LYRICS HERE") # song doesn't exist on Wikia yet
-        ""
-      else
-        lyrics
-      end
+      process(text_from_wikia)
     end
 
     private
 
     def process(text)
-      regex = /<lyrics>(.*)<\/lyrics>/m
+      regex = /<lyrics>(.*?)<\/lyrics>/m
       if match = regex.match(text)
-        match.captures.first
+        Lyrics::Parser.new(match.captures.first).lyrics
       else
         look_for_redirects(text)
       end
