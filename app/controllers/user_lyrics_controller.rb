@@ -22,7 +22,7 @@ class UserLyricsController < ApplicationController
 
   def show
     lyric = UserLyric.find(params[:id])
-    @lyric = LyricPresenter.new(lyric)
+    @lyric = UserLyricPresenter.new(lyric)
   end
 
 

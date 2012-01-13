@@ -1,0 +1,30 @@
+class UserLyricPresenter
+  include ActionView::Helpers::DateHelper
+  attr_reader :record
+
+  def initialize(record)
+    @record = record
+  end
+
+  def title
+    "#{record.artist.titleize} &ndash; #{record.title.titleize}".html_safe
+  end
+
+  def embed
+    url = record.youtube_url
+    return unless url.present?
+    return unless url.match(/youtube.com\/watch\?v=/)
+
+    url = url.sub("watch?v=", "embed/")
+    "<iframe width=\"600\" height=\"345\" src=\"#{url}\" frameborder=\"0\" allowfullscreen></iframe>".html_safe
+  end
+
+  def info
+    "Posted by <a href='#'>kezia</a>, #{time_ago_in_words(record.created_at)} ago.".html_safe
+  end
+
+  def lyrics
+    record.lyrics.gsub!(/\*(.*?)\*/, '<em>\1</em>')
+    record.lyrics.gsub("\n", "<br/>").html_safe
+  end
+end

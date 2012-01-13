@@ -17,6 +17,11 @@
       <%= f.text_area :lyrics %>
     </div>
 
+    <div class="field small">
+      <%= f.label :title, "YouTube URL", :class => "small" %>
+      <%= f.text_field :youtube_url %>
+    </div>
+
     <%= link_to "Fetch lyrics", "#", :class => "btn", :id => "fetch_lyrics" %>
 
     <div class="actions hidden">
