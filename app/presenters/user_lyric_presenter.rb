@@ -1,11 +1,6 @@
-class UserLyricPresenter
-  include ActionView::Helpers::DateHelper
-  attr_reader :record
+require "presenter"
 
-  def initialize(record)
-    @record = record
-  end
-
+class UserLyricPresenter < Presenter
   def title
     "#{record.artist.titleize} &ndash; #{record.title.titleize}".html_safe
   end

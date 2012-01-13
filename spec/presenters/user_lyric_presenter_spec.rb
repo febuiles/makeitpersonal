@@ -1,6 +1,6 @@
 require 'fast_spec_helper'
 require 'action_view'
-require_relative '../../app/presenters/user_lyric_presenter'
+require 'user_lyric_presenter'
 
 describe UserLyricPresenter do
   context "lyric parsing" do
