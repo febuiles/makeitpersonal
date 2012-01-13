@@ -1,8 +1,9 @@
 $(function(){
-  var write = function(data) {
-    $("#user_lyric_lyrics").val("");
-    $("#user_lyric_lyrics").val($.trim(data));
-  }
+
+  $("form").submit(function() {
+    if (!validate())
+      return false;
+  })
 
   $("#user_lyric_artist, #user_lyric_title").
     keyup( function(event) {
@@ -27,6 +28,10 @@ $(function(){
     });
   });
 
+  var write = function(data) {
+    $("#user_lyric_lyrics").val("");
+    $("#user_lyric_lyrics").val($.trim(data));
+  }
 
   var showLyrics = function() {
     $("div.wrap").css("height", "940px");
@@ -54,4 +59,17 @@ $(function(){
   var success = function(data, status, jqXhr) {
     writeLyric(data);
   };
+
+  var validate = function() {
+    var valid = true;
+    selectors = ["#user_lyric_artist", "#user_lyric_title", "#user_lyric_lyrics"];
+    $.each(selectors, function(i, selector){
+      if ($(selector).val() === "") {
+        $(selector).addClass("invalid");
+        valid = false;
+      }
+    });
+
+    return valid;
+  }
 });
