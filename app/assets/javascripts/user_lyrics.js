@@ -34,7 +34,7 @@ $(function(){
   }
 
   var showLyrics = function() {
-    $("div.wrap").css("height", "940px");
+    $("div.wrap").css("height", "100%");
     $("#fetch_lyrics").hide();
     $(".hidden").removeClass("hidden");
   }
