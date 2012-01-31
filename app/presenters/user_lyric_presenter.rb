@@ -19,7 +19,7 @@ class UserLyricPresenter < Presenter
   end
 
   def lyrics
-    record.lyrics.gsub!(/\*(.*?)\*/, '<em>\1</em>')
+    record.lyrics.gsub!(/\*(.*?)\*/m, '<em>\1</em>')
     record.lyrics.gsub("\n", "<br/>").html_safe
   end
 end
