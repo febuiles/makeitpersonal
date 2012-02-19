@@ -9,11 +9,11 @@ module Lyrics
     end
 
     def artist
-      @artist.titleize.gsub(" ", "_")
+      titleize(@artist)
     end
 
     def title
-      @title.titleize.gsub(" ", "_")
+      titleize(@title)
     end
 
     def lyrics
@@ -23,6 +23,16 @@ module Lyrics
       else
         lyrics
       end
+    end
+
+    # we can't use Rails' #titleize since we need to deal with stuff like
+    # "LCD Soundsystem"
+    def titleize(string)
+      strings = string.split
+      strings.each do |str|
+        str[0] = str[0].capitalize
+      end
+      strings.join(" ").gsub(" ", "_")
     end
 
     private
