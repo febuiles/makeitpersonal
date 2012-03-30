@@ -1,5 +1,4 @@
 Makeitpersonal::Application.routes.draw do
-
   post "playlists/fetch", :to => "playlists#fetch", :as => "fetch_playlist"
 
   get "/lyrics", :to => "lyrics#lyrics", :as => "fetch_lyrics"
