@@ -14,10 +14,6 @@ class UserLyricPresenter < Presenter
     "<iframe width=\"600\" height=\"345\" src=\"#{url}\" frameborder=\"0\" allowfullscreen></iframe>".html_safe
   end
 
-  def info
-    "Posted by <a href='#'>kezia</a>, #{time_ago_in_words(record.created_at)} ago.".html_safe
-  end
-
   def lyrics
     record.lyrics.gsub!(/\*(.*?)\*/m, '<em>\1</em>')
     record.lyrics.gsub("\n", "<br/>").html_safe

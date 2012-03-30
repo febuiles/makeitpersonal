@@ -6,5 +6,5 @@ Makeitpersonal::Application.routes.draw do
   resources :user_lyrics
 
   match "/:id", :to => "playlists#show", :as => "playlist"
-  root :to => "playlists#new"
+  root :to => "pages#index"
 end
