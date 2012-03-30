@@ -25,7 +25,6 @@ class UserLyricsController < ApplicationController
     @lyric = UserLyricPresenter.new(lyric)
   end
 
-
   def set_song_layout
     if action_name == "show"
       "song"
