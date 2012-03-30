@@ -25,17 +25,17 @@ describe Fetcher do
 
     it "fetches the lyrics from Wikia" do
       fetcher.should_receive(:text_from_wikia)
-      fetcher.lyrics
+      fetcher.result.lyrics
     end
 
     it "parses the document and returns the lyrics" do
-      fetcher.lyrics.should == "\nZOMGLYRICS\n"
+      fetcher.result.lyrics.should == "\nZOMGLYRICS\n"
     end
 
-    it "returns blank if no lyrics exist for the song" do
-      fake_document = File.dirname(__FILE__) + "/../../fixtures/song_doesnt_exist.html"
+    it "doesn't return duplicate lyrics" do
+      fake_document = File.dirname(__FILE__) + "/../../fixtures/song_with_duplicates.html"
       fetcher.stub!(:text_from_wikia).and_return(Nokogiri::HTML(open(fake_document)))
-      fetcher.lyrics.should == ""
+      fetcher.result.lyrics.should == "\nThis is so fun\n"
     end
   end
 

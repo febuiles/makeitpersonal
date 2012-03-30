@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LyricsController do
   let(:params) { { :artist => "The Gaslight Anthem", :title => "Not so great expectations" } }
-  let(:lyric) { mock(:text => "ZOMGLYRICS")}
+  let(:lyric) { Lyric.new }
 
   before do
     Lyric.should_receive(:by_params).and_return(lyric)
@@ -13,14 +13,15 @@ describe LyricsController do
       lyric.stub!(:fetch_and_save).and_return(true)
 
       get :lyrics, params
-      response.body.should == "ZOMGLYRICS"
+      response.should render_template("lyrics/_lyric")
     end
 
     it "returns an error message if the lyrics weren't found" do
+      lyric.text = "ohnoes"
       lyric.stub!(:fetch_and_save).and_return(false)
 
       get :lyrics, params
-      response.body.should == "Sorry, we don't have any lyrics for this song"
+      response.body.should == "ohnoes"
     end
   end
 end

@@ -1,0 +1,31 @@
+<h1>Share a song</h1>
+
+<%= form_for @lyric do |f| %>
+  <div class="wrap">
+    <div class="field">
+      <%= f.label :artist %>
+      <%= f.text_field :artist, :autofocus => true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :title, "Song Title" %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="field hidden">
+      <%= f.label :lyrics, "Lyrics" %>
+      <%= f.text_area :lyrics %>
+    </div>
+
+    <div class="field small">
+      <%= f.label :title, "YouTube URL", :class => "small" %>
+      <%= f.text_field :youtube_url %>
+    </div>
+
+    <%= link_to "Fetch lyrics", "#", :class => "btn", :id => "fetch_lyrics" %>
+
+    <div class="actions hidden">
+      <%= f.submit "Save song", :class => "btn" %>
+    </div>
+  </div>
+<% end %>

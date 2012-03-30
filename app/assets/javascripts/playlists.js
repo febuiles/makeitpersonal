@@ -3,13 +3,6 @@ $(function(){
     $("div#playlist").text("");
     $("div#playlist").append(data);
   }
-  var showLoading = function() {
-    $("div.overlay, div#spinner").fadeIn();
-  };
-
-  var hideLoading = function() {
-    $("div.overlay, div#spinner").fadeOut();
-  };
 
   var before = function() {
     if ($("#playlist_username").val() == "") {

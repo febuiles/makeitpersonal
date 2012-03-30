@@ -1,11 +1,11 @@
 class LyricsController < ApplicationController
   def lyrics
-    @lyric = Lyric.by_params(params)
+    @lyric = Lyric.by_params(params[:lyric] || params)
 
     if @lyric.fetch_and_save
-      render :text => @lyric.text
+      render @lyric
     else
-      render :text => "Sorry, we don't have any lyrics for this song"
+      render :text => @lyric.text
     end
   end
 end

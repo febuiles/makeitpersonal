@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>makeitpersonal</title>
-    <%= stylesheet_link_tag    "application" %>
+    <title><%= @lyric.title %> - makeitpersonal</title>
+    <%= stylesheet_link_tag "song/song" %>
     <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400,700' rel='stylesheet' type='text/css'>
 
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="overlay"></div>
-    <div id="spinner"></div>
-    <div class="content">
-      <%= yield %>
-    </div>
+    <header>
+      <a href="/"><h1>makeitpersonal</h1></a>
+    </header>
+
+    <%= yield %>
 
     <script type="text/javascript">
       var _gauges = _gauges || [];

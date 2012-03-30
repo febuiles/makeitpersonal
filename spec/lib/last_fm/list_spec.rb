@@ -5,7 +5,7 @@ include LastFm
 
 describe List do
   let(:playlist) { List.new("febuiles") }
-  let(:document) { Nokogiri::XML(open(File.dirname(__FILE__) + "/../fixtures/sample.xml")) }
+  let(:document) { Nokogiri::XML(open(File.dirname(__FILE__) + "/../../fixtures/sample.xml")) }
 
   before do
     playlist.send(:mock_document)

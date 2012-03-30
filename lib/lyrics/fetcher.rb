@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require_relative './parser'
 
 module Lyrics
   class Fetcher
@@ -16,13 +17,8 @@ module Lyrics
       titleize(@title)
     end
 
-    def lyrics
-      lyrics = process(text_from_wikia)
-      if lyrics.include?("PUT LYRICS HERE") # song doesn't exist on Wikia yet
-        ""
-      else
-        lyrics
-      end
+    def result
+      process(text_from_wikia)
     end
 
     # we can't use Rails' #titleize since we need to deal with stuff like
@@ -38,9 +34,9 @@ module Lyrics
     private
 
     def process(text)
-      regex = /<lyrics>(.*)<\/lyrics>/m
+      regex = /<lyrics>(.*?)<\/lyrics>/m
       if match = regex.match(text)
-        match.captures.first
+        Lyrics::Parser.new(match.captures.first).result
       else
         look_for_redirects(text)
       end
@@ -55,7 +51,7 @@ module Lyrics
     def look_for_redirects(text)
       regex = /REDIRECT \[\[([\w\s]+):([\w\s]+)/m
       if match = regex.match(text)
-        Fetcher.new(match.captures[0], match.captures[1]).lyrics
+        Fetcher.new(match.captures[0], match.captures[1]).result
       else
         ""
       end

@@ -14,7 +14,7 @@ require 'last_fm/list'
 module LastFm
   class List
     def initialize(user)
-      @user = user
+      @user = user.strip
       mock_document
     end
   end

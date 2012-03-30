@@ -11,9 +11,14 @@ class Lyric < ActiveRecord::Base
 
   def fetch_and_save
     return true if text.present?
+    result = Lyrics::Fetcher.new(artist, title).result
+    self.text = result.lyrics
 
-    self.text = Lyrics::Fetcher.new(artist, title).lyrics
-    self.save
+    if result.status == :ok
+      self.save
+    else
+      return false
+    end
   end
 
   private
