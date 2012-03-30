@@ -29,5 +29,7 @@ module Makeitpersonal
     config.generators do |g|
       g.orm :active_record
     end
+
+    config.assets.precompile += ['song/song.css']
   end
 end
