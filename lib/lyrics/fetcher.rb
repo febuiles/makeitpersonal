@@ -34,7 +34,7 @@ module Lyrics
     private
 
     def process(text)
-      regex = /<lyrics>(.*?)<\/lyrics>/m
+      regex = /<lyrics?>(.*?)<\/lyrics?>/m
       if match = regex.match(text)
         Lyrics::Parser.new(match.captures.first).result
       else
