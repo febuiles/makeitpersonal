@@ -12,7 +12,7 @@ class Lyric < ActiveRecord::Base
   def fetch_and_save
     return true if text.present?
     result = Lyrics::Fetcher.new(artist, title).result
-    return false if result.empty?
+    return false if result == ""
 
     self.text = result.lyrics
     if result.status == :ok
