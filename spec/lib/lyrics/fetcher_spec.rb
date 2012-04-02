@@ -14,6 +14,12 @@ describe Fetcher do
     it "has getters for title format the strings" do
       fetcher.title.should == "Great_Expectations"
     end
+
+    it "cleans the artist and song title" do
+      fetcher = Fetcher.new(" The Gaslight anthem ", " great expectations ")
+      fetcher.artist.should == "The_Gaslight_Anthem"
+      fetcher.title.should == "Great_Expectations"
+    end
   end
 
   context "#lyrics"  do
@@ -37,6 +43,14 @@ describe Fetcher do
       fetcher.stub!(:text_from_wikia).and_return(Nokogiri::HTML(open(fake_document)))
       fetcher.result.lyrics.should == "\nThis is so fun\n"
     end
+
+    it "follows redirects" do
+      fetcher = Fetcher.new("Mike Oldfield", "Incantations")
+      fake_document = File.dirname(__FILE__) + "/../../fixtures/song_with_redirect.html"
+      fetcher.stub!(:text_from_wikia).and_return(Nokogiri::HTML(open(fake_document)))
+      expect { fetcher.result }.not_to raise_error
+    end
+
   end
 
   context "#titleize" do

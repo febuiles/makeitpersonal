@@ -45,11 +45,11 @@ module Lyrics
     def text_from_wikia
       url = "http://lyrics.wikia.com/index.php?title=#{artist}:#{title}&action=edit"
       document = Nokogiri::HTML(open(url))
-      textarea = document.css("#wpTextbox1").first.text
+      document.css("#wpTextbox1").first.text
     end
 
     def look_for_redirects(text)
-      regex = /REDIRECT \[\[([\w\s]+):([\w\s]+)/m
+      regex = /REDIRECT \[\[([\w\s]+):(\w\s[:punct:])\]\]/m
       if match = regex.match(text)
         Fetcher.new(match.captures[0], match.captures[1]).result
       else
