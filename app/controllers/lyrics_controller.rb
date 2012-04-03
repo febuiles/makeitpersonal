@@ -15,7 +15,7 @@ class LyricsController < ApplicationController
 
   def validate_params
     [:artist, :title].each do |field|
-      empty_field(field) if params[field].blank?
+      return empty_field(field) if params[field].blank?
     end
   end
 
