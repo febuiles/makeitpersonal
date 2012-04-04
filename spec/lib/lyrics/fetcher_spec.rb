@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'fast_spec_helper'
 require 'lyrics/fetcher'
 require 'active_support/inflector'
@@ -51,6 +52,13 @@ describe Fetcher do
       expect { fetcher.result }.not_to raise_error
     end
 
+  end
+
+  context "#lyrics_url" do
+    it "encodes the url" do
+      fetcher = Fetcher.new("Kraftwerk", "Geigerzähler")
+      fetcher.lyrics_url.should == "http://lyrics.wikia.com/index.php?title=Kraftwerk:Geigerz%C3%A4hler&action=edit"
+    end
   end
 
   context "#titleize" do

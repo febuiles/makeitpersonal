@@ -1,3 +1,5 @@
+require 'cgi'
+require 'uri'
 require 'nokogiri'
 require 'open-uri'
 require_relative './parser'
@@ -31,6 +33,11 @@ module Lyrics
       strings.join(" ").gsub(" ", "_")
     end
 
+    def lyrics_url
+      url = "http://lyrics.wikia.com/index.php?title=#{artist}:#{title}&action=edit"
+      URI.encode(url)
+    end
+
     private
 
     def process(text)
@@ -43,8 +50,7 @@ module Lyrics
     end
 
     def text_from_wikia
-      url = "http://lyrics.wikia.com/index.php?title=#{artist}:#{title}&action=edit"
-      document = Nokogiri::HTML(open(url))
+      document = Nokogiri::HTML(open(lyrics_url))
       document.css("#wpTextbox1").first.text
     end
 
