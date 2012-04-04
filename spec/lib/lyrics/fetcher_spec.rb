@@ -51,6 +51,11 @@ describe Fetcher do
       fetcher.stub!(:text_from_wikia).and_return(Nokogiri::HTML(open(fake_document)))
       expect { fetcher.result }.not_to raise_error
     end
+
+    it "accepts non-alpha characters" do
+      fetcher = Fetcher.new("Mike Oldfield", "Incantations [2008]")
+      fetcher.result.lyrics.should == "Sorry, We don't have lyrics for this song yet."
+    end
   end
 
   context "#lyrics_url" do

@@ -20,7 +20,13 @@ module Lyrics
     end
 
     def result
-      process(text_from_wikia)
+      response = text_from_wikia
+      if response == ""
+        ParserResult.new(:empty, "Sorry, We don't have lyrics for this song yet.")
+      else
+        process(response)
+      end
+
     end
 
     # we can't use Rails' #titleize since we need to deal with stuff like
@@ -51,7 +57,12 @@ module Lyrics
 
     def text_from_wikia
       document = Nokogiri::HTML(open(lyrics_url))
-      document.css("#wpTextbox1").first.text
+      textarea = document.css("#wpTextbox1").first
+      if textarea.nil?
+        ""
+      else
+        textarea.text
+      end
     end
 
     def look_for_redirects(text)
