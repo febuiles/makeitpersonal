@@ -1,5 +1,5 @@
 class String
   def to_key
-    self.downcase.gsub(/ /, "-")
+    self.strip.downcase.gsub(/ /, "-")
   end
 end

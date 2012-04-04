@@ -51,7 +51,6 @@ describe Fetcher do
       fetcher.stub!(:text_from_wikia).and_return(Nokogiri::HTML(open(fake_document)))
       expect { fetcher.result }.not_to raise_error
     end
-
   end
 
   context "#lyrics_url" do
