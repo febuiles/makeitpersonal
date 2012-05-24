@@ -7,6 +7,7 @@ gem "pg"
 gem "nokogiri"
 gem 'jquery-rails'
 gem "airbrake"
+gem "devise"
 
 group :development, :test do
   gem "rspec-rails"
