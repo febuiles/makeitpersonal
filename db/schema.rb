@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20120107082028) do
     t.string   "artist"
     t.string   "title"
     t.string   "username"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "youtube_url"
   end
 
