@@ -53,7 +53,7 @@ describe Fetcher do
     end
 
     it "accepts non-alpha characters" do
-      fetcher = Fetcher.new("Mike Oldfield", "Incantations [2008]")
+      fetcher = Fetcher.new("Mike Oldfield", "Incantations (1978)")
       fetcher.result.lyrics.should == "Sorry, We don't have lyrics for this song yet."
     end
   end

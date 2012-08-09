@@ -6,9 +6,12 @@ require_relative './parser'
 
 module Lyrics
   class Fetcher
+
+    attr_reader :artist, :title
+
     def initialize(artist, title)
-      @artist = artist
-      @title = title
+      @artist = titleize(artist)
+      @title = titleize(title)
     end
 
     def artist
@@ -70,7 +73,7 @@ module Lyrics
       if match = regex.match(text)
         Fetcher.new(match.captures[0], match.captures[1]).result
       else
-        ""
+        ParserResult.new(:empty, "Sorry, We don't have lyrics for this song yet.")
       end
     end
   end
