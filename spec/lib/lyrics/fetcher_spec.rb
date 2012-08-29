@@ -63,6 +63,11 @@ describe Fetcher do
       fetcher = Fetcher.new("Kraftwerk", "Geigerzähler")
       fetcher.lyrics_url.should == "http://lyrics.wikia.com/index.php?title=Kraftwerk:Geigerz%C3%A4hler&action=edit"
     end
+
+    it "accepts ampersands in the artist name" do
+      fetcher = Fetcher.new("Coheed & Cambria", "Neverender")
+      fetcher.lyrics_url.should == "http://lyrics.wikia.com/index.php?title=Coheed_%26_Cambria:Neverender&action=edit"
+    end
   end
 
   context "#titleize" do

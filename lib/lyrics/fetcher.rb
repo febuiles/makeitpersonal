@@ -39,12 +39,17 @@ module Lyrics
       strings.each do |str|
         str[0] = str[0].capitalize
       end
-      strings.join(" ").gsub(" ", "_")
+      title = strings.join(" ").gsub(" ", "_")
     end
 
     def lyrics_url
       url = "http://lyrics.wikia.com/index.php?title=#{artist}:#{title}&action=edit"
-      URI.encode(url)
+      encoded = URI.encode(url)
+
+      # This hack allows us to convert URLs like:
+      # `artist=Coheed_&_Cambria&song=Time_Consumer` into:
+      # `artist=Coheed_%26_Cambria&song=Time_Consumer`.
+      encoded.gsub(/&(.*&)/, "%26\\1")
     end
 
     private
