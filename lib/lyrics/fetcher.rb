@@ -46,10 +46,11 @@ module Lyrics
       url = "http://lyrics.wikia.com/index.php?title=#{artist}:#{title}&action=edit"
       encoded = URI.encode(url)
 
-      # This hack allows us to convert URLs like:
-      # `artist=Coheed_&_Cambria&song=Time_Consumer` into:
-      # `artist=Coheed_%26_Cambria&song=Time_Consumer`.
-      encoded.gsub(/&(.*&)/, "%26\\1")
+      # This allows us to replace ampersands (&) in the artist/song
+      # title with their correct escape code (%26). The last `%26` is
+      # actually needed for the `action` param so we convert that one
+      # back to `&`.
+      encoded.gsub(/&/, "%26").sub(/%26action/, "&action")
     end
 
     private
