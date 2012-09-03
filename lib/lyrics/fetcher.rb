@@ -15,11 +15,11 @@ module Lyrics
     end
 
     def artist
-      titleize(@artist)
+      CGI.escape(titleize(@artist))
     end
 
     def title
-      titleize(@title)
+      CGI.escape(titleize(@title))
     end
 
     def result
@@ -43,14 +43,7 @@ module Lyrics
     end
 
     def lyrics_url
-      url = "http://lyrics.wikia.com/index.php?title=#{artist}:#{title}&action=edit"
-      encoded = URI.encode(url)
-
-      # This allows us to replace ampersands (&) in the artist/song
-      # title with their correct escape code (%26). The last `%26` is
-      # actually needed for the `action` param so we convert that one
-      # back to `&`.
-      encoded.gsub(/&/, "%26").sub(/%26action/, "&action")
+      "http://lyrics.wikia.com/index.php?title=#{artist}:#{title}&action=edit"
     end
 
     private
