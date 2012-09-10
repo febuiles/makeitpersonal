@@ -57,6 +57,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.18)
     multi_json (1.2.0)
+    newrelic_rpm (3.4.2)
     nokogiri (1.5.2)
     orm_adapter (0.0.7)
     pg (0.13.2)
@@ -128,6 +129,7 @@ DEPENDENCIES
   devise
   fabrication
   jquery-rails
+  newrelic_rpm
   nokogiri
   pg
   rails (= 3.2.2)
