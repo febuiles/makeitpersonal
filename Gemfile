@@ -7,10 +7,6 @@ gem 'jquery-rails'
 gem "airbrake"
 gem "devise"
 
-group :production do
-  gem "newrelic_rpm"
-end
-
 group :development, :test do
   gem "rspec-rails"
   gem "fabrication"
