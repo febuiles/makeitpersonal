@@ -1,12 +1,14 @@
 class UserLyricsController < ApplicationController
   layout :set_song_layout
 
+  before_filter :authenticate_user!, :only => [:new, :edit, :update, :create]
+
   def new
     @lyric = UserLyric.new
   end
 
   def create
-    @lyric = UserLyric.new(params[:user_lyric])
+    @lyric = current_user.user_lyrics.build(params[:user_lyric])
     if @lyric.save
       redirect_to user_lyric_path(@lyric)
     else

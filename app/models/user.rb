@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessor :login
+  has_many :user_lyrics
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
+  attr_accessor :login
   attr_accessible :email, :password, :password_confirmation, :remember_me, :login, :username
 
   def self.find_first_by_auth_conditions(warden_conditions)
