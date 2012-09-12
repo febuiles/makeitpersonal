@@ -1,2 +1,12 @@
 <p class="intro"><em>makeitpersonal</em> is an experiment in content sharing. It's currently being beta-tested.</p>
 <p class="intro">Want to use it? Drop me a tweet <%= link_to "@febuiles", "http://twitter.com/febuiles" %>.</p>
+
+<p class="intro">
+
+<% if current_user %>
+  <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+<% else %>
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
+
+</p>
