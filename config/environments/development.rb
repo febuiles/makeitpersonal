@@ -1,5 +1,4 @@
 Makeitpersonal::Application.configure do
-  config.mongoid.logger = Logger.new($stdout, :warn)
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

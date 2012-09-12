@@ -2,6 +2,7 @@ class LyricsController < ApplicationController
   before_filter :validate_params
 
   def lyrics
+    ApiRequest.incr             # hack but Heroku log processing sucks.
     @lyric = Lyric.by_params(params[:lyric] || params)
 
     if @lyric.fetch_and_save

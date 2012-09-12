@@ -53,7 +53,7 @@ describe Fetcher do
     end
 
     it "accepts non-alpha characters" do
-      fetcher = Fetcher.new("Mike Oldfield", "Incantations [2008]")
+      fetcher = Fetcher.new("Mike Oldfield", "Incantations (1978)")
       fetcher.result.lyrics.should == "Sorry, We don't have lyrics for this song yet."
     end
   end
@@ -62,6 +62,16 @@ describe Fetcher do
     it "encodes the url" do
       fetcher = Fetcher.new("Kraftwerk", "Geigerzähler")
       fetcher.lyrics_url.should == "http://lyrics.wikia.com/index.php?title=Kraftwerk:Geigerz%C3%A4hler&action=edit"
+    end
+
+    it "accepts ampersands in the artist's name" do
+      fetcher = Fetcher.new("Coheed & Cambria", "Neverender")
+      fetcher.lyrics_url.should == "http://lyrics.wikia.com/index.php?title=Coheed_%26_Cambria:Neverender&action=edit"
+    end
+
+    it "accepts ampersands in the song's name" do
+      fetcher = Fetcher.new("Coheed & Cambria", "Always & Never")
+      fetcher.lyrics_url.should == "http://lyrics.wikia.com/index.php?title=Coheed_%26_Cambria:Always_%26_Never&action=edit"
     end
   end
 

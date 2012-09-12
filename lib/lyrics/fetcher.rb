@@ -6,17 +6,20 @@ require_relative './parser'
 
 module Lyrics
   class Fetcher
+
+    attr_reader :artist, :title
+
     def initialize(artist, title)
-      @artist = artist
-      @title = title
+      @artist = titleize(artist)
+      @title = titleize(title)
     end
 
     def artist
-      titleize(@artist)
+      CGI.escape(titleize(@artist))
     end
 
     def title
-      titleize(@title)
+      CGI.escape(titleize(@title))
     end
 
     def result
@@ -36,12 +39,11 @@ module Lyrics
       strings.each do |str|
         str[0] = str[0].capitalize
       end
-      strings.join(" ").gsub(" ", "_")
+      title = strings.join(" ").gsub(" ", "_")
     end
 
     def lyrics_url
-      url = "http://lyrics.wikia.com/index.php?title=#{artist}:#{title}&action=edit"
-      URI.encode(url)
+      "http://lyrics.wikia.com/index.php?title=#{artist}:#{title}&action=edit"
     end
 
     private
@@ -70,7 +72,7 @@ module Lyrics
       if match = regex.match(text)
         Fetcher.new(match.captures[0], match.captures[1]).result
       else
-        ""
+        ParserResult.new(:empty, "Sorry, We don't have lyrics for this song yet.")
       end
     end
   end

@@ -23,6 +23,13 @@ describe LyricsController do
       get :lyrics, params
       response.body.should == "ohnoes"
     end
+
+    it "increments the api requests counter" do
+      lyric.stub!(:fetch_and_save).and_return(true)
+      ApiRequest.should_receive(:incr).once
+
+      get :lyrics, params
+    end
   end
 
   context "missing params" do

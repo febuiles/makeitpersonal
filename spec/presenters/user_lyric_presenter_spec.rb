@@ -16,7 +16,7 @@ here comes the *cop*")
     end
 
     it "works on multiline markdown strings" do
-            lyric = double(:lyrics => "oh *noes!\nhere* comes the cop")
+      lyric = double(:lyrics => "oh *noes!\nhere* comes the cop")
       UserLyricPresenter.new(lyric).lyrics.should == "oh <em>noes!<br/>here</em> comes the cop"
 
     end

@@ -5,6 +5,7 @@ default: &global
   min_messages: warning
   username: federico
   password:
+  host: 127.0.0.1
 
 development:
   <<: *global
