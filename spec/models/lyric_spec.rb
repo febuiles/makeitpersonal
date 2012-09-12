@@ -19,6 +19,12 @@ describe Lyric do
       lyric.artist.should == "the-gaslight-anthem"
       lyric.title.should == "great-expectations"
     end
+
+    it "strips empty spaces at the beginning and end" do
+      lyric = Lyric.create!(artist: " Pink Floyd", title: "Not Now John ", text: "test")
+      lyric.artist.should == "pink-floyd"
+      lyric.title.should == "not-now-john"
+    end
   end
 
   context ".by_params" do

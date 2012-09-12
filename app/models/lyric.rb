@@ -25,7 +25,7 @@ class Lyric < ActiveRecord::Base
   private
 
   def clean_attrs
-    self.artist = artist.to_key
-    self.title = title.to_key
+    self.artist = artist.strip.to_key
+    self.title = title.strip.to_key
   end
 end
