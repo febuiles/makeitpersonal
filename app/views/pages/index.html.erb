@@ -1,18 +1,4 @@
-<div class="landing-left">
-  <%= link_to image_tag("logo-big.png"), root_path %>
-
-  <div class="landing-links">
-    <%= link_to "Login", new_user_session_path %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-  </div>
-
-  <footer>
-    <%= link_to "Contact", "" %>
-    <%= link_to "Disclaimer", "" %>
-    <%= link_to "Credits", "" %>
-  </footer>
-
-</div>
+<%= render "landing_left" %>
 
 <div class="manifesto">
   <p>Another one got caught today, it's all over the papers. "Teenager Arrested in Computer Crime Scandal", "Hacker Arrested after Bank Tampering"...</p>

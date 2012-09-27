@@ -5,3 +5,11 @@
  *= require_self
  *= require_tree .
 */
+
+em {
+  font-style: italic !important;
+}
+
+strong {
+  font-weight: bold !important;
+}
