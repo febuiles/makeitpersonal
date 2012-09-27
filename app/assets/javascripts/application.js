@@ -6,12 +6,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
-
-var showLoading = function() {
-  $("div.overlay, div#spinner").fadeIn();
-}
-
-var hideLoading = function() {
-  $("div.overlay, div#spinner").fadeOut();
-}

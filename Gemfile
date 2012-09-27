@@ -1,11 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.8'
 gem "pg"
 gem "nokogiri"
 gem 'jquery-rails'
 gem "airbrake"
 gem "devise"
+gem "twitter-bootstrap-rails"
 
 group :development, :test do
   gem "rspec-rails"

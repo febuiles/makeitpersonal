@@ -1,12 +1,37 @@
-<p class="intro"><em>makeitpersonal</em> is an experiment in content sharing. It's currently being beta-tested.</p>
-<p class="intro">Want to use it? Drop me a tweet <%= link_to "@febuiles", "http://twitter.com/febuiles" %>.</p>
+<div class="landing-left">
+  <%= link_to image_tag("logo-big.png"), root_path %>
 
-<p class="intro">
-  <% if !Rails.env.production? %>
-    <% if current_user %>
-      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
-  <% end %>
-</p>
+  <div class="landing-links">
+    <%= link_to "Login", new_user_session_path %>
+    <%= link_to "Sign Up", new_user_registration_path %>
+  </div>
+
+  <footer>
+    <%= link_to "Contact", "" %>
+    <%= link_to "Disclaimer", "" %>
+    <%= link_to "Credits", "" %>
+  </footer>
+
+</div>
+
+<div class="manifesto">
+  <p>Another one got caught today, it's all over the papers. "Teenager Arrested in Computer Crime Scandal", "Hacker Arrested after Bank Tampering"...</p>
+
+  <p>Damn kids. They're all alike.</p>
+
+  <p>But did you, in your three-piece psychology and 1950's technobrain, ever take a look behind the eyes of the hacker? Did you ever wonder what made him tick, what forces shaped him, what may have molded him?</p>
+
+  <p>I am a hacker, enter my world...</p>
+
+  <p>Mine is a world that begins with school... I'm smarter than most of the other kids, this crap they teach us bores me...</p>
+
+  <p>Damn underachiever. They're all alike.</p>
+
+  <p>I'm in junior high or high school. I've listened to teachers explain for the fifteenth time how to reduce a fraction. I understand it. "No, Ms. Smith, I didn't show my work. I did it in my head..."</p>
+
+  <p>Damn kid. Probably copied it. They're all alike.</p>
+
+  <p>I made a discovery today. I found a computer. Wait a second, this is cool. It does what I want it to. If it makes a mistake, it's because I screwed it up. Not because it doesn't like me... Or feels threatened by me.. Or thinks I'm a smart ass.. Or doesn't like teaching and shouldn't be here...</p>
+
+  <p>Damn kid. All he does is play games. They're all alike.</p>
+</div>
