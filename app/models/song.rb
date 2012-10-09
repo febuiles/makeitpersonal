@@ -1,4 +1,5 @@
 class Song < ActiveRecord::Base
+  include SongPresenter
   extend FriendlyId
 
   belongs_to :user
