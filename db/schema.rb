@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120912221924) do
+ActiveRecord::Schema.define(:version => 20121009052024) do
 
   create_table "api_requests", :force => true do |t|
     t.string   "endpoint"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20120912221924) do
     t.string "title"
   end
 
-  create_table "user_lyrics", :force => true do |t|
+  create_table "songs", :force => true do |t|
     t.text     "lyrics"
     t.string   "artist"
     t.string   "title"

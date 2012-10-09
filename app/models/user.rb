@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :user_lyrics
+  has_many :songs
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
