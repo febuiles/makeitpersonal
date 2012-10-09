@@ -13,7 +13,9 @@
       </p>
 
       <% @user.songs.each do |song| %>
-          <%= link_to song.name, "javascript:void(0)", :class => "song" %>
+        <%= link_to("javascript:void(0)", :class => "song") do %>
+          <%= song.name %> <span class="icon green">[</span>
+        <% end %>
           <div class="song-links">
             <i class="icon-globe"></i>
             <%= link_to "Share this song" %> &mdash; <em><%= user_song_url(@user.username, song) %></em><br/>

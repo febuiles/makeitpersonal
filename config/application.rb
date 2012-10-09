@@ -21,10 +21,11 @@ module Makeitpersonal
     config.assets.enabled = true
     config.autoload_paths += %W(#{config.root}/app/presenters)
     config.autoload_paths += %W(#{config.root}/lib)
-    config.autoload_paths += %W(#{config.root}/lib/last_fm)
     config.autoload_paths += %W(#{config.root}/lib/lyrics)
-    # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
+
 
     config.generators do |g|
       g.orm :active_record

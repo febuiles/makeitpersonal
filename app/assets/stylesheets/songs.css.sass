@@ -3,9 +3,15 @@ $green: #7fcc41
 $blue: #0d0f1e
 $serif: "pt-serif", serif
 $sans: "proxima-nova", sans-serif
+$icons: "ModernPictogramsNormal"
 
 html, body
   height: 100%
+
+.icon
+  font-family: $icons
+.green
+  color: $green
 
 body
   padding-top: 0 !important
@@ -77,11 +83,14 @@ footer
     display: block
   a, a:hover
     color: $green
-  img.question-mark
-    margin-left: 55px
-  img + p
+  span
+    margin-top: 10px
+    font-size: 48px
+    &:first-child
+      margin-left: 55px
+  span + p
     margin-left: 36px
-  p + img
+  p + span
     margin-left: 100px
 
 div.notes
@@ -104,10 +113,8 @@ div.song-list
     height: 30px
     margin-bottom: 12px
     background-color: $blue
-    padding-right: 40px
     display: inline-block
     min-width: 250px
-    background: url("/assets/down-arrow.png") no-repeat 95% 10px $blue
     color: white
     font-size: 18px
     font-family: $serif
@@ -115,6 +122,9 @@ div.song-list
     padding-left: 10px
     &:hover
       text-decoration: none
+    span
+      margin-left: 20px
+      margin-right: 20px
 
 div.song-links
   display: none
@@ -129,4 +139,4 @@ div.song-links
   a, a:hover
     color: $blue
     font-family: $serif
-    text-decoration: underline
+    text-decoration: underlinep
