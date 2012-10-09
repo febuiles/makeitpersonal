@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121009052024) do
+ActiveRecord::Schema.define(:version => 20121009054707) do
 
   create_table "api_requests", :force => true do |t|
     t.string   "endpoint"
@@ -35,7 +35,10 @@ ActiveRecord::Schema.define(:version => 20121009052024) do
     t.datetime "updated_at",  :null => false
     t.string   "youtube_url"
     t.integer  "user_id"
+    t.string   "slug"
   end
+
+  add_index "songs", ["slug"], :name => "index_songs_on_slug"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

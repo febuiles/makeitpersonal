@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem "airbrake"
 gem "devise"
 gem "twitter-bootstrap-rails"
+gem "friendly_id"
 
 group :development, :test do
   gem "rspec-rails"

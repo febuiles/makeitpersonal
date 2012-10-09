@@ -46,6 +46,7 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     fabrication (2.2.3)
+    friendly_id (4.0.8)
     girl_friday (0.10.0)
       connection_pool (~> 0.9.0)
     hike (1.2.1)
@@ -144,6 +145,7 @@ DEPENDENCIES
   airbrake
   devise
   fabrication
+  friendly_id
   jquery-rails
   nokogiri
   pg
