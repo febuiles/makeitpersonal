@@ -1,10 +1,12 @@
 $orange: #bf4317
 $blue: #0d0f1e
+$serif: "pt-serif", serif
+$sans: "proxima-nova", sans-serif
 
 body
   padding-top: 0 !important
   background-color: white
-  font-family: "proxima-nova", sans-serif !important
+  font-family: $sans !important
 
 div.header
   color: white
@@ -65,3 +67,45 @@ footer
     margin-left: 36px
   p + img
     margin-left: 100px
+
+div.user-sidebar
+  color: #7f7f7f
+  a
+    color: #7f7f7f !important
+    text-decoration: underline
+    &.important
+      font-weight: 600
+      text-decoration: none
+
+
+div.song-list
+  p
+    font-size: 18px
+  a.song
+    height: 30px
+    background-color: $blue
+    padding-right: 20px
+    min-width: 290px
+    display: inline-block
+    background: url("/assets/down-arrow.png") no-repeat 95% 10px $blue
+    color: white
+    font-size: 18px
+    font-family: $serif
+    line-height: 28px
+    padding-left: 10px
+    &:hover
+      text-decoration: none
+
+div.song-links
+  margin-top: 12px
+  font-size: 14px
+  line-height: 22px
+  em
+    font-family: $serif
+  i
+    margin-right: 5px
+    color: $orange
+  a, a:hover
+    color: $blue
+    font-family: $serif
+    text-decoration: underline

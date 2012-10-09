@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :edit, :update, :create]
+  before_filter :find_user, :only => [:index, :show]
 
   def new
     @lyric = Song.new
@@ -14,14 +15,16 @@ class SongsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
+  def index
+    @user = User.find_by_username(params[:username])
   end
 
   def show
-    @user = User.find_by_username(params[:username])
     @song = @user.songs.find(params[:id])
+  end
+
+  private
+  def find_user
+    @user = User.find_by_username(params[:username])
   end
 end

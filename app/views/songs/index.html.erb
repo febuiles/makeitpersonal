@@ -1,0 +1,59 @@
+<div class="header">
+  <%= link_to image_tag("logo-small.png"), root_path %>
+  <span>This is Federico's Page</span>
+  <%= link_to "Make your own", "", :class => "action" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span6 song-list">
+      <p>
+        These are your songs. By clicking on them you can highlight,
+        comment, re-edit & share them.
+      </p>
+
+      <% @user.songs.each do |song| %>
+        <%= link_to song.name, user_song_path(@user.username, song), :class => "song" %>
+        <div class="song-links">
+          <i class="icon-globe"></i>
+          <%= link_to "Share this song" %> &mdash; <em><%= user_song_url(@user.username, song) %></em><br/>
+          <i class="icon-pencil"></i>
+          <%= link_to "Edit your highlights and comments" %><br/>
+          <i class="icon-trash"></i>
+          <%= link_to "Delete this version" %><br/>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="span3 offset1 user-sidebar">
+      <p>
+        The interesting thing about songs is they
+        take on multiple meanings depending on the
+        ears that hear them. Here are some personal
+        examples which you might relate to...
+      </p>
+
+      <p>
+        <%= link_to "Grupo Bananas – Te Extraño", "", :class => "important" %><br/ >
+          by <%= link_to "danogutierrez" %>
+      </p>
+
+      <p>
+        <%= link_to "Proyecto Uno – El Tiburón", "", :class => "important" %><br/ >
+          by <%= link_to "bebesita115" %>
+      </p>
+
+      <p>
+        <%= link_to "Sandy y Papo – La Chica Sexy", "", :class => "important" %><br/ >
+          by <%= link_to "paisaguaro" %>
+      </p>
+
+      <p>
+        <%= link_to "Alfredo Gutiérrez – El Poderoso DIM", "", :class => "important" %><br/ >
+          by <%= link_to "rexixtenxianorte" %>
+      </p>
+    </div>
+  </div>
+</div>
+
