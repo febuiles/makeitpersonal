@@ -53,7 +53,15 @@ footer
   height: 55px
   padding-top: 15px
   background-color: $blue
-  text-align: center
   color: white
+  & > *
+    float: left
+    display: block
   a, a:hover
     color: $orange
+  img.question-mark
+    margin-left: 55px
+  img + p
+    margin-left: 36px
+  p + img
+    margin-left: 100px
