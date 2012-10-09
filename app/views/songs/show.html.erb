@@ -1,0 +1,36 @@
+<div class="header">
+  <%= link_to image_tag("logo-small.png"), root_path %>
+  <span>This is <%= link_to @user.username, "" %> take on <strong><%= @song.title %></strong> by <strong><%= @song.artist %></strong></span>
+  <%= link_to "Make your own", "", :class => "action" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span6 lyric">
+      <p>
+        <%= @song.lyrics %>
+      </p>
+    </div>
+
+    <div class="span3 offset1 notes">
+      <!-- <iframe  height="23" width="265" src="http://www.youtube.com/embed/RMrpi5Z8doc?rel=0&autohide=0&fs=0&modestbranding=1&theme=light" frameborder="0" ></iframe> -->
+      Anthropomorphism or personification is any attribution of human characteristics (or characteristics assumed to belong only to humans) to other animals, non-living things, phenomena, material states, objects or abstract concepts, such as organizations, governments, spirits or deities. The term was coined in the mid 1700s.
+    </div>
+  </div>
+</div>
+
+<div class="lyric-extra">
+  <%= image_tag "cherry-icon.png" %>
+  <p>
+    Share this song:<br/>
+    <strong><%= link_to user_song_path(@user, @song) %></strong>
+  </p>
+
+  <%= image_tag "s-icon.png" %>
+  <p>
+    Check out <%= link_to @user.username, user_path(@user) %> takes on:<br/>
+    <%= link_to "La Dispute - Andria" %><br/>
+    <%= link_to "The Mars Volta - L'Via L'viaquez" %><br/>
+    <%= link_to "Immortal Technique - Obnoxious" %><br/>
+  </p>
+</div>

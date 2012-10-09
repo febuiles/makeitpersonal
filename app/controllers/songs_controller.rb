@@ -21,6 +21,7 @@ class SongsController < ApplicationController
   end
 
   def show
-    @lyric = Song.find(params[:id])
+    @user = User.find_by_username(params[:username])
+    @song = @user.songs.find_by_param_title(params[:title])
   end
 end
