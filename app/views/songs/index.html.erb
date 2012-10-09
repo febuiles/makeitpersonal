@@ -13,15 +13,15 @@
       </p>
 
       <% @user.songs.each do |song| %>
-        <%= link_to song.name, user_song_path(@user.username, song), :class => "song" %>
-        <div class="song-links">
-          <i class="icon-globe"></i>
-          <%= link_to "Share this song" %> &mdash; <em><%= user_song_url(@user.username, song) %></em><br/>
-          <i class="icon-pencil"></i>
-          <%= link_to "Edit your highlights and comments" %><br/>
-          <i class="icon-trash"></i>
-          <%= link_to "Delete this version" %><br/>
-        </div>
+          <%= link_to song.name, "javascript:void(0)", :class => "song" %>
+          <div class="song-links">
+            <i class="icon-globe"></i>
+            <%= link_to "Share this song" %> &mdash; <em><%= user_song_url(@user.username, song) %></em><br/>
+            <i class="icon-pencil"></i>
+            <%= link_to "Edit your highlights and comments" %><br/>
+            <i class="icon-trash"></i>
+            <%= link_to "Delete this song" %><br/>
+          </div>
       <% end %>
 
     </div>

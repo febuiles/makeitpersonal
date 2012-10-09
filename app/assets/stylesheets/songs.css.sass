@@ -3,10 +3,21 @@ $blue: #0d0f1e
 $serif: "pt-serif", serif
 $sans: "proxima-nova", sans-serif
 
+html, body
+  height: 100%
+
 body
   padding-top: 0 !important
   background-color: white
   font-family: $sans !important
+  font-size: 15px
+
+div.wrap
+  min-height: 100%
+
+div.main
+  overflow: auto
+  padding-bottom: 85px
 
 div.header
   color: white
@@ -41,7 +52,7 @@ div.lyric-extra
   width: 100%
   text-align: center
   font-size: 15px
-  margin-bottom: 60px
+  margin-bottom: 55px
   img
     margin: 30px
   span
@@ -51,8 +62,11 @@ div.lyric-extra
     color: $orange
 
 footer
+  margin-top: -85px
+  position: relative
+  clear: both
   width: 100%
-  height: 55px
+  height: 70px
   padding-top: 15px
   background-color: $blue
   color: white
@@ -68,8 +82,12 @@ footer
   p + img
     margin-left: 100px
 
+div.notes
+  font-size: 13px
+
 div.user-sidebar
   color: #7f7f7f
+  font-size: 13px
   a
     color: #7f7f7f !important
     text-decoration: underline
@@ -79,14 +97,14 @@ div.user-sidebar
 
 
 div.song-list
-  p
-    font-size: 18px
+
   a.song
     height: 30px
+    margin-bottom: 12px
     background-color: $blue
-    padding-right: 20px
-    min-width: 290px
+    padding-right: 40px
     display: inline-block
+    min-width: 250px
     background: url("/assets/down-arrow.png") no-repeat 95% 10px $blue
     color: white
     font-size: 18px
@@ -97,7 +115,8 @@ div.song-list
       text-decoration: none
 
 div.song-links
-  margin-top: 12px
+  display: none
+  margin-bottom: 12px
   font-size: 14px
   line-height: 22px
   em

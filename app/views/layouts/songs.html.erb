@@ -11,7 +11,12 @@
   </head>
 
   <body>
+    <div class="wrap">
+      <div class="main">
+
     <%= yield %>
+      </div>
+    </div>
     <footer>
       <%= image_tag "question-mark.png", :class => "question-mark" %>
       <p>
@@ -24,6 +29,5 @@
         This is an experiment. We don't have any legalese but you can read our <%= link_to "disclaimer here", "/disclaimer" %>.
       </p>
     </footer>
-
   </body>
 </html>
