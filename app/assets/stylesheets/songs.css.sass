@@ -36,13 +36,17 @@ div.header
   margin-bottom: 50px
   img
     margin-left: 15px
-  a, a:visited
-    font-weight: 600
-    color: $green
-    &.action
-      font-weight: bold
+  div.toolbar
+    a
+      margin-right: 20px
+      font-size: 36px
+      span
+        color: white
+        &:hover
+          color: $green
+      &:hover
+        text-decoration: none
 
-      text-decoration: underline
 
 
 div.lyric
@@ -128,7 +132,7 @@ div.song-list
       margin-right: 20px
 
 div.song-links
-  display: none
+  margin-top: 10px
   font-size: 16px
   line-height: 22px
   em
@@ -141,3 +145,7 @@ div.song-links
     color: $blue
     font-family: $serif
     text-decoration: underline
+
+div.modal-body
+  input[type="text"]
+    width: 450px

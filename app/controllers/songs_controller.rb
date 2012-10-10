@@ -3,7 +3,14 @@ class SongsController < ApplicationController
   before_filter :find_user, :only => [:index, :show]
 
   def new
-    @lyric = Song.new
+    @song = Song.new
+  end
+
+  def edit
+    @song = @user.songs.find(params[:id])
+  end
+
+  def update
   end
 
   def create
@@ -21,6 +28,12 @@ class SongsController < ApplicationController
 
   def show
     @song = @user.songs.find(params[:id])
+  end
+
+  def destroy
+    @song = @user.songs.find(params[:id])
+    @song.destroy if current_user.owns?(@song)
+    redirect_to songs_path
   end
 
   private

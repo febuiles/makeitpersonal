@@ -9,7 +9,7 @@ module ApplicationHelper
                  "Welcome back #{user}.",
                  "Hola #{user}.",
                  "Hey #{user}, how\'s it going?",
-                 "Buongiorno, Principessa... err, #{user}."]
+                 "Buongiorno, Principessa, err... #{user}."]
     content_tag(:p, greetings.sample.html_safe)
   end
 end

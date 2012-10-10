@@ -1,0 +1,33 @@
+<%= link_to("javascript:void(0)", :class => "song") do %>
+  <%= song.name %> <span class="icon">[</span>
+<% end %>
+
+<div class="song-links">
+  <span class="icon green">w</span>
+  <%= link_to "Share this song", "#share-modal", :"data-toggle" => "modal" %>
+  &mdash; <em><%= user_song_url(@user.username, song) %></em><br/>
+
+  <span class="icon">V</span>
+  <%= link_to "Edit your highlights and comments", edit_song_path(song) %><br/>
+
+  <span class="icon">I</span>
+  <%= link_to "Delete this song", song_path(song), :method => :delete %><br/>
+</div>
+<br/>
+
+
+<div class="modal hide fade" id="share-modal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3>Share</h3>
+  </div>
+  <div class="modal-body">
+    <p>You can share this link with your friends, foes and pets:
+    </p>
+    <input type="text"  value="<%= user_song_url(@user.username, song) %>" />
+
+  </div>
+  <div class="modal-footer">
+    <a href="#" data-dismiss="modal" class="btn btn-primary">Close</a>
+  </div>
+</div>

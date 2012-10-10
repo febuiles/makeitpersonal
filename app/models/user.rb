@@ -16,4 +16,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  def owns?(song)
+    songs.include?(song)
+  end
 end

@@ -6,9 +6,11 @@ Makeitpersonal::Application.routes.draw do
   get "/contact", to: "pages#contact"
   get "/credits", to: "pages#credits"
 
+  resources :songs, :except => [:index, :show]
 
   # user
   get "/account", :to => "users#show", :as => "account"
+  get "/account/settings", :to => "users#edit", :as => "settings"
 
   root :to => "pages#index"
 
