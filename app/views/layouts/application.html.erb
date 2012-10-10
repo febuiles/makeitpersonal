@@ -16,22 +16,37 @@
   <body>
     <div class="wrap">
       <div class="main">
-        <%= yield %>
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
       </div>
     </div>
 
-    <footer>
-      <span class="icon green">?</span>
-      <p>
-        <%= link_to "makeitpersonal" %> allows people to share feelings in their favoritue music.<br/>
-        This is a fine establishment, we have a <%= link_to "blog" %> and a <%= link_to "contact" %> page in case you want to reach us.
-      </p>
+    <div class="container-fluid">
+      <div class="row">
+        <footer>
+          <div class="span1 mid">
+            <span class="icon green">?</span>
+          </div>
+          <div class="span5">
+            <p>
+              <%= link_to "makeitpersonal" %> allows people to share feelings in their favoritue music.<br/>
+              This is a fine establishment, we have a <%= link_to "blog" %> and a <%= link_to "contact" %> page in case you want to reach us.
+            </p>
+          </div>
 
-      <span class="icon green">=</span>
-      <p>
-        This is an experiment. We don't have any legalese but you can read our <%= link_to "disclaimer here", "/disclaimer" %>.<br/>
-        This is some other text that helps with the alignment.
-      </p>
-    </footer>
+          <div class="span1 mid">
+            <span class="icon green">=</span>
+          </div>
+
+          <div class="span5">
+            <p>
+              This is an experiment. We don't have any legalese but you can read our <%= link_to "disclaimer here", "/disclaimer" %>.<br/>
+              This is some other text that helps with the alignment.
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
   </body>
 </html>

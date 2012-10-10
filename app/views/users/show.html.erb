@@ -1,27 +1,17 @@
 <% title "Your Profile" %>
-<div class="container-fluid">
-  <%= render "user_header" %>
 
-  <div class="row-fluid">
-    <div class="span6 offset1 song-list">
-      <p>
-        These are your songs. There are many like them but these ones <em>are yours</em>.<br/>
-      </p>
-      <p>
-        Click on them to highlight, comment, re-edit & share them.
-      </p>
+<%= render "user_header" %>
+
+<div class="row-fluid">
+  <div class="span6 offset1 song-list">
+    <p>
+      These are your songs. There are many like them but these ones <em>are yours</em>.<br/>
+    </p>
+    <p>
+      Click on them to highlight, comment, re-edit & share them.
+    </p>
 
 
-      <%= render :partial => "song", :collection => @user.songs %>
-    </div>
-
-    <div class="span3 offset1 user-sidebar">
-      <p>
-        The interesting thing about songs is they
-        take on multiple meanings depending on the
-        ears that hear them. Here are some personal
-        examples which you might relate to...
-      </p>
-    </div>
+    <%= render :partial => "song", :collection => @user.songs %>
   </div>
 </div>
