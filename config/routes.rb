@@ -6,8 +6,14 @@ Makeitpersonal::Application.routes.draw do
   get "/contact", to: "pages#contact"
   get "/credits", to: "pages#credits"
 
-  match "/:username/:id", :to => "songs#show", :as => "user_song"
-  match "/:username", :to => "songs#index", :as => "user"
+
+  # user
+  get "/account", :to => "users#show", :as => "account"
 
   root :to => "pages#index"
+
+  # songs
+  get "/:username/:id", :to => "songs#show", :as => "user_song"
+  get "/:username", :to => "songs#index", :as => "user"
+
 end

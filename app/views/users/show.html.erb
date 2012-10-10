@@ -1,0 +1,78 @@
+<% title "Your Profile" %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="header">
+        <div class="row-fluid">
+          <div class="span1">
+            <%= link_to image_tag("logo-small.png"), root_path %>
+          </div>
+
+          <div class="span7">
+            <%= random_greeting_for_user %>
+          </div>
+
+          <div class="span3">
+            <%= link_to "Make your own", "", :class => "action" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row-fluid">
+    <div class="span6 offset1 song-list">
+      <p>
+        These are your songs. There are many like them but these ones <em>are yours</em>.<br/>
+      </p>
+      <p>
+        Click on them to highlight, comment, re-edit & share them.
+      </p>
+
+      <% @user.songs.each do |song| %>
+        <%= link_to("javascript:void(0)", :class => "song") do %>
+          <%= song.name %> <span class="icon">[</span>
+        <% end %>
+          <div class="song-links">
+            <span class="icon green">w</span>
+            <%= link_to "Share this song" %> &mdash; <em><%= user_song_url(@user.username, song) %></em><br/>
+            <span class="icon">V</span>
+            <%= link_to "Edit your highlights and comments" %><br/>
+            <span class="icon">I</span>
+            <%= link_to "Delete this song" %><br/>
+          </div>
+          <br/>
+      <% end %>
+    </div>
+
+    <div class="span3 offset1 user-sidebar">
+      <p>
+        The interesting thing about songs is they
+        take on multiple meanings depending on the
+        ears that hear them. Here are some personal
+        examples which you might relate to...
+      </p>
+
+      <p>
+        <%= link_to "Grupo Bananas – Te Extraño", "", :class => "important" %><br/ >
+          by <%= link_to "danogutierrez" %>
+      </p>
+
+      <p>
+        <%= link_to "Proyecto Uno – El Tiburón", "", :class => "important" %><br/ >
+          by <%= link_to "bebesita115" %>
+      </p>
+
+      <p>
+        <%= link_to "Sandy y Papo – La Chica Sexy", "", :class => "important" %><br/ >
+          by <%= link_to "paisaguaro" %>
+      </p>
+
+      <p>
+        <%= link_to "Alfredo Gutiérrez – El Poderoso DIM", "", :class => "important" %><br/ >
+          by <%= link_to "rexixtenxianorte" %>
+      </p>
+    </div>
+  </div>
+</div>
