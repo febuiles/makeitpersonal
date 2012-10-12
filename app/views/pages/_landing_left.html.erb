@@ -2,8 +2,21 @@
   <%= link_to image_tag("logo-big.png"), root_path %>
 
   <div class="landing-links">
-    <%= link_to "Login", new_user_session_path %>
-    <%= link_to "Sign Up", new_user_registration_path %>
+    <%= link_to "Login", "javascript:void(0)", :id => "toggle-login-form" %>
+    <div class="login">
+      <form>
+        <label>Username:</label>
+        <input type="text" />
+        <label>Password:</label>
+        <input type="text" />
+        <button type="submit">
+          <i class="icon-arrow-right"></i>
+        </button>
+        <div style="clear: both">
+        </div>
+      </form>
+    </div>
+    <%= link_to "Sign Up", sign_up_path %>
   </div>
 
   <footer>
