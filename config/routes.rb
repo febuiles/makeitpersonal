@@ -9,7 +9,6 @@ Makeitpersonal::Application.routes.draw do
   resources :songs, :except => [:index, :show]
 
   # user
-  get "/signup", :to => "pages#sign_up", :as => "sign_up"
   get "/account", :to => "users#show", :as => "account"
   get "/account/settings", :to => "users#edit", :as => "settings"
 

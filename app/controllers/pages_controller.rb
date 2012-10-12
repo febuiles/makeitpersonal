@@ -5,5 +5,4 @@ class PagesController < ApplicationController
   def disclaimer; end
   def credits; end
   def contacts; end
-  def sign_up; end
 end

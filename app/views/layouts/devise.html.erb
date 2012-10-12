@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>makeitpersonal</title>
+    <%= stylesheet_link_tag    "landing" %>
+    <%= javascript_include_tag "application" %>
+    <link href="/assets/favicon.ico" rel="icon">
+    <script type="text/javascript" src="//use.typekit.net/asb5tix.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <%= render "pages/landing_left" %>
+    <div class="manifesto">
+      <div class="notices">
+        <% flash.each do |name, msg| %>
+          <i class="icon-arrow-right"></i><%= msg %><br/>
+        <% end %>
+      </div>
+    <%= yield %>
+    </div>
+  </body>
+</html>

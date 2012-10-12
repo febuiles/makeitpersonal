@@ -1,0 +1,11 @@
+<%= f.label :login, "Username or email:" %>
+<%= f.text_field :login %>
+
+<%= f.label :password, "Password:" %>
+<%= f.password_field :password %>
+
+<%= f.hidden_field "remember_me", :value => "1" %>
+
+<button type="submit">
+  <i class="icon-arrow-right"></i>
+</button>

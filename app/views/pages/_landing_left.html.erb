@@ -4,19 +4,12 @@
   <div class="landing-links">
     <%= link_to "Login", "javascript:void(0)", :id => "toggle-login-form" %>
     <div class="login">
-      <form>
-        <label>Username:</label>
-        <input type="text" />
-        <label>Password:</label>
-        <input type="text" />
-        <button type="submit">
-          <i class="icon-arrow-right"></i>
-        </button>
-        <div style="clear: both">
-        </div>
-      </form>
+      <%= form_for("user", :url => user_session_path) do |f| %>
+        <%= render "shared/login", :f => f %>
+      <% end %>
+      <div style="clear: both"></div>
     </div>
-    <%= link_to "Sign Up", sign_up_path %>
+    <%= link_to "Sign Up", new_user_registration_path %>
   </div>
 
   <footer>
@@ -25,3 +18,5 @@
     <%= link_to "Credits", "/credits" %>
   </footer>
 </div>
+
+
