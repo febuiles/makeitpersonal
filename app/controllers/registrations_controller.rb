@@ -1,0 +1,21 @@
+class RegistrationsController < Devise::RegistrationsController
+  layout "application"
+
+  def update
+    @user = User.find(current_user.id)
+    password_changed = !params[:user][:password].empty?
+
+    successfully_updated = if password_changed
+      @user.update_with_password(params[:user])
+    else
+      @user.update_without_password(params[:user])
+    end
+
+    if successfully_updated
+      sign_in @user, :bypass => true
+      redirect_to edit_user_registration_path, :notice => "Updated."
+    else
+      render "edit"
+    end
+  end
+end

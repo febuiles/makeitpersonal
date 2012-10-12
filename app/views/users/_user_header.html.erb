@@ -11,11 +11,11 @@
         </div>
 
         <div class="offset2 span2 toolbar">
-          <%= link_to settings_path do %>
+          <%= link_to edit_user_registration_path, :rel => "tooltip", :data => { :placement => "bottom", :"original-title" => "Settings" } do %>
             <span class="icon">f</span>
           <% end %>
 
-          <%= link_to destroy_user_session_path, :method => :delete do %>
+          <%= link_to destroy_user_session_path, :rel => "nofollow", :method => :delete, :data => { :placement => "bottom", :"original-title" => "Logout" } do %>
             <span class="icon">X</span>
           <% end %>
         </div>
@@ -23,3 +23,5 @@
     </div>
   </div>
 </div>
+
+

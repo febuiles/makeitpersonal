@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   attr_accessor :login
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :login, :username
+  attr_accessible :email, :password, :remember_me, :login, :username, :twitter, :website
 
   validates_uniqueness_of :username
 
@@ -16,6 +16,12 @@ class User < ActiveRecord::Base
     else
       where(conditions).first
     end
+  end
+
+
+  def update_with_password(params={})
+    params.delete(:password) if params[:password].blank?
+    update_attributes(params)
   end
 
   def owns?(song)

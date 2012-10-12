@@ -1,3 +1,4 @@
+$gray: #222
 $orange: #bf4317
 $green: #7fcc41
 $blue: #0d0f1e
@@ -29,7 +30,7 @@ div.main
 
 div.header
   color: white
-  background-color: $blue
+  background-color: $gray
   height: 60px
   font-size: 1.25em
   line-height: 60px
@@ -38,6 +39,8 @@ div.header
     margin-left: 15px
   div.toolbar
     a
+      width: 45px
+      height: 45px
       margin-right: 20px
       font-size: 36px
       span
@@ -78,7 +81,7 @@ footer
   width: 100%
   height: 70px
   padding-top: 15px
-  background-color: $blue
+  background-color: $gray
   color: white
   & > *
     float: left
@@ -113,7 +116,7 @@ div.song-list
   a.song
     margin-top: 12px
     height: 30px
-    background-color: $blue
+    background-color: $gray
     display: inline-block
     min-width: 250px
     color: white
@@ -139,10 +142,23 @@ div.song-links
     color: $green
     font-size: 1.5em
   a, a:hover
-    color: $blue
+    color: $gray
     font-family: $serif
     text-decoration: underline
 
 div.modal-body
   input[type="text"]
     width: 450px
+
+.button
+  margin-top: 10px
+  border: 0
+  height: 40px
+  background-color: $green
+  display: block
+  width: 115px
+  font-size: 22px
+  color: white
+  font-weight: bold
+  line-height: 35px
+  cursor: pointer

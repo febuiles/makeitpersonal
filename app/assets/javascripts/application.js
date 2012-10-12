@@ -13,4 +13,9 @@ $(function() {
   $("#toggle-login-form").click(function(){
     $("div.login").slideToggle();
   });
+
+  // fix the tooltip on :method => :delete links
+ $(function() {
+    $('a[rel="nofollow"]').tooltip();
+  });
 });
