@@ -6,12 +6,13 @@
           <%= link_to image_tag("logo-small.png"), root_path %>
         </div>
 
-        <div class="span10">
+        <div class="span9">
           <span>These are <%= link_to "#{@user.username}'s", user_path(@user.username) %> notes on <strong><%= @song.title.titleize %></strong> by <strong><%= @song.artist.titleize %></strong>.</span>
         </div>
 
-        <% if current_user %>
-          <div class="span1 toolbar">
+
+        <div class="span2 toolbar">
+          <% if current_user %>
             <%= link_to(edit_user_registration_path, :rel => "tooltip", :data => { :placement => "bottom", :"original-title" => "Settings" }) do %>
               <span class="icon">f</span>
             <% end %>
@@ -19,8 +20,8 @@
             <%= link_to(destroy_user_session_path, :rel => "nofollow", :method => :delete, :data => { :placement => "bottom", :"original-title" => "Logout" }) do %>
               <span class="icon">X</span>
             <% end %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
