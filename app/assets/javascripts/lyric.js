@@ -6,9 +6,10 @@ var Lyric = function(outputField) {
   var artist = "";
   var title = "";
 
-  this.fetch = function(artist, title) {
-    artist = artist;
-    title = title;
+  this.fetch = function(_artist, _title) {
+    artist = _artist;
+    title = _title;
+    setHintLinks();
 
     $.ajax({
       url: apiUrl,
@@ -38,6 +39,7 @@ var Lyric = function(outputField) {
     if (data === "Sorry, We don't have lyrics for this song yet.") {
       activateStep("step2-nolyrics");
     } else {
+      $("#fetch-lyrics").hide();
       activateStep("step2");
     }
 
@@ -73,6 +75,16 @@ var Lyric = function(outputField) {
 
   var publish = function() {
     $("form#new_song").submit();
+  }
+
+  var setHintLinks = function() {
+    var google = $("#google-hint");
+    var youtube = $("#youtube-hint");
+    var googleUrl = String.prototype.concat("http://www.google.com/search?q=", artist, " ", title, " lyrics")
+    var youtubeUrl = String.prototype.concat("http://www.youtube.com/results?search_query=", artist, " ", title)
+
+    google.attr("href", googleUrl)
+    youtube.attr("href", youtubeUrl);
   }
 
   $("#set-video, .set-video").click(setVideo);

@@ -1,4 +1,4 @@
-<% title "make it yours" %>
+<% title "new song" %>
 
 <%= render "users/user_header" %>
 
@@ -7,7 +7,7 @@
     <div class="span6 new-song">
       <h2>create a new song</h2>
       <%= form_for @song do |f| %>
-        <%= f.text_field :artist, :placeholder => "Artist" %>
+        <%= f.text_field :artist, :placeholder => "Artist", :autofocus => true %>
 
         <%= f.text_field :title, :placeholder => "Song Title" %>
 
@@ -17,7 +17,7 @@
 
         <div class="clear">
         </div>
-        <%= link_to "Fetch Lyrics", "javascript:void(0);", :class => "button-inline fetch-lyrics" %>
+        <%= link_to "Fetch Lyrics", "javascript:void(0);", :class => "button-inline fetch-lyrics", :id => "fetch-lyrics" %>
         <%= link_to "Next", "javascript:void(0);", :class => "button-inline right button-primary", :id => "set-video" %>
         <%= link_to "Publish", "javascript:void(0);", :class => "button-inline right button-primary publish", :id => "publish" %>
 
@@ -55,7 +55,7 @@
           <p>
             Damn, we couldn't find the lyrics for your song :(</p>
           <p>
-            You can <%= link_to "search for them in Google", "" %> and paste them in the <%= link_to "big text field", "#song_lyrics" %>.
+            You can <%= link_to "search for them in Google", "", :target => "_blank", :id => "google-hint" %> and paste them in the big text field.
           </p>
 
           <p>
@@ -72,7 +72,7 @@
             We're almost done!
           </p>
           <p>
-            If you want the song's page to include audio you should <%= link_to "find a video of the song in YouTube", ""%>, copy the URL and paste them in the <em>YouTube URL</em> field.
+            If you want the song's page to include audio you should <%= link_to "find a video of the song in YouTube", "", :target => "_blank", :id => "youtube-hint"%>, copy the URL and paste them in the <em>YouTube URL</em> field.
           </p>
 
           <p>
