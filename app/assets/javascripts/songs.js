@@ -1,8 +1,19 @@
 $(function(){
-
-  $("a.song").click(function(){
+  $("a.song-dropdown").click(function(){
     $(this).next(".song-links").slideToggle();
   });
+
+ $("#song_artist, #song_title").keyup( function(event) {
+   if (event.keyCode == 13) {
+     $("#fetch-lyrics").click();
+   }
+ });
+
+ $("#song_youtube_url").keyup( function(event) {
+   if (event.keyCode == 13) {
+     $("#publish").click();
+   }
+ });
 
   $(".fetch-lyrics").click(function(e){
     e.preventDefault();
