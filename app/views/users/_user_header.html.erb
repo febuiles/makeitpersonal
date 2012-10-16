@@ -6,17 +6,20 @@
           <%= link_to image_tag("logo-small.png"), root_path %>
         </div>
 
-        <div class="span7">
+        <div class="span8">
           <%= random_greeting_for_user %>
         </div>
 
-        <div class="offset2 span2 toolbar">
-          <%= link_to edit_user_registration_path, :rel => "tooltip", :data => { :placement => "bottom", :"original-title" => "Settings" } do %>
-            <span class="icon">f</span>
-          <% end %>
+        <div class="span3 toolbar">
+          <% if current_user %>
+          <%= link_to "Create New Song", new_song_path, :class => "toolbar-text" %>
+            <%= link_to(edit_user_registration_path, :class => "toolbar-icon", :rel => "tooltip", :data => { :placement => "bottom", :"original-title" => "Settings" }) do %>
+              <span class="icon">f</span>
+            <% end %>
 
-          <%= link_to destroy_user_session_path, :rel => "nofollow", :method => :delete, :data => { :placement => "bottom", :"original-title" => "Logout" } do %>
-            <span class="icon">X</span>
+            <%= link_to(destroy_user_session_path, :class => "toolbar-icon", :rel => "nofollow", :method => :delete, :data => { :placement => "bottom", :"original-title" => "Logout" }) do %>
+              <span class="icon">X</span>
+            <% end %>
           <% end %>
         </div>
       </div>

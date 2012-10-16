@@ -45,9 +45,14 @@ div.header
     text-decoration: underline
   div.toolbar
     a
-      width: 45px
+      display: block
+      float: left
+    a.toolbar-text
+      font-size: 19px
+      margin-right: 40px
+    a.toolbar-icon
+      width: 40px
       height: 45px
-      margin-left: 15px
       font-size: 36px
       span
         color: white
@@ -55,8 +60,6 @@ div.header
           color: $green
       &:hover
         text-decoration: none
-
-
 
 div.lyric
   font-size: 18px
