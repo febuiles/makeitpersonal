@@ -37,11 +37,17 @@ div.header
   margin-bottom: 50px
   img
     margin-left: 15px
+  a
+    color: $green
+    &:hover
+      color: $green
+  strong
+    text-decoration: underline
   div.toolbar
     a
       width: 45px
       height: 45px
-      margin-right: 20px
+
       font-size: 36px
       span
         color: white
@@ -55,10 +61,12 @@ div.header
 div.lyric
   font-size: 18px
   line-height: 24px
-  color: #909090
   margin-bottom: 20px
+  p
+    color: #9a9a9a
+    font-family: $sans
   em
-    font-family: $serif
+    font-style: normal !important
     color: black
 
 div.lyric-extra
@@ -95,7 +103,7 @@ footer
 
 
 div.notes
-  font-size: 13px
+  font-size: 14px
 
 div.user-sidebar
   color: #7f7f7f
@@ -113,7 +121,7 @@ div.song-list
     font-size: 1.25em
     em
       text-decoration: underline
-  a.song
+  a.song-dropdown
     margin-top: 12px
     height: 30px
     background-color: $gray
