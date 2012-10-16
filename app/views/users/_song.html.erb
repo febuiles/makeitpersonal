@@ -4,7 +4,7 @@
 
 <div class="song-links">
   <span class="icon green">w</span>
-  <%= link_to "Share this song", "#share-modal", :"data-toggle" => "modal" %>
+  <%= link_to "Share this song", "#share-modal-#{song.id}", :"data-toggle" => "modal" %>
   &mdash; <em><%= user_song_url(@user.username, song) %></em><br/>
 
   <span class="icon">V</span>
@@ -16,7 +16,7 @@
 <br/>
 
 
-<div class="modal hide fade" id="share-modal">
+<div class="modal hide fade" id="share-modal-<%= song.id%>">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <h3>Share</h3>
