@@ -14,9 +14,9 @@ class SongsController < ApplicationController
   end
 
   def create
-    @lyric = current_user.songs.build(params[:song])
-    if @lyric.save
-      redirect_to song_path(@lyric)
+    @song = current_user.songs.build(params[:song])
+    if @song.save
+      redirect_to user_song_path(current_user.username, @song)
     else
       render :new
     end
