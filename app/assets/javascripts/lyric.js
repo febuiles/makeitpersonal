@@ -23,6 +23,7 @@ var Lyric = function(outputField) {
   var ajaxError = function(xhr, status, error) {
     loader.stop();
     showLyrics();
+
     if (artist === "" || title === "") {
       write("You need to enter the artist's name and the song title.")
     } else {
@@ -33,6 +34,13 @@ var Lyric = function(outputField) {
   var ajaxSuccess = function(data, status, jqXhr) {
     loader.stop();
     showLyrics();
+    $("#set-video").show();
+    if (data === "Sorry, We don't have lyrics for this song yet.") {
+      activateStep("step2-nolyrics");
+    } else {
+      activateStep("step2");
+    }
+
     write(data);
   };
 
@@ -44,4 +52,25 @@ var Lyric = function(outputField) {
   var showLyrics = function() {
     outputField.slideDown();
   }
+
+  var activateStep = function(id) {
+    $(".step-active").slideUp();
+    $(".step-active").removeClass("step-active");
+    $("#" + id).slideDown();
+    $("#" + id).addClass("step-active")
+  }
+
+  var setVideo = function() {
+    activateStep("step3");
+    $("#song_youtube_url").show();
+    $("#publish").show();
+    $("#set-video").replaceWith($("#publish"));
+  }
+
+  var publish = function() {
+
+  }
+
+  $("#set-video, .set-video").click(setVideo);
+  $(".publish").click(publish);
 }

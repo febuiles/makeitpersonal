@@ -150,27 +150,10 @@ div.modal-body
   input[type="text"]
     width: 450px
 
-.button
-  margin-top: 10px
-  border: 0
-  height: 40px
-  background-color: $green
-  display: block
-  width: 120px
-  font-size: 22px
-  color: white
-  font-weight: bold
-  line-height: 40px
-  cursor: pointer
-  padding: 0 5px
-  &:hover
-    color: white
-    text-decoration: none
-
 div.new-song
   h2
-    margin-bottom: 50px
-    color: $gray
+    margin-bottom: 30px
+
   input[type="text"]
     border: 1px solid #999
     border-radius: 0
@@ -189,11 +172,25 @@ div.new-song
     display: none
 
 
-div.notes,
+div.notes
   h2
-    margin-bottom: 45px
-    color: $gray
+    margin-bottom: 25px
+    color: #7f7f7f
+  p
+    color: #7f7f7f
+
+  div.bordered
+    border-left: 1px solid #e5e5e5
+    padding-left: 20px
+
   a
     color: $green !important
     text-decoration: underline !important
+
+
+#step1, #step2, #step2-nolyrics, #step3, #set-video, #publish
+  display: none
+
+.step-active
+  display: block !important
 

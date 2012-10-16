@@ -1,0 +1,37 @@
+$gray: #222
+$green: #7fcc41
+$sans: "proxima-nova", sans-serif
+$icons: "ModernPictogramsNormal"
+
+@mixin button
+  text-align: center
+  margin-top: 10px
+  border: 0
+  height: 40px
+  background-color: $green
+  width: 130px
+  font-size: 22px
+  color: white
+  font-weight: bold
+  line-height: 40px
+  cursor: pointer
+  display: block
+  &:hover
+    color: white
+    text-decoration: none
+
+a.button
+  @include button
+
+a.button-inline
+  @include button
+  float: left
+  margin-right: 15px
+
+a.button-primary
+  color: $green !important
+  background-color: $gray !important
+
+a.right
+  float: right
+  margin-right: -13px

@@ -13,45 +13,72 @@
 
         <%= f.text_area :lyrics, :placeholder => "Lyrics go here..." %>
 
-        <%= f.text_field :youtube_url, :placeholder => "YouTube URL" %>
+        <%= f.text_field :youtube_url, :placeholder => "YouTube URL goes here..." %>
 
-        <%= link_to "Fetch Lyrics", "javascript:void(0);", :class => "button fetch-lyrics" %>
+        <div class="clear">
+        </div>
+        <%= link_to "Fetch Lyrics", "javascript:void(0);", :class => "button-inline fetch-lyrics" %>
+        <%= link_to "Next", "javascript:void(0);", :class => "button-inline right button-primary", :id => "set-video" %>
+        <%= link_to "Publish", "javascript:void(0);", :class => "button-inline right button-primary publish", :id => "publish" %>
 
         <%= f.submit "Save song", :class => "btn" %>
     </div>
-<% end %>
+    <% end %>
 
     <div class="span3 offset1 notes">
       <h2>tips</h2>
 
-      <div id="step1">
-        <p>
-          Start by typing the artist's name and the song's title. Click <%= link_to "Fetch Lyrics", "javascript:void(0);", :class => "fetch-lyrics" %> so we can automatically fill them in for you.</p>
-        <p>
-          If we can't find them you will be able to paste them by hand.
-        </p>
-      </div>
+      <div class="bordered">
 
-      <div id="step2">
-        <p>
-          Awesome, we've found the lyrics for your song. You can begin to style them now:
-        </p>
-      </div>
+        <div id="step1" class="step-active">
+          <p>
+            Start by typing the artist's name and the song's title. Click <%= link_to "Fetch Lyrics", "javascript:void(0);", :class => "fetch-lyrics" %> so we can automatically fill them in for you.</p>
+          <p>
+            If we can't find them you will be able to paste them by hand.
+          </p>
+        </div>
 
-      <div id="step2-nolyrics">
-        <p>
-          Damn, we couldn't find the lyrics for your song. You can <%= link_to "search for them in Google", "" %> and paste them in the <%= link_to "big text field", "#song_lyrics" %>.
-        </p>
+        <div id="step2">
+          <p>
+            Awesome, we've found the lyrics for your song.
+          </p>
+          <p>
+            You can begin to style them now:
+          </p>
 
-        <p>
-          Once you've pasted the lyrics you can begin to style them:
-        </p>
-      </div>
+          <p>
+            Click <%= link_to "Next", "javascript:void(0);", :class => "set-video" %> when you're ready to continue.
+          </p>
+        </div>
 
-      <div id="step3">
-        <p>
-          We're almost done! If you want the song's page to include audio you should <%= link_to "find a video of the song in YouTube", ""%>, copy the URL and paste them in the <em>YouTube URL</em> field.
-        </p>
+        <div id="step2-nolyrics">
+          <p>
+            Damn, we couldn't find the lyrics for your song :(</p>
+          <p>
+            You can <%= link_to "search for them in Google", "" %> and paste them in the <%= link_to "big text field", "#song_lyrics" %>.
+          </p>
+
+          <p>
+            Once you've pasted the lyrics you can begin to style them:
+          </p>
+
+          <p>
+            Click <%= link_to "Next", "javascript:void(0);", :class => "set-video" %> when you're ready to continue.
+          </p>
+        </div>
+
+        <div id="step3">
+          <p>
+            We're almost done!
+          </p>
+          <p>
+            If you want the song's page to include audio you should <%= link_to "find a video of the song in YouTube", ""%>, copy the URL and paste them in the <em>YouTube URL</em> field.
+          </p>
+
+          <p>
+            Click <%= link_to "Publish", "javascript:void(0);", :class => "publish" %> when you're ready to share your song with the world.
+          </p>
+        </div>
       </div>
     </div>
   </div>
