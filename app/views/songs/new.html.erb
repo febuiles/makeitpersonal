@@ -4,31 +4,55 @@
 
 <div class="container">
   <div class="row">
-    <div class="span6 lyric">
+    <div class="span6 new-song">
+      <h2>create a new song</h2>
       <%= form_for @song do |f| %>
-        <%= f.label :artist, "Artist" %>
-        <%= f.text_field :artist, :autofocus => true %>
+        <%= f.text_field :artist, :placeholder => "Artist" %>
 
-        <%= f.label :title, "Song" %>
-        <%= f.text_field :title %>
+        <%= f.text_field :title, :placeholder => "Song Title" %>
 
-        <%= f.label :lyrics, "Lyrics" %>
-        <%= f.text_area :lyrics %>
+        <%= f.text_area :lyrics, :placeholder => "Lyrics go here..." %>
 
+        <%= f.text_field :youtube_url, :placeholder => "YouTube URL" %>
 
-        <%= f.label :title, "YouTube URL", :class => "small" %>
-        <%= f.text_field :youtube_url %>
-
-
-        <%= link_to "Fetch lyrics", "javascript:void(0);", :class => "btn", :id => "fetch-lyrics" %>
-
+        <%= link_to "Fetch Lyrics", "javascript:void(0);", :class => "button fetch-lyrics" %>
 
         <%= f.submit "Save song", :class => "btn" %>
     </div>
 <% end %>
 
     <div class="span3 offset1 notes">
-      Anthropomorphism or personification is any attribution of human characteristics (or characteristics assumed to belong only to humans) to other animals, non-living things, phenomena, material states, objects or abstract concepts, such as organizations, governments, spirits or deities. The term was coined in the mid 1700s.
+      <h2>tips</h2>
+
+      <div id="step1">
+        <p>
+          Start by typing the artist's name and the song's title. Click <%= link_to "Fetch Lyrics", "javascript:void(0);", :class => "fetch-lyrics" %> so we can automatically fill them in for you.</p>
+        <p>
+          If we can't find them you will be able to paste them by hand.
+        </p>
+      </div>
+
+      <div id="step2">
+        <p>
+          Awesome, we've found the lyrics for your song. You can begin to style them now:
+        </p>
+      </div>
+
+      <div id="step2-nolyrics">
+        <p>
+          Damn, we couldn't find the lyrics for your song. You can <%= link_to "search for them in Google", "" %> and paste them in the <%= link_to "big text field", "#song_lyrics" %>.
+        </p>
+
+        <p>
+          Once you've pasted the lyrics you can begin to style them:
+        </p>
+      </div>
+
+      <div id="step3">
+        <p>
+          We're almost done! If you want the song's page to include audio you should <%= link_to "find a video of the song in YouTube", ""%>, copy the URL and paste them in the <em>YouTube URL</em> field.
+        </p>
+      </div>
     </div>
   </div>
 </div>

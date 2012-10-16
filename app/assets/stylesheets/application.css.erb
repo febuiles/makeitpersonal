@@ -28,3 +28,30 @@ strong {
     font-style: normal;
 }
 
+div#spinner {
+  background-color: rgba(197, 197, 197, 0.9);
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  background-image: url("/assets/ajax-loader.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 350px;
+  left: 48%;
+  display: none;
+  z-index: 3;
+}
+
+div.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(197, 197, 197, 0.5);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
