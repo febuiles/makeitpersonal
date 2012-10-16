@@ -1,6 +1,8 @@
+<% title @song.name %>
+
 <div class="header">
   <%= link_to image_tag("logo-small.png"), root_path %>
-  <span>This is <%= link_to "#{@user.username}'s", "" %> take on <strong><%= @song.title %></strong> by <strong><%= @song.artist %></strong></span>
+  <span>This is <%= link_to "#{@user.username}'s", "" %> take on <strong><%= @song.title.titleize %></strong> by <strong><%= @song.artist.titleize %></strong></span>
   <%= link_to "Make your own", "", :class => "action" %>
 </div>
 

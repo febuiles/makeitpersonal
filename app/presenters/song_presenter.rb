@@ -8,7 +8,7 @@ module SongPresenter
   end
 
   def name
-    "#{artist} &mdash; #{title}".html_safe
+    "#{artist.titleize} &mdash; #{title.titleize}".html_safe
   end
 
   def body

@@ -61,6 +61,10 @@ var Lyric = function(outputField) {
   }
 
   var setVideo = function() {
+    if (outputField.val() === "") {
+      outputField.val("Please paste your lyrics here!")
+      return false;
+    }
     activateStep("step3");
     $("#song_youtube_url").show();
     $("#publish").show();
@@ -68,7 +72,7 @@ var Lyric = function(outputField) {
   }
 
   var publish = function() {
-
+    $("form#new_song").submit();
   }
 
   $("#set-video, .set-video").click(setVideo);
