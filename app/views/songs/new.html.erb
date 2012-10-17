@@ -36,6 +36,7 @@
           <p>
             If we can't find them you will be able to paste them by hand.
           </p>
+
         </div>
 
         <div id="step2">
@@ -45,6 +46,8 @@
           <p>
             You can begin to style them now:
           </p>
+
+          <%= render "tips" %>
 
           <p>
             Click <%= link_to "Next", "javascript:void(0);", :class => "set-video" %> when you're ready to continue.
@@ -61,6 +64,8 @@
           <p>
             Once you've pasted the lyrics you can begin to style them:
           </p>
+
+          <%= render "tips" %>
 
           <p>
             Click <%= link_to "Next", "javascript:void(0);", :class => "set-video" %> when you're ready to continue.
