@@ -12,7 +12,9 @@
 
     <div class="span3 offset1 notes">
       <%= @song.embed %>
-      Anthropomorphism or personification is any attribution of human characteristics (or characteristics assumed to belong only to humans) to other animals, non-living things, phenomena, material states, objects or abstract concepts, such as organizations, governments, spirits or deities. The term was coined in the mid 1700s.
+      <% @song.sidenotes.each do |note| %>
+        <p><%= note %></p>
+      <% end %>
     </div>
   </div>
 </div>

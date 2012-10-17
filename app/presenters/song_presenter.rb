@@ -1,4 +1,6 @@
 module SongPresenter
+  SIDENOTE_REGEX = /\[\[(.*?)\]\]/m
+
   def embed
     url = youtube_url
     return unless url.present?
@@ -11,8 +13,13 @@ module SongPresenter
     "#{artist.titleize} &mdash; #{title.titleize}".html_safe
   end
 
+  def sidenotes
+    lyrics.scan(SIDENOTE_REGEX).flatten.map(&:replace_newlines) || []
+  end
+
   def body
-    lyrics.gsub!(/\*(.*?)\*/m, '<em>\1</em>')
-    lyrics.gsub("\n", "<br/>").html_safe
+    body = lyrics.gsub(/\*(.*?)\*/m, '<em>\1</em>') # emph
+    body = body.gsub(SIDENOTE_REGEX, "")            # remove sidenotes
+    body.replace_newlines
   end
 end
