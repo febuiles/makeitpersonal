@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
   def owns?(song)
     songs.include?(song)
   end
+
+  def songs_by_date
+    songs.group_by { |x| x.created_at.to_date }
+  end
 end

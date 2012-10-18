@@ -24,6 +24,7 @@ class SongsController < ApplicationController
 
   def index
     @user = User.find_by_username(params[:username])
+    render_not_found unless @user
   end
 
   def show
