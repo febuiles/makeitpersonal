@@ -1,0 +1,12 @@
+<div class="span3 toolbar">
+  <% if current_user %>
+    <span class="icon white">K</span>
+    <%= link_to "new song", "", :class => "white" %> |
+    <%= link_to "settings", account_path %> |
+    <%= link_to "logout", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "about", "/", :class => "white" %> |
+    <%= link_to "sign up", new_user_registration_path %> |
+    <%= link_to "login", new_user_session_path %>
+  <% end %>
+</div>

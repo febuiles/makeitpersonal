@@ -11,7 +11,13 @@
       Click on them to highlight, comment, re-edit & share them.
     </p>
 
+    <% current_user.songs_by_date.each do |date, songs| %>
+      <h4><%= date.strftime("%b %d, %Y") %></h4>
 
-    <%= render :partial => "song", :collection => @user.songs %>
+      <% songs.each do |song| %>
+        <%= render song %>
+      <% end %>
+
+    <% end %>
   </div>
 </div>

@@ -4,7 +4,7 @@
 
 <div class="song-links">
   <span class="icon green">w</span>
-  <%= link_to "Share this song", "#share-modal-#{song.id}", :"data-toggle" => "modal" %>
+  <%= link_to "Share this song", "#share-modal-#{song.id}", data: { toggle: "modal", keyboard: true } %>
   &mdash;
   <em><%= link_to user_song_url(@user.username, song), user_song_url(@user.username, song) %></em><br/>
 
@@ -29,6 +29,6 @@
 
   </div>
   <div class="modal-footer">
-    <a href="#" data-dismiss="modal" class="btn btn-primary">Close</a>
+    <a href="#" data-dismiss="modal" class="button">Close</a>
   </div>
 </div>

@@ -1,36 +1,6 @@
-<% title @user.username %>
+<% title @user.username  %>
 
-<div class="row-fluid">
-  <div class="span12">
-    <div class="header">
-      <div class="row-fluid">
-        <div class="span1">
-          <%= link_to image_tag("logo-small.png"), root_path %>
-        </div>
-
-        <div class="span8">
-          <%= random_greeting_for_user %>
-        </div>
-
-        <div class="span3 toolbar">
-          <% if current_user %>
-            <%= link_to "Create New Song", new_song_path, :class => "toolbar-text" %>
-            <%= link_to(edit_user_registration_path, :class => "toolbar-icon", :rel => "tooltip", :data => { :placement => "bottom", :"original-title" => "Settings" }) do %>
-              <span class="icon">f</span>
-            <% end %>
-
-            <%= link_to(destroy_user_session_path, :class => "toolbar-icon", :rel => "nofollow", :method => :delete, :data => { :placement => "bottom", :"original-title" => "Logout" }) do %>
-              <span class="icon">X</span>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+<%= render "profile_header" %>
 
 <div class="row-fluid">
   <div class="span6 offset1 song-list">
