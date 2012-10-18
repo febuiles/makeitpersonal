@@ -8,6 +8,7 @@ class String
   end
 
   def replace_newlines
-    gsub!("\n", "<br/>").html_safe
+    gsub!(/(\r?\n){2,}/, "<br/><br/>")
+    gsub!(/(\r?\n)/, "<br/>").html_safe
   end
 end
