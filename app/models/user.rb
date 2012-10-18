@@ -31,4 +31,10 @@ class User < ActiveRecord::Base
   def songs_by_date
     songs.group_by { |x| x.created_at.to_date }
   end
+
+  def sample_songs
+    samples = []
+    return samples if songs.length < 2
+    songs.sample(3)
+  end
 end
