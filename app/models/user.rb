@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
   attr_accessible :email, :password, :remember_me, :login, :username, :twitter, :website
-
+  validates_presence_of :username
   validates_uniqueness_of :username
   after_create :send_welcome_email
 

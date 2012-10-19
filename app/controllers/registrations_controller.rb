@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  layout "application"
+  layout :set_layout
 
   def update
     @user = User.find(current_user.id)
@@ -16,6 +16,16 @@ class RegistrationsController < Devise::RegistrationsController
       redirect_to edit_user_registration_path, :notice => "Updated."
     else
       render "edit"
+    end
+  end
+
+  protected
+
+  def set_layout
+    if action_name == "edit"
+      "application"
+    else
+      "devise"
     end
   end
 end
