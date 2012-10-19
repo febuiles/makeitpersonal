@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :remember_me, :login, :username, :twitter, :website
 
   validates_uniqueness_of :username
+  after_create :send_welcome_email
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
@@ -36,5 +37,11 @@ class User < ActiveRecord::Base
     samples = []
     return samples if songs.length < 2
     songs.sample(3)
+  end
+
+  private
+
+  def send_welcome_email
+    WelcomeMailer.welcome(self).deliver
   end
 end
