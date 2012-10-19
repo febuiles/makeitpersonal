@@ -26,15 +26,5 @@
     <strong><%= link_to user_song_url(@user.username, @song) %></strong>
   </p>
 
-  <% if @user.sample_songs.present? %>
-
-  <%= image_tag "s-icon.png" %>
-  <p>
-    Check out <%= link_to @user.username, user_path(@user) %> notes on:<br/>
-    <% @user.sample_songs.each do |song| %>
-      <%= link_to song.name, user_song_path(@user.username, song) %><br/>
-    <% end %>
-
-  </p>
-<% end %>
+  <%= render "samples" %>
 </div>
