@@ -6,12 +6,15 @@
   <div class="row">
     <div class="span6 lyric">
       <p>
+        <%= @song.embed %>
+      </p>
+      <p>
         <%= @song.body %>
       </p>
     </div>
 
     <div class="span3 offset1 notes">
-      <%= @song.embed %>
+
       <% @song.sidenotes.each do |note| %>
         <p><%= note %></p>
       <% end %>
