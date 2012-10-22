@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>
-      <%= "#{yield(:title)} &mdash; ".html_safe if yield(:title) %>
+      <%= "#{yield(:title)} &mdash; ".html_safe if yield(:title).present? %>
       makeitpersonal
     </title>
     <%= stylesheet_link_tag    "application" %>
@@ -11,6 +11,7 @@
     <script type="text/javascript" src="//use.typekit.net/asb5tix.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <%= csrf_meta_tags %>
+    <%= render "ga" %>
   </head>
 
   <body>

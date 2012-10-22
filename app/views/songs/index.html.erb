@@ -1,4 +1,4 @@
-<% title @user.username  %>
+<% title "user: #{@user.username}"  %>
 
 <%= render "profile_header" %>
 
@@ -30,7 +30,7 @@
     <% if @user.website.present? %>
       <p class="big">
         <i class="icon-home"></i>
-        <%= link_to @user.website, @user.website %>
+        <%= link_to @user.website, "http://#{@user.website}" %>
       </p>
     <% end %>
 </div>
