@@ -2,7 +2,7 @@
   <% if current_user %>
     <span class="icon white">K</span>
     <%= link_to "new song", new_song_path, :class => "white" %> |
-    <%= link_to "settings", edit_user_registration_path %> |
+    <%= link_to "account", account_path %> |
     <%= link_to "logout", destroy_user_session_path, :method => :delete %>
   <% else %>
     <%= link_to "about", "/", :class => "white" %> |

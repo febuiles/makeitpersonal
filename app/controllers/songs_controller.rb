@@ -7,10 +7,14 @@ class SongsController < ApplicationController
   end
 
   def edit
-    @song = @user.songs.find(params[:id])
+    @song = current_user.songs.find(params[:id])
   end
 
   def update
+    @song = current_user.songs.find(params[:id])
+    if @song.update_attributes(params[:song])
+      redirect_to user_song_path(current_user.username, @song), :notice => "The song's been updated."
+    end
   end
 
   def create

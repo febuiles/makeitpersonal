@@ -4,6 +4,7 @@
 
 <div class="row-fluid">
   <div class="span6 offset1 song-list">
+    <h2>Songs</h2>
     <p>
       These are your songs. There are many like them but these ones <em>are yours</em>.<br/>
     </p>
@@ -19,5 +20,10 @@
       <% end %>
 
     <% end %>
+  </div>
+
+  <div class="span3 offset1 notes">
+    <h3><%= link_to "View your profile", user_path(current_user.username) %></h3>
+    <h3><%= link_to "Update settings", edit_user_registration_path(current_user) %></h3>
   </div>
 </div>

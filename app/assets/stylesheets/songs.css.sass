@@ -4,7 +4,7 @@ $orange: #bf4317
 $green: #7fcc41
 $blue: #0d0f1e
 $serif: "pt-serif", serif
-$sans: "proxima-nova", sans-serif
+$sans: "pt-sans", "proxima-nova", sans-serif
 $icons: "ModernPictogramsNormal"
 
 html, body
@@ -57,9 +57,10 @@ div.lyric
   line-height: 24px
   margin-bottom: 20px
   p
-    color: #9a9a9a
+    color: #bbb
     font-family: $sans
   em
+    font-family: $serif
     font-style: normal !important
     color: black
 
@@ -189,7 +190,7 @@ div.new-song
   textarea
     border: 1px solid #999
     width: 100%
-  #song_lyrics, #song_youtube_url, input[type="submit"]
+  #song_lyrics, #song_youtube_url
     display: none
 
 
@@ -198,6 +199,7 @@ div.notes
     margin-bottom: 25px
     color: $gray
   p
+    margin-top: 1em
     color: $lightGray
     &.big
       font-size: 1.25em

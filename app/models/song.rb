@@ -7,4 +7,9 @@ class Song < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :artist, :title, :lyrics
   friendly_id :title, :use => :slugged
+
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
 end
