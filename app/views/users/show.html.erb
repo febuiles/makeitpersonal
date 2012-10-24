@@ -30,7 +30,7 @@
 
   <div class="span3 offset1 notes">
     <h3><%= link_to "Create new song", new_song_path %></h3>
-    <h3><%= link_to "View your profile", user_path(current_user.username) %></h3>
+    <h3><%= link_to "View your profile", user_path(current_user) %></h3>
     <h3><%= link_to "Account information", edit_user_registration_path(current_user) %></h3>
   </div>
 </div>

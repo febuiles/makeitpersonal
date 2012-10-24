@@ -31,7 +31,7 @@
   <%= image_tag "cherry-icon.png" %>
   <p>
     Share this song:<br/>
-    <strong><%= link_to user_song_url(@user.username, @song) %></strong>
+    <strong><%= link_to user_song_url(@user, @song) %></strong>
   </p>
 
   <%= render "samples" %>
