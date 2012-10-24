@@ -8,7 +8,13 @@
       <p>
         <%= @song.embed %>
       </p>
+      <% if current_user and current_user.owns?(@song) %>
+        <p>
+          (<%= link_to "edit song", edit_song_path(@song) %>)
+        </p>
+      <% end %>
       <p>
+
         <%= @song.body %>
       </p>
     </div>
