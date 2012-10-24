@@ -5,12 +5,18 @@
 <div class="row-fluid">
   <div class="span6 offset1 song-list">
     <h2>Songs</h2>
-    <p>
-      These are your songs. There are many like them but these ones <em>are yours</em>.<br/>
-    </p>
-    <p>
-      Click on them to highlight, comment, re-edit & share them.
-    </p>
+    <% if current_user.songs.present? %>
+      <p>
+        These are your songs. There are many like them but these ones <em>are yours</em>.<br/>
+      </p>
+      <p>
+        Click on them to highlight, comment, re-edit & share them.
+      </p>
+    <% else %>
+      <p>
+        You don't seem to have any songs yet, feel like <%= link_to "creating your first one?", new_song_path %>
+      </p>
+    <% end %>
 
     <% current_user.songs_by_date.each do |date, songs| %>
       <h4><%= date.strftime("%b %d, %Y") %></h4>
@@ -23,6 +29,7 @@
   </div>
 
   <div class="span3 offset1 notes">
+    <h3><%= link_to "Create new song", new_song_path %></h3>
     <h3><%= link_to "View your profile", user_path(current_user.username) %></h3>
     <h3><%= link_to "Account information", edit_user_registration_path(current_user) %></h3>
   </div>

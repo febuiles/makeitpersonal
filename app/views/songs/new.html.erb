@@ -24,7 +24,15 @@
     <% end %>
 
     <div class="span3 offset1 notes">
+      <% if current_user.songs.present? %>
       <h2>tips</h2>
+    <% else %>
+      <h2 id="tips-title" data-content="Pay attention to these tips if you get lost in the process">tips</h2>
+      <script>
+        $("#tips-title").popover({ placement: "left"});
+        $("#tips-title").popover("toggle");
+      </script>
+      <% end %>
 
       <div class="bordered">
 
