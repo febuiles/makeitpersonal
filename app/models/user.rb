@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   end
 
   def songs_by_date
-    songs.group_by { |x| x.created_at.to_date }
+    songs.order("created_at DESC").group_by { |x| x.created_at.to_date }
   end
 
   def sample_songs
