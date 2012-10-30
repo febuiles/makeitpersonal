@@ -13,6 +13,7 @@ Makeitpersonal::Application.routes.draw do
   get "/disclaimer", to: "pages#disclaimer"
   get "/contact", to: "pages#contact"
   get "/credits", to: "pages#credits"
+  get "/manifesto", to: "pages#manifesto"
 
   resources :songs, :except => [:index, :show]
 

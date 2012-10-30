@@ -4,7 +4,6 @@
   <div class="landing-links">
     <% if current_user %>
       <%= link_to "my profile", account_path %>
-      <%= link_to "new song", new_song_path %>
       <%= link_to "logout", destroy_user_session_path, :method => :delete %>
     <% else %>
       <%= link_to "login", "javascript:void(0)", :id => "toggle-login-form" %>
