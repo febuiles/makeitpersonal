@@ -31,8 +31,7 @@ module Makeitpersonal
       g.orm :active_record
     end
 
-    config.assets.precompile += %w( "song/song.css" "landing.css" )
-
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += ["song/song.css", "landing.css"]
   end
 end
