@@ -27,7 +27,6 @@ class SongsController < ApplicationController
   end
 
   def index
-    @user = User.find_by_username(params[:username])
     render_not_found unless @user
   end
 
@@ -43,6 +42,6 @@ class SongsController < ApplicationController
 
   private
   def find_user
-    @user = User.find_by_username(params[:username])
+    @user = User.find_by_slug(params[:username].downcase)
   end
 end
