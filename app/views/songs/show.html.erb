@@ -8,7 +8,8 @@
 
       <% if current_user and current_user.owns?(@song) %>
         <p>
-          (<%= link_to "edit song", edit_song_path(@song) %>)
+          (<%= link_to "edit song", edit_song_path(@song) %> |
+          <%= link_to "delete", song_path(@song), :method => :delete, :style => "color: red" %>)
         </p>
       <% end %>
       <p>
