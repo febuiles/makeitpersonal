@@ -67,7 +67,8 @@ div.lyric
 div.lyric-extra
   width: 100%
   text-align: center
-  font-size: 15px
+  font-size: 22px
+  line-height: 28px
   margin-bottom: 55px
   img
     margin: 30px
@@ -76,6 +77,8 @@ div.lyric-extra
     font-weight: 600
   a
     color: $green
+    &.italic
+      font-style: italic
 
 
 .container-fluid
@@ -136,8 +139,6 @@ div.song-list
     font-size: 1.25em
     a
       color: $green
-    em
-      text-decoration: underline
   a.song-dropdown
     margin-top: 12px
     height: 30px
@@ -209,7 +210,7 @@ div.notes
       i
         display: inline
         margin-right: 3px
-  div.bordered
+  .bordered
     border-left: 1px solid #e5e5e5
     padding-left: 20px
 

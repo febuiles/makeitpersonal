@@ -6,7 +6,7 @@ module SongPresenter
     return unless url.present?
     return unless url.match(/youtube.com\/watch\?v=/)
     id = url.gsub(/.+v=(.\w+)/, "\\1")
-    "<iframe height='23' width='265' src='http://www.youtube.com/embed/#{id}?rel=0&autohide=0&fs=0&modestbranding=1&theme=light' frameborder='0' ></iframe>".html_safe
+    "<iframe  style='border: 10px solid #222' height='200' width='100%' src='http://www.youtube.com/embed/#{id}?rel=0&autohide=0&fs=0&modestbranding=1&theme=light' frameborder='0' ></iframe>".html_safe
   end
 
   def name

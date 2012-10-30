@@ -5,9 +5,7 @@
 <div class="container">
   <div class="row">
     <div class="span6 lyric">
-      <p>
-        <%= @song.embed %>
-      </p>
+
       <% if current_user and current_user.owns?(@song) %>
         <p>
           (<%= link_to "edit song", edit_song_path(@song) %>)
@@ -20,9 +18,17 @@
     </div>
 
     <div class="span3 offset1 notes">
+<p>
+
+        <%= @song.embed %>
+</p>
+
+
+
       <% @song.sidenotes.each do |note| %>
-        <p><%= note %></p>
+        <p class="bordered"><%= note %></p>
       <% end %>
+
     </div>
   </div>
 </div>
@@ -31,7 +37,7 @@
   <%= image_tag "cherry-icon.png" %>
   <p>
     Share this song:<br/>
-    <strong><%= link_to user_song_url(@user, @song) %></strong>
+    <em><%= link_to user_song_url(@user, @song) %></em>
   </p>
 
   <%= render "samples" %>
