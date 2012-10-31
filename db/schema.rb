@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121031050946) do
+ActiveRecord::Schema.define(:version => 20121031170411) do
 
   create_table "api_requests", :force => true do |t|
     t.string   "endpoint"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(:version => 20121031050946) do
     t.text     "lyrics"
     t.string   "artist"
     t.string   "title"
-    t.string   "username"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.string   "youtube_url"
