@@ -22,10 +22,6 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def set_layout
-    if action_name == "edit"
-      "application"
-    else
-      "devise"
-    end
+    action_name == "edit" ? "application" : "devise"
   end
 end
