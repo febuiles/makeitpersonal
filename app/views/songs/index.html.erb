@@ -17,23 +17,33 @@
   </div>
 
   <div class="span3 offset1 notes">
-<div class="bordered">
+    <div class="bordered">
 
-    <h2><%= @user.username %></h2>
-    <% if @user.twitter.present? %>
-      <p class="big">
-        <i class="icon-twitter"></i>
-        <%= link_to "@#{@user.twitter}", "http://twitter.com/#{@user.twitter}" %>
-      </p>
-    <% end %>
+      <% if @user.name.present? %>
+        <h2><%= @user.name %> (<%= @user.username %>)</h2>
+      <% else %>
+        <h2><%= @user.username %></h2>
+      <% end %>
 
-    <% if @user.website.present? %>
-      <p class="big">
-        <i class="icon-home"></i>
-        <%= link_to @user.website, "http://#{@user.website}" %>
+      <% if @user.twitter.present? %>
+        <p class="big">
+          <i class="icon-twitter"></i>
+          <%= link_to "@#{@user.twitter}", "http://twitter.com/#{@user.twitter}" %>
+        </p>
+      <% end %>
+
+      <% if @user.website.present? %>
+        <p class="big">
+          <i class="icon-home"></i>
+          <%= link_to @user.website, "http://#{@user.website}" %>
+        </p>
+      <% end %>
+
+      <p>
+        <%= @user.bio %>
       </p>
-    <% end %>
-</div>
+
+    </div>
   </div>
 </div>
 

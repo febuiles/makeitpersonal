@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   friendly_id :username, :use => :slugged
 
   attr_accessor :login
-  attr_accessible :email, :password, :remember_me, :login, :username, :twitter, :website
+  attr_accessible :email, :password, :remember_me, :login, :username, :twitter, :website, :name, :bio
   validates_presence_of :username
   validates_uniqueness_of :username
   validates_format_of :username, :with => /^[\w_]+$/
@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     samples = []
     return samples if songs.length < 2
     songs.sample(3)
+  end
+
+  def blank_profile?
+    twitter.blank? and website.blank?
   end
 
   private
