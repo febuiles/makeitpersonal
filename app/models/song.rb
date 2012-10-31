@@ -13,6 +13,10 @@ class Song < ActiveRecord::Base
     new_record?
   end
 
+  def incr
+    update_attribute(:visits, visits + 1)
+  end
+
   private
   def send_notifications
     SongMailer.new_song(self).deliver

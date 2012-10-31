@@ -32,6 +32,7 @@ class SongsController < ApplicationController
 
   def show
     @song = @user.songs.find(params[:id])
+    @song.try(:incr)
   end
 
   def destroy
