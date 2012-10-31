@@ -21,6 +21,8 @@ $(function(){
     var lyric = new Lyric();
     lyric.fetch($("#song_artist").val(), $("#song_title").val());
   });
+
+  $(".input-share").click(function(){ this.select(); })
 })
 
 

@@ -38,7 +38,7 @@
   <%= image_tag "cherry-icon.png" %>
   <p>
     Share this song:<br/>
-    <em><%= link_to user_song_url(@user, @song) %></em>
+    <input type="text" class="input-share"  value="<%= user_song_url(@user, @song) %>"/>
   </p>
 
   <%= render "samples" %>
