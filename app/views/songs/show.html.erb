@@ -23,13 +23,11 @@
         <%= @song.embed %>
       </p>
 
+      <div class="sidenotes">
       <% @song.sidenotes.each_with_index do |note, i| %>
-        <p class="bordered">
-          <span class="sidenote">[<%= i + 1 %>]</span>
           <%= note %>
-        </p>
       <% end %>
-
+      </div>
     </div>
   </div>
 </div>

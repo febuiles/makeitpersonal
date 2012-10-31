@@ -14,7 +14,12 @@ module SongPresenter
   end
 
   def sidenotes
-    lyrics.scan(SIDENOTE_REGEX).flatten.map(&:replace_newlines) || []
+    markdown = markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
+    notes = lyrics.scan(SIDENOTE_REGEX).flatten || []
+    notes.each_with_index.map do |note, i|
+      span = "<span class='sidenote'>#{i + 1}</span>"
+      markdown.render("[#{span}] #{note}").html_safe
+    end
   end
 
   # TODO: I got 99 problems... and these 3 regexes are in that list.

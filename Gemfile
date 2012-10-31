@@ -8,6 +8,7 @@ gem "airbrake"
 gem "devise"
 gem "twitter-bootstrap-rails"
 gem "friendly_id"
+gem "redcarpet"
 
 group :development, :test do
   gem "rspec-rails"
