@@ -19,15 +19,15 @@
     </div>
 
     <div class="span3 offset1 notes">
-<p>
-
+      <p>
         <%= @song.embed %>
-</p>
+      </p>
 
-
-
-      <% @song.sidenotes.each do |note| %>
-        <p class="bordered"><%= note %></p>
+      <% @song.sidenotes.each_with_index do |note, i| %>
+        <p class="bordered">
+          <span class="sidenote">[<%= i + 1 %>]</span>
+          <%= note %>
+        </p>
       <% end %>
 
     </div>
