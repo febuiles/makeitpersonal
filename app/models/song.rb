@@ -14,7 +14,7 @@ class Song < ActiveRecord::Base
   end
 
   def incr
-    update_attribute(:visits, visits + 1)
+    update_attribute(:views, views + 1)
   end
 
   private
