@@ -3,6 +3,10 @@ makeitpersonal
 
 This is an experiment in music sharing and loving.
 
+Lyric Sharing
+----
+[It looks like this](http://makeitpersonal.co/febuiles/two-suns-in-the-sunset). Sign up and start sharing!
+
 Lyric Fetching Service
 ----
 You can fetch lyrics from the website using a simple GET request to
@@ -13,12 +17,6 @@ You can fetch lyrics from the website using a simple GET request to
 
 If you want full instructions on how to create a script to automate this task or if you want to
 integrate this into your editor, check out [these instructions](https://gist.github.com/1549991).
-
-Lyric Sharing
-----
-I'm testing a lyric sharing service too, [it looks like
-this](http://makeitpersonal.co/user_lyrics/1). If you want to try it out just send me a tweet
-[@febuiles](http://twitter.com/febuiles) or drop me a line at [federico@mheroin.com](mailto:federico@mheroin.com)
 
 Bugs
 ----
