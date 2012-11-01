@@ -31,6 +31,7 @@ class SongsController < ApplicationController
   end
 
   def show
+    redirect_to root_path if params[:username] == "user_lyrics"
     @song = @user.songs.find(params[:id])
     @song.try(:incr)
   end
