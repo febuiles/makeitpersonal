@@ -1,6 +1,6 @@
 <%= link_to("javascript:void(0)", :class => "song-dropdown") do %>
   <%= song.name %> <span class="icon">[</span>
-<% end %>
+<% end %> - <%= song.user.username %>
 
 <div class="song-links">
   <span class="icon green">w</span>

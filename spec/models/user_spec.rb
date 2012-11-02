@@ -62,5 +62,26 @@ describe User do
         follower.follows?(followed).should be_true
       end
     end
+
+    describe "#timeline_songs" do
+
+      before do
+        FactoryGirl.create(:song, :user_id => followed.id)
+        FactoryGirl.create(:song, :user_id => follower.id)
+        follower.follow(followed)
+      end
+
+      it "returns the songs the user has uploaded" do
+        follower.songs.each do |song|
+          follower.timeline_songs[song.created_at.to_date].should include(song)
+        end
+      end
+
+      it "returns the songs that the followed_users have uploaded" do
+        followed.songs.each do |song|
+          follower.timeline_songs[song.created_at.to_date].should include(song)
+        end
+      end
+    end
   end
 end

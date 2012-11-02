@@ -51,8 +51,13 @@ class User < ActiveRecord::Base
     followed_users.include?(user)
   end
 
-  def songs_by_date
-    songs.order("created_at DESC").group_by { |x| x.created_at.to_date }
+  def timeline_songs
+    songs = recent_songs + followed_users.map(&:recent_songs).flatten
+    songs.group_by { |x| x.created_at.to_date }
+  end
+
+  def recent_songs
+    songs.order("created_at DESC")
   end
 
   def sample_songs
