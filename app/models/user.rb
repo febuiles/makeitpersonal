@@ -1,13 +1,12 @@
 class User < ActiveRecord::Base
   has_many :songs
   has_many :relationships, :foreign_key => "follower_id"
-  has_many :followed_users, through: :relationships
-  has_many :followers, through: :relationships, :source => :follower
+  has_many :followed_users, through: :relationships, :dependent => :destroy
+  has_many :followers, through: :relationships, :source => :follower, :dependent => :destroy
 
   extend FriendlyId
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   friendly_id :username, :use => :slugged
 
@@ -28,7 +27,6 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
-
 
   def update_with_password(params={})
     params.delete(:password) if params[:password].blank?
