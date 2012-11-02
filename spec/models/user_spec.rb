@@ -42,10 +42,16 @@ describe User do
         expect { follower.unfollow(followed) }.not_to change(follower.followed_users, :count)
       end
 
-      it "follows the user" do
+      it "unfollows the user" do
         follower.follow(followed)
         follower.unfollow(followed)
         follower.reload.followed_users.should_not include(followed)
+      end
+
+      it "shouldn't delete the user" do
+        follower.follow(followed)
+        follower.unfollow(followed)
+        expect { followed.reload }.not_to raise_error
       end
     end
 

@@ -25,6 +25,7 @@
 
     <% current_user.songs_by_date.each do |date, songs| %>
       <h4><%= date.strftime("%b %d, %Y") %></h4>
+      <br/><br/><br/>
 
       <% songs.each do |song| %>
         <%= render song %>

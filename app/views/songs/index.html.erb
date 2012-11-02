@@ -25,8 +25,13 @@
         <h2><%= @user.username %></h2>
       <% end %>
 
-      <%= link_to "Follow", "", :class => "button button-primary" %>
-      <%= link_to "Unfollow", "", :class => "button" %>
+      <% if current_user != @user %>
+        <% if current_user.follows?(@user) %>
+          <%= link_to "Unfollow", relationship_path(@user), :class => "button", :method => :delete %>
+        <% else %>
+          <%= link_to "Follow", relationships_path(:followed_id => @user.id), :class => "button button-primary", :method => :post %>
+        <% end %>
+      <% end %>
 
       <% if @user.twitter.present? %>
         <p class="big">

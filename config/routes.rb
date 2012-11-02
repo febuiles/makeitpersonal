@@ -16,7 +16,8 @@ Makeitpersonal::Application.routes.draw do
   get "/credits", to: "pages#credits"
   get "/manifesto", to: "pages#manifesto"
 
-  resources :songs, :except => [:index, :show]
+  resources :songs, except: [:index, :show]
+  resources :relationships
 
   # user
   get "/account", :to => "users#show", :as => "account"
