@@ -11,7 +11,7 @@ $icons: "ModernPictogramsNormal"
   background-color: $green
   width: 130px
   font-size: 22px
-  color: white
+  color: white !important
   font-weight: bold
   line-height: 40px
   cursor: pointer
@@ -29,6 +29,7 @@ $icons: "ModernPictogramsNormal"
   margin-right: 15px
 
 .button-primary
+  @include button
   color: $green !important
   background-color: $gray !important
 

@@ -13,6 +13,8 @@ html, body
 .icon
   font-family: $icons
   color: $green
+.icon-white
+  color: white
 .green
   color: $green
 
@@ -133,7 +135,7 @@ div.user-sidebar
       font-weight: 600
       text-decoration: none
 
-
+/* User profile
 div.song-list
   h4
     color: $gray
@@ -144,7 +146,12 @@ div.song-list
     font-size: 1.25em
     a
       color: $green
+  .icon
+    display: inline !important
+    line-height: 30px
+    font-size: 22px
   a.song-dropdown
+    border-radius: 3px
     margin-top: 12px
     height: 30px
     background-color: $gray
@@ -160,6 +167,25 @@ div.song-list
     span
       margin-left: 20px
       margin-right: 20px
+div.profile
+  a.button
+    text-decoration: none !important
+    padding: 10px
+    display: inline
+    border-radius: 3px
+    color: $green
+    background-color: $gray
+    text-decoration: none
+    &:hover
+      text-decoration: underline !important
+  a.button-primary
+    background-color: $green !important
+    color: white !important
+    padding: 10px
+    display: inline
+    border-radius: 3px
+
+
 
 div.song-links
   display: none

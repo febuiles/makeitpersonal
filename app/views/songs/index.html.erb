@@ -16,7 +16,7 @@
     <% end %>
   </div>
 
-  <div class="span3 offset1 notes">
+  <div class="span3 offset1 notes profile">
     <div class="bordered">
 
       <% if @user.name.present? %>
@@ -24,6 +24,9 @@
       <% else %>
         <h2><%= @user.username %></h2>
       <% end %>
+
+      <%= link_to "Follow", "", :class => "button button-primary" %>
+      <%= link_to "Unfollow", "", :class => "button" %>
 
       <% if @user.twitter.present? %>
         <p class="big">
