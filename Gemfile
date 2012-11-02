@@ -14,6 +14,7 @@ gem "rack-timeout"
 group :development, :test do
   gem "rspec-rails"
   gem "fabrication"
+  gem "factory_girl_rails"
 end
 
 group :assets do

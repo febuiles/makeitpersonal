@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
   has_many :songs
+  has_many :relationships, :foreign_key => "follower_id"
+  has_many :followed_users, through: :relationships
+  has_many :followers, through: :relationships, :source => :follower
+
   extend FriendlyId
 
   devise :database_authenticatable, :registerable,
@@ -9,11 +13,12 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
   attr_accessible :email, :password, :remember_me, :login, :username, :twitter, :website, :name, :bio
+
   validates_presence_of :username
   validates_uniqueness_of :username
   validates_format_of :username, :with => /^[\w_]+$/
-  after_create :send_welcome_email
 
+  after_create :send_welcome_email
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
@@ -34,6 +39,20 @@ class User < ActiveRecord::Base
     songs.include?(song)
   end
 
+  def follow(user)
+    return if followed_users.include?(user)
+    followed_users << user
+  end
+
+  def unfollow(user)
+    return unless followed_users.include?(user)
+    followed_users.find(user).delete
+  end
+
+  def follows?(user)
+    followed_users.include?(user)
+  end
+
   def songs_by_date
     songs.order("created_at DESC").group_by { |x| x.created_at.to_date }
   end
@@ -45,7 +64,10 @@ class User < ActiveRecord::Base
   end
 
   def blank_profile?
-    twitter.blank? and website.blank?
+    [:twitter, :website, :name, :bio].each do |field|
+      return false if send(field).present?
+    end
+    true
   end
 
   private
