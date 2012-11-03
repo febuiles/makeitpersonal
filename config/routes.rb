@@ -9,6 +9,7 @@ Makeitpersonal::Application.routes.draw do
     get "/account/settings" => "registrations#edit", :as => :edit_user_registration
   end
 
+  get "/user_lyrics/:id", to: "pages#index" # workaround v1.
   get "/lyrics", :to => "lyrics#lyrics", :as => "fetch_lyrics"
   get "/disclaimer", to: "pages#disclaimer"
   get "/contact", to: "pages#contact"
