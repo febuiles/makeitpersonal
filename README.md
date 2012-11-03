@@ -1,7 +1,7 @@
 makeitpersonal
 ===
 
-This is an experiment in music sharing and loving.
+This is an experiment in music sharing.
 
 Lyric Sharing
 ----
@@ -20,4 +20,4 @@ integrate this into your editor, check out [these instructions](https://gist.git
 
 Bugs
 ----
-Both services are pretty buggy right now, if you have any problems please file a bug in the [issue tracker](https://github.com/febuiles/makeitpersonal/issues).
+Plese file bugs and requests in the [issue tracker](https://github.com/febuiles/makeitpersonal/issues).
