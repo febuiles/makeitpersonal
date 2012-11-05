@@ -15,6 +15,9 @@ Makeitpersonal::Application.routes.draw do
   get "/contact", to: "pages#contact"
   get "/credits", to: "pages#credits"
   get "/manifesto", to: "pages#manifesto"
+  get "/:username/followers", to: "relationships#followers", :as => :followers
+  get "/:username/following", to: "relationships#following", :as => :followings
+
 
   resources :songs, except: [:index, :show]
   resources :relationships

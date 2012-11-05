@@ -1,0 +1,22 @@
+<% title "#{@user.username} followers" %>
+
+<%= render "follow_header" %>
+
+<div class="row-fluid">
+  <div class="span6 offset1 account-header">
+    <h2><%= "#{@user.username}'s followers" %></h2>
+  </div>
+
+  <%= render "shared/profile_sidebar" %>
+</div>
+
+<div class="row-fluid">
+  <div class="span7 offset1 profile-content">
+    <ul>
+      <% @user.followers.each do |follower| %>
+        <li><%= follower.display_name %> - View Profile | Follow </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+

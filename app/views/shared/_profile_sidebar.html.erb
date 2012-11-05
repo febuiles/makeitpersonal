@@ -1,0 +1,36 @@
+<div class="span3 offset1 notes profile">
+  <div class="bordered">
+    <h2><%= @user.display_name %></h2>
+
+    <% if current_user and current_user != @user %>
+      <% if current_user.follows?(@user) %>
+        <%= link_to "Unfollow", relationship_path(@user), :class => "button", :method => :delete %>
+      <% else %>
+        <%= link_to "Follow", relationships_path(:followed_id => @user.id), :class => "button button-primary", :method => :post %>
+      <% end %>
+    <% end %>
+
+    <p class="profile-followers">
+      <strong><%= @user.followers.count %></strong> <%= link_to "Followers", followers_path(@user) %><br/>
+      <strong><%= @user.followed_users.count %></strong> <%= link_to "Following", followers_path(@user) %>
+    </p>
+
+    <% if @user.twitter.present? %>
+      <p class="big">
+        <i class="icon-twitter"></i>
+        <%= link_to "@#{@user.twitter}", "http://twitter.com/#{@user.twitter}" %>
+      </p>
+    <% end %>
+
+    <% if @user.website.present? %>
+      <p class="big">
+        <i class="icon-home"></i>
+        <%= link_to @user.website, "http://#{@user.website}" %>
+      </p>
+    <% end %>
+
+    <p>
+      <%= @user.bio %>
+    </p>
+  </div>
+</div>

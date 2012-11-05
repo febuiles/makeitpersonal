@@ -1,5 +1,13 @@
 class RelationshipsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:create, :destroy]
+
+  def followers
+    @user = User.find(params[:username])
+  end
+
+  def following
+    @user = User.find(params[:username])
+  end
 
   def create
     followed = User.find(params[:followed_id])
