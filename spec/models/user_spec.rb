@@ -32,6 +32,7 @@ describe User do
       it "follows the user" do
         follower.follow(followed)
         follower.reload.followed_users.should include(followed)
+        followed.followers.should include(follower)
       end
     end
 
@@ -60,6 +61,24 @@ describe User do
         follower.follows?(followed).should be_false
         follower.follow(followed)
         follower.follows?(followed).should be_true
+      end
+    end
+
+    describe "#followers" do
+      let(:another_follower) { FactoryGirl.create(:user) }
+      it "returns a list of followers" do
+        follower.follow(followed)
+        another_follower.follow(followed)
+        followed.reload.followers.should == [follower, another_follower]
+      end
+    end
+
+    describe "#followed_users" do
+      let(:another_followed) { FactoryGirl.create(:user) }
+      it "returns a list of followed users" do
+        follower.follow(followed)
+        follower.follow(another_followed)
+        follower.reload.followed_users.should == [followed, another_followed]
       end
     end
 

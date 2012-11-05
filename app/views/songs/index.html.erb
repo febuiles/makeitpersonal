@@ -20,6 +20,11 @@
         <% end %>
       <% end %>
 
+      <p class="profile-followers">
+        <strong><%= @user.followers.count %></strong> Followers<br/>
+        <strong><%= @user.followed_users.count %></strong> Following
+      </p>
+
       <% if @user.twitter.present? %>
         <p class="big">
           <i class="icon-twitter"></i>

@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
   has_many :songs
-  has_many :relationships, :foreign_key => "follower_id"
-  has_many :followed_users, through: :relationships, :dependent => :destroy
-  has_many :followers, through: :relationships, :source => :follower, :dependent => :destroy
+  has_many :relationships, foreign_key: "follower_id", :dependent => :destroy
+  has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship"
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :followers, through: :reverse_relationships
+
 
   extend FriendlyId
   include UserPresenter
@@ -40,16 +42,16 @@ class User < ActiveRecord::Base
 
   def follow(user)
     return if followed_users.include?(user)
-    followed_users << user
+    relationships.create!(followed_id: user.id)
   end
 
   def unfollow(user)
     return unless followed_users.include?(user)
-    relationships.find_by_followed_user_id(user.id).destroy
+    relationships.find_by_followed_id(user.id).destroy
   end
 
   def follows?(user)
-    followed_users.include?(user)
+    relationships.find_by_followed_id(user.id)
   end
 
   def timeline_songs
