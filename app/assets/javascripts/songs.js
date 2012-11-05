@@ -1,6 +1,6 @@
 $(function(){
   $("a.song-dropdown").click(function(){
-    $(this).next(".song-links").slideToggle();
+    $(this).parent().next(".song-links").slideToggle();
   });
 
  $("#song_artist, #song_title").keyup( function(event) {

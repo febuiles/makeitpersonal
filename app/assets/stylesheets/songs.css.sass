@@ -10,6 +10,10 @@ $icons: "ModernPictogramsNormal"
 html, body
   height: 100%
 
+h3
+  font-weight: normal
+  text-decoration: underline
+  font-size: 1.5em
 .icon
   font-family: $icons
   color: $green
@@ -40,14 +44,9 @@ div.header
   margin-bottom: 50px
   img
     margin-left: 15px
-  a
-    color: $green
-    &:hover
-      color: $green
   div.toolbar
     color: white
     a
-      color: $green
       display: inline
 
 
@@ -55,8 +54,6 @@ div.lyric
   font-size: 18px
   line-height: 24px
   margin-bottom: 20px
-  a, a:hover
-    color: $green
   p
     color: #bbb
     font-family: "pt-sans"
@@ -82,16 +79,11 @@ div.lyric-extra
     font-family: $sans
     font-size: 32px
     width: 600px
-  a
-    color: $green
-    &.italic
-      font-style: italic
-
+  a.italic
+    font-style: italic
 
 .container-fluid
   margin-bottom: 50px
-
-
 
 footer
   margin-top: -85px
@@ -105,8 +97,6 @@ footer
   & > *
     float: left
     display: block
-  a, a:hover
-    color: $green
   .mid
     text-align: center
     margin-top: 10px
@@ -136,44 +126,59 @@ div.user-sidebar
       text-decoration: none
 
 /* User profile
-div.song-list
-  h4
-    color: $gray
-    margin-top: 40px
+div.account-header
   h2
-    color: $green
+    color: $gray
   p
     font-size: 1.25em
-    a
-      color: $green
-  .icon
-    display: inline !important
-    line-height: 30px
-    font-size: 22px
-  a.song-dropdown
-    border-radius: 3px
-    margin-top: 12px
-    height: 30px
-    background-color: $gray
-    display: inline-block
-    min-width: 250px
-    color: white
-    font-size: 18px
-    font-family: $serif
-    line-height: 28px
-    padding-left: 10px
-    &:hover
-      text-decoration: none
-    span
-      margin-left: 20px
-      margin-right: 20px
+
+div.song-list
+  margin-top: -80px
+  span.date
+    text-align: center
+    color: #c8c8c8
+
+  .row-jump
+    margin-left: 30px
+    margin-bottom: 20px
+    .bordered p
+      margin-bottom: 20px
+
+    span.by
+      color: $gray
+      margin-left: 10px
+      a
+        color: $gray
+        text-decoration: underline
+    a.song
+      padding: 5px 10px 5px 10px
+      margin-top: 12px
+      height: 30px
+      font-size: 18px
+      font-family: $serif
+      i
+        margin-left: 20px
+        font-size: 0.7em
+        line-height: 23px
+      &:hover
+        text-decoration: none
+      &.song-dropdown
+        background-color: $gray
+        color: white !important
+        i
+          color: $green
+      &.song-borrowed
+        background-color: #e8e8e8 !important
+        color: black !important
+        i
+          color: $gray
+
 div.profile
   a.button
     text-decoration: none !important
     padding: 10px
     display: inline
     border-radius: 3px
-    color: $green
     background-color: $gray
     text-decoration: none
     &:hover
@@ -239,14 +244,10 @@ div.notes
     &.big
       font-size: 1.25em
       i
+        line-height: normal !important
         display: inline
         margin-right: 3px
-  .bordered
-    border-left: 1px solid #e5e5e5
-    padding-left: 20px
-
   a
-    color: $green !important
     text-decoration: underline !important
   div.sidenotes
     p
@@ -272,3 +273,11 @@ span.sidenote
 textarea#user_bio
   width: 265px
   height: 150px
+
+.bordered
+  border-left: 1px solid #e5e5e5
+  padding-left: 20px
+
+.centered
+  text-align: center
+

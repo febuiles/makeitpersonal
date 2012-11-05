@@ -3,9 +3,9 @@
 <%= render "profile_header" %>
 
 <div class="row-fluid">
-  <div class="span6 offset1 song-list">
+  <div class="span6 offset1 account-header">
     <h2>recent songs</h2>
-    <% @user.songs_by_date.each do |date, songs| %>
+    <% @user.timeline_songs.each do |date, songs| %>
       <h4><%= date.strftime("%b %d, %Y") %></h4>
       <% songs.each do |song| %>
         <%= link_to(user_song_path(@user.username, song), :class => "song-dropdown") do %>
