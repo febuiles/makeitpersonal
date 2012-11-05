@@ -36,6 +36,14 @@ class User < ActiveRecord::Base
     update_attributes(params)
   end
 
+  def followers
+    super.order("created_at DESC")
+  end
+
+  def followed_users
+    super.order("created_at DESC")
+  end
+
   def owns?(song)
     songs.include?(song)
   end

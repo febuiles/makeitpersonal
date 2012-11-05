@@ -12,7 +12,7 @@
 
     <p class="profile-followers">
       <strong><%= @user.followers.count %></strong> <%= link_to "Followers", followers_path(@user) %><br/>
-      <strong><%= @user.followed_users.count %></strong> <%= link_to "Following", followers_path(@user) %>
+      <strong><%= @user.followed_users.count %></strong> <%= link_to "Following", followings_path(@user) %>
     </p>
 
     <% if @user.twitter.present? %>

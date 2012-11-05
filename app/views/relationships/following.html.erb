@@ -1,4 +1,4 @@
-<% title "#{@user.username} followed users" %>
+<% title "#{@user.username}" %>
 
 <%= render "follow_header" %>
 
@@ -12,11 +12,7 @@
 
 <div class="row-fluid">
   <div class="span7 offset1 profile-content">
-    <ul>
-      <% @user.followed_users.each do |followed| %>
-        <li><%= followed.display_name %> - View Profile | Follow </li>
-      <% end %>
-    </ul>
+    <%= render partial: "user", collection: @user.followed_users  %>
   </div>
 </div>
 
