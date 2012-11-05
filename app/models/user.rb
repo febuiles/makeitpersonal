@@ -61,6 +61,10 @@ class User < ActiveRecord::Base
     songs.order("created_at DESC")
   end
 
+  def recent_songs_by_date
+    recent_songs.group_by { |x| x.created_at.to_date }
+  end
+
   def sample_songs
     samples = []
     return samples if songs.length < 2

@@ -6,20 +6,12 @@
 <div class="row-fluid">
   <div class="span6 offset1 account-header">
     <h2>recent songs</h2>
-    <% @user.timeline_songs.each do |date, songs| %>
-      <h4><%= date.strftime("%b %d, %Y") %></h4>
-      <% songs.each do |song| %>
-        <%= link_to(user_song_path(@user.username, song), :class => "song-dropdown") do %>
-          <%= song.name %> <span class="icon">P</span>
-        <% end %>
-        <br/>
-      <% end %>
-    <% end %>
   </div>
 
   <div class="span3 offset1 notes profile">
     <div class="bordered">
       <h2><%= @user.display_name %></h2>
+
       <% if current_user != @user %>
         <% if current_user.follows?(@user) %>
           <%= link_to "Unfollow", relationship_path(@user), :class => "button", :method => :delete %>
@@ -45,7 +37,32 @@
       <p>
         <%= @user.bio %>
       </p>
-
     </div>
   </div>
+
 </div>
+
+<div class="row-fluid">
+  <div class="span8 song-list">
+    <% @user.recent_songs_by_date.each do |date, songs| %>
+      <div class="row-fluid row-jump">
+        <div class="span1 centered">
+          <span class="date"><%= date.strftime("%b. %d").downcase %></span>
+        </div>
+
+        <div class="span8 bordered">
+          <% songs.each do |song| %>
+            <p>
+
+              <%= link_to(user_song_path(@user, song), :class => "song song-dropdown") do %>
+                <%= song.name %>
+                <i class="icon-arrow-right"></i>
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
