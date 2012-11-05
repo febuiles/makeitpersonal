@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :relationships, :source => :follower, :dependent => :destroy
 
   extend FriendlyId
+  include UserPresenter
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
