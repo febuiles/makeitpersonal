@@ -12,11 +12,29 @@
 
 <div class="row-fluid">
   <div class="span7 offset1 profile-content">
-    <ul>
-      <% @user.followers.each do |follower| %>
-        <li><%= follower.display_name %> - View Profile | Follow </li>
-      <% end %>
-    </ul>
+    <% @user.followers.each do |follower| %>
+      <div class="user-info">
+        <%= link_to follower.gravatar, follower %>
+        <p>
+          <strong><%= link_to follower.display_name, follower, :class => "title" %></strong><br/>
+          <em><%= follower.bio %></em><br/>
+          <% if follower.recent_songs.present? %>
+          Most recent song: <%= link_to follower.recent_songs.first.name, follower.recent_songs.first %>
+          <% end %>
+          <br/>
+          <%= link_to "View Profile", follower, :class => "dark" %>
+          <% if current_user and current_user != follower %>
+            <% if current_user.follows?(follower) %>
+              <%= link_to "Unfollow", relationship_path(follower), :method => :delete, :class => "dark" %>
+            <% else %>
+              <%= link_to "Follow".html_safe, relationships_path(:followed_id => follower.id), :class => "dark"  %>
+            <% end %>
+          <% end %>
+        </p>
+
+      </div>
+        <hr />
+    <% end %>
   </div>
 </div>
 
