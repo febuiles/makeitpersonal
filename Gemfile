@@ -9,6 +9,7 @@ gem "devise"
 gem "twitter-bootstrap-rails"
 gem "friendly_id"
 gem "redcarpet"
+gem "rack-timeout"
 
 group :development, :test do
   gem "rspec-rails"
