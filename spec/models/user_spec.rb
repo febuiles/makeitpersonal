@@ -66,24 +66,25 @@ describe User do
 
     describe "#followers" do
       let(:another_follower) { FactoryGirl.create(:user) }
-      it "returns a list of followers" do
+
+      it "returns a list of followers in descending order" do
         follower.follow(followed)
         another_follower.follow(followed)
-        followed.reload.followers.should == [follower, another_follower]
+        followed.reload.followers.should == [another_follower, follower]
       end
     end
 
     describe "#followed_users" do
       let(:another_followed) { FactoryGirl.create(:user) }
-      it "returns a list of followed users" do
+
+      it "returns a list of followed users in descending order" do
         follower.follow(followed)
         follower.follow(another_followed)
-        follower.reload.followed_users.should == [followed, another_followed]
+        follower.reload.followed_users.should == [another_followed, followed]
       end
     end
 
     describe "#timeline_songs" do
-
       before do
         FactoryGirl.create(:song, :user_id => followed.id)
         FactoryGirl.create(:song, :user_id => follower.id)
@@ -91,15 +92,21 @@ describe User do
       end
 
       it "returns the songs the user has uploaded" do
-        follower.songs.each do |song|
-          follower.timeline_songs[song.created_at.to_date].should include(song)
+        follower.songs.each_with_index do |song, i|
+          follower.timeline_songs[i][0].should == song.created_at.to_date
+          follower.timeline_songs[i][1].should include(song)
         end
       end
 
       it "returns the songs that the followed_users have uploaded" do
-        followed.songs.each do |song|
-          follower.timeline_songs[song.created_at.to_date].should include(song)
+        followed.songs.each_with_index do |song, i|
+          follower.timeline_songs[i][0].should == song.created_at.to_date
+          follower.timeline_songs[i][1].should include(song)
         end
+      end
+
+      it "sorts the songs by descending date" do
+        follower.timeline_songs.sort.should == follower.timeline_songs.reverse
       end
     end
   end

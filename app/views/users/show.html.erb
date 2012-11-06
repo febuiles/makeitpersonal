@@ -17,24 +17,17 @@
       </p>
     <% end %>
   </div>
-  <div class="span3 offset1 bordered">
-    <h2>actions</h2>
-    <h3><%= link_to "Create new song", new_song_path %></h3>
-    <h3><%= link_to "View your profile", user_path(current_user) %></h3>
-    <h3><%= link_to "Account information", edit_user_registration_path %></h3>
-  </div>
-
 </div>
 
 <div class="row-fluid">
-  <div class="span9 song-list">
+  <div class="span8 song-list">
     <% current_user.timeline_songs.each do |date, songs| %>
       <div class="row-fluid row-jump">
         <div class="span1 centered">
           <span class="date"><%= date.strftime("%b. %d").downcase %></span>
         </div>
 
-        <div class="span9 bordered">
+        <div class="span10 bordered">
           <% songs.each do |song| %>
             <p><%= render song %></p>
           <% end %>
@@ -42,5 +35,12 @@
       </div>
     <% end %>
   </div>
+  <div class="span3 bordered profile">
+    <h2>actions</h2>
+    <h3><%= link_to "Create new song", new_song_path %></h3>
+    <h3><%= link_to "View your profile", user_path(current_user) %></h3>
+    <h3><%= link_to "Account information", edit_user_registration_path %></h3>
+  </div>
+
 </div>
 
