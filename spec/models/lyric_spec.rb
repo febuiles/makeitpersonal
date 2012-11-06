@@ -13,7 +13,7 @@ describe Lyric do
   end
 
   context "callbacks" do
-    let(:lyric) { Fabricate(:lyric) }
+    let(:lyric) { FactoryGirl.create(:lyric) }
 
     it "formats the artist and title before saving them to the database" do
       lyric.artist.should == "the-gaslight-anthem"
@@ -29,7 +29,7 @@ describe Lyric do
 
   context ".by_params" do
     it "formats the params array and returns the matching lyrics" do
-      lyric = Fabricate(:lyric)
+      lyric = FactoryGirl.create(:lyric)
       Lyric.by_params(params).should == lyric
     end
 
