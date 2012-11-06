@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe ApiRequest do
+
   describe "incr" do
-    let!(:counter) { ApiRequest.find_by_endpoint("/lyrics") }
+    before { ApiRequest.incr }
 
     it "creates the endpoint DB entry if it doesn't exist" do
       ApiRequest.incr("/lyrics")
