@@ -1,10 +1,10 @@
 class LyricsController < ApplicationController
+  skip_before_filter :track_visit
   before_filter :validate_params
 
   def lyrics
-    ApiRequest.incr             # hack but Heroku log processing sucks.
     @lyric = Lyric.by_params(params[:lyric] || params)
-
+    mixpanel.track 'API Request', { artist: @lyric.artist, title: @lyric.title }
     if @lyric.fetch_and_save
       render @lyric
     else

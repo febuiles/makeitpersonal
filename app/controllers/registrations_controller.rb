@@ -1,6 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
   layout :set_layout
 
+  def create
+    super
+    mixpanel.append_track "User Signup", { :user_id => resource.id }
+  end
+
   def update
     @user = User.find(current_user.id)
     password_changed = !params[:user][:password].empty?
@@ -23,5 +28,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   def set_layout
     action_name == "edit" ? "application" : "devise"
+  end
+
+  def mixpanel
+    @mixpanel ||= Mixpanel::Tracker.new ENV["MIXPANEL_TOKEN"], { :env => request.env, persist: true }
   end
 end
