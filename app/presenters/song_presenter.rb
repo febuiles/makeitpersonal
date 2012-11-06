@@ -5,7 +5,8 @@ module SongPresenter
     url = youtube_url
     return unless url.present?
     return unless url.match(/youtube.com\/watch\?v=/)
-    id = url.gsub(/.+v=(\w+)&?/, "\\1")
+    query = URI.parse(url).query
+    id = CGI.parse(query)["v"].first
     "<iframe  style='border: 10px solid #222' height='230' width='230' src='http://www.youtube.com/embed/#{id}?rel=0&autohide=1&fs=0&modestbranding=1&theme=light' frameborder='0' ></iframe>".html_safe
   end
 
