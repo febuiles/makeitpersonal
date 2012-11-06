@@ -11,6 +11,6 @@ module UserPresenter
 
   def gravatar
     hash = Digest::MD5.hexdigest(email.downcase)
-    "<img class='avatar' src='http://www.gravatar.com/avatar/#{hash}?d=mm' />".html_safe
+    "<img class='avatar' src='http://www.gravatar.com/avatar/#{hash}?d=mm&s=80' />".html_safe
   end
 end
