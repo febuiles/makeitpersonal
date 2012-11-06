@@ -4,7 +4,7 @@
 
 <div class="row-fluid">
   <div class="span6 offset1 account-header">
-    <h2><%= "#{@user.username}'s followers" %></h2>
+    <h2><%= "#{@user.username.possessive} followers" %></h2>
   </div>
 
   <%= render "shared/profile_sidebar" %>

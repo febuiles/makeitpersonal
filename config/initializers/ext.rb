@@ -11,4 +11,12 @@ class String
     gsub!(/(\r?\n){2,}/, "<br/><br/>")
     gsub(/(\r?\n)/, "<br/>").html_safe
   end
+
+  def possessive
+    if self[-1, 1] == "s"
+      "#{self}'"
+    else
+      "#{self}'s"
+    end
+  end
 end
