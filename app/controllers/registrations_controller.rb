@@ -1,9 +1,14 @@
 class RegistrationsController < Devise::RegistrationsController
   layout :set_layout
 
+  def new
+    super
+    mixpanel.append_track "Visit Signup Page", { :user_id => resource.id }
+  end
+
   def create
     super
-    mixpanel.append_track "User Signup", { :user_id => resource.id }
+    mixpanel.append_track "User Signup", { :user_id => resource.id }p
   end
 
   def update
