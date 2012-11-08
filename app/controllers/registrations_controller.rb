@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    mixpanel.append_track "User Signup", { :user_id => resource.id }p
+    mixpanel.append_track "User Signup", { :user_id => resource.id }
   end
 
   def update
