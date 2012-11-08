@@ -2,7 +2,11 @@ class PagesController < ApplicationController
   layout 'landing'
 
   def index
-    redirect_to account_path if current_user
+    if current_user
+      redirect_to account_path
+    else
+      mixpanel.append_track "Visits Landing"
+    end
   end
 
   def manifesto
