@@ -1,17 +1,15 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  include UserPresenter
+
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  friendly_id :username, :use => :slugged
+
   has_many :songs
   has_many :relationships, foreign_key: "follower_id", :dependent => :destroy
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship"
   has_many :followed_users, through: :relationships, source: :followed
   has_many :followers, through: :reverse_relationships
-
-
-  extend FriendlyId
-  include UserPresenter
-
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
-
-  friendly_id :username, :use => :slugged
 
   attr_accessor :login
   attr_accessible :email, :password, :remember_me, :login, :username, :twitter, :website, :name, :bio
