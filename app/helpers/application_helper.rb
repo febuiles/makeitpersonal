@@ -13,7 +13,7 @@ module ApplicationHelper
                  "Buongiorno, Principessa, err... #{user}.",
                  "Welcome back #{user}. We still think music can heal any wound.",
                 ]
-    content_tag(:p, greetings.last.html_safe)
+    content_tag(:p, greetings.sample.html_safe)
   end
 
   def random_sign_up_request

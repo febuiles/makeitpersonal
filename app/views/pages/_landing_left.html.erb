@@ -3,17 +3,17 @@
 
   <div class="landing-links">
     <% if current_user %>
-      <%= link_to "my profile", account_path %>
-      <%= link_to "logout", destroy_user_session_path, :method => :delete %>
+      <%= link_to "my profile", account_path, :class => "big-box" %>
+      <%= link_to "logout", destroy_user_session_path, :class => "big-box", :method => :delete %>
     <% else %>
-      <%= link_to "login", "javascript:void(0)", :id => "toggle-login-form" %>
+      <%= link_to "login", "javascript:void(0)", :class => "big-box", :id => "toggle-login-form" %>
       <div class="login">
         <%= form_for("user", :url => user_session_path) do |f| %>
           <%= render "shared/login", :f => f %>
         <% end %>
         <div style="clear: both"></div>
       </div>
-      <%= link_to "sign up", new_user_registration_path %>
+      <%= link_to "sign up", new_user_registration_path, :class => "big-box" %>
     <% end %>
   </div>
 
