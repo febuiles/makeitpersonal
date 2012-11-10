@@ -15,7 +15,8 @@ module SongPresenter
   end
 
   def sidenotes
-    markdown = markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
+    renderer = Redcarpet::Render::HTML.new(filter_html: true)
+    markdown = Redcarpet::Markdown.new(renderer, :autolink => true, :space_after_headers => true)
     notes = lyrics.scan(SIDENOTE_REGEX).flatten || []
     notes.each_with_index.map do |note, i|
       span = "<span class='sidenote'>[#{i + 1}]</span>"
