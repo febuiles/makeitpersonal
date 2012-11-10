@@ -7,7 +7,6 @@ module ApplicationHelper
     user = "<span class=\"green\">#{ current_user.username }</span>"
     greetings = ["Hey #{user}, long time no see!",
                  "Welcome back #{user}.",
-                 "Welcome back #{user}.",
                  "Hola #{user}.",
                  "Hey #{user}, how\'s it going?",
                  "Buongiorno, Principessa, err... #{user}.",
