@@ -2,7 +2,7 @@ class Song < ActiveRecord::Base
   include SongPresenter
   extend FriendlyId
 
-  scope :recent, order("created_at DESC")
+  scope :recent, order("id DESC")
 
   belongs_to :user
   validates_presence_of :artist, :title, :lyrics
