@@ -7,10 +7,13 @@ module ApplicationHelper
     user = "<span class=\"green\">#{ current_user.username }</span>"
     greetings = ["Hey #{user}, long time no see!",
                  "Welcome back #{user}.",
+                 "Welcome back #{user}.",
                  "Hola #{user}.",
                  "Hey #{user}, how\'s it going?",
-                 "Buongiorno, Principessa, err... #{user}."]
-    content_tag(:p, greetings.sample.html_safe)
+                 "Buongiorno, Principessa, err... #{user}.",
+                 "Welcome back #{user}. We still think music can heal any wound.",
+                ]
+    content_tag(:p, greetings.last.html_safe)
   end
 
   def random_sign_up_request
