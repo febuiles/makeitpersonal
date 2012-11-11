@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
   def mixpanel
-    @mixpanel ||= Mixpanel::Tracker.new ENV["MIXPANEL_TOKEN"], { :env => request.env, persist: true }
+    @mixpanel ||= Mixpanel::Tracker.new ENV["MIXPANEL_TOKEN"], { persist: true }
   end
 end
