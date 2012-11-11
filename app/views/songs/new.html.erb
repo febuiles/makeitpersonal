@@ -27,9 +27,9 @@
       <% if current_user.songs.present? %>
       <h2>tips</h2>
     <% else %>
-      <h2 id="tips-title" data-content="Pay attention to these tips if you get lost in the process">tips</h2>
+      <h2 id="tips-title" data-content="These tips will help you along the process.">tips</h2>
       <script>
-        $("#tips-title").popover({ placement: "left"});
+        $("#tips-title").popover({ placement: "right"});
         $("#tips-title").popover("toggle");
       </script>
       <% end %>

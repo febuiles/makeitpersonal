@@ -7,7 +7,7 @@ gem "nokogiri"
 gem 'jquery-rails'
 gem "airbrake"
 gem "devise"
-gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails", "2.1.4"
 gem "friendly_id"
 gem "redcarpet"
 gem "rack-timeout"
