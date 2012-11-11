@@ -1,9 +1,6 @@
-<p>Hey <%= @followed.username %></p>
+<p>Hola <%= @followed.username %></p>
 
-<p><%= @follower.username %> is now following you on makeitpersonal. <%= link_to "Click here", user_url(@follower) %> to view his profile.
-</p>
+<p><%= link_to @follower.username, user_url(@follower) %> is now following you on <%= link_to "makeitpersonal", "http://makeitpersonal.co" %>. Let's hope it's not another one of those weird stalkers who likes to use trench coats and smells kind of weird!</p>
 
-<p>
-Thanks,<br/>
-makeitpersonal
-</p>
+<p>--,<br/>
+your buddies at makeitpersonal</p>
