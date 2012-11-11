@@ -11,7 +11,7 @@ describe NotificationsMailer do
 
       email.to.should == [followed.email]
       email.subject.should == "#{follower.username} is now following you on makeitpersonal"
-      assert_match(/Hey #{followed.username}/, email.encoded)
+      assert_match(/is now following you/, email.encoded)
     end
   end
 end
