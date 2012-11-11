@@ -9,6 +9,10 @@ class Song < ActiveRecord::Base
   friendly_id :title, :use => :scoped, :scope => :user
   after_create :send_notifications
 
+  def self.by_day
+    select("count(*), date(created_at)").group("date(created_at)").order(:date)
+  end
+
   def should_generate_new_friendly_id?
     new_record?
   end
