@@ -8,9 +8,9 @@
 
         <div class="span8">
           <% if current_user and current_user.owns?(@song) %>
-            <span>These are <%= link_to "#{@user.username.possessive}", account_path %> notes on <strong><%= @song.title.titleize %></strong> by <strong><%= @song.artist.titleize %></strong>.</span>
+            <span>These are <%= link_to "#{@user.username.possessive}", account_path %> notes on <strong><%= @song.title.titleize_with_caps %></strong> by <strong><%= @song.artist.titleize_with_caps %></strong>.</span>
           <% else %>
-          <span>These are <%= link_to "#{@user.username.possessive}", user_path(@user) %> notes on <strong><%= @song.title.titleize %></strong> by <strong><%= @song.artist.titleize %></strong>.</span>
+          <span>These are <%= link_to "#{@user.username.possessive}", user_path(@user) %> notes on <strong><%= @song.title.titleize_with_caps %></strong> by <strong><%= @song.artist.titleize_with_caps %></strong>.</span>
           <% end %>
         </div>
 

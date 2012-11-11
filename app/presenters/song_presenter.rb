@@ -11,7 +11,7 @@ module SongPresenter
   end
 
   def name
-    "#{artist.titleize} &mdash; #{title.titleize}".html_safe
+    "#{artist.titleize_with_caps} &mdash; #{title.titleize_with_caps}".html_safe
   end
 
   def sidenotes
