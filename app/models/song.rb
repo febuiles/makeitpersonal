@@ -8,6 +8,7 @@ class Song < ActiveRecord::Base
 
   validates_presence_of :artist, :title, :lyrics
 
+  before_save :strip_song_info
   after_create :send_notifications
 
   scope :recent, order("created_at DESC")
@@ -24,5 +25,10 @@ class Song < ActiveRecord::Base
   private
   def send_notifications
     SongMailer.new_song(self).deliver
+  end
+
+  def strip_song_info
+    self.artist = artist.strip
+    self.title = title.strip
   end
 end

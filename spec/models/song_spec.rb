@@ -1,9 +1,26 @@
 require 'spec_helper'
 
 describe Song do
+
+  context "callbacks" do
+    before { Song.skip_callback(:create, :after, :send_notifications) }
+
+    describe "strip_song_info" do
+      it "strips the artist and the song title before saving the record" do
+        song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...")
+        song.artist.should == "The Police"
+        song.title.should == "On Any Other Day"
+        song.update_attributes(artist: " The Police", title: "On Any Other Day ")
+        song.artist.should == "The Police"
+        song.title.should == "On Any Other Day"
+      end
+    end
+  end
+
   describe "incr" do
+    before { Song.skip_callback(:create, :after, :send_notifications) }
+
     it "increases the number of visits to this song" do
-      Song.skip_callback(:create, :after, :send_notifications)
       song = Song.create(artist: "Talking Heads", title: "Once in a Lifetime", lyrics: "And you may find yourself living in a shotgun shack...")
       song.views.should == 0
       song.incr
