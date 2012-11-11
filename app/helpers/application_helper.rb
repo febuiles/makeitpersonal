@@ -8,6 +8,7 @@ module ApplicationHelper
     greetings = ["Hey #{user}, long time no see!",
                  "Welcome back #{user}.",
                  "Hola #{user}.",
+                 "Hi #{user}. You look nice today.",
                  "Hey #{user}, how\'s it going?",
                  "Buongiorno, Principessa, err... #{user}.",
                  "Welcome back #{user}. We still think music can heal any wound.",
