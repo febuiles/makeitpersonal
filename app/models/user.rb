@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   extend FriendlyId
   include UserPresenter
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable
   friendly_id :username, :use => :slugged
 
   has_many :songs
