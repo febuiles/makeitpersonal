@@ -4,8 +4,8 @@
 
 <div class="row-fluid">
   <div class="span6 offset1 account-header">
-    <h2>loved songs</h2>
-    <p>These are the songs you have loved.</p>
+    <h2>loves received</h2>
+    <p>These are your songs that someone else has loved.</p>
     <%= render "shared/notices" %>
   </div>
 </div>
@@ -16,7 +16,14 @@
       <div class="span10 offset1 bordered">
         <p>
           <% @songs.each do |song| %>
-            <%= render song %><br/><br/>
+            <%= link_to(user_song_path(song.user, song), :class => "song song-dropdown") do %>
+              <%= song.name %>
+              <i class="icon-arrow-right"></i>
+            <% end %>
+            <span class="by">
+              (loved by <%= song.list_of_lovers %>)
+            </span>
+            <br/><br/>
           <% end %>
         </p>
       </div>

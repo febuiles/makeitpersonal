@@ -23,6 +23,11 @@ class Song < ActiveRecord::Base
     update_attribute(:views, views + 1)
   end
 
+  def lovers
+    loves.map(&:user)
+  end
+
+
   private
   def send_notifications
     SongMailer.new_song(self).deliver

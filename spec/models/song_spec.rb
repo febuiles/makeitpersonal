@@ -17,7 +17,7 @@ describe Song do
     end
   end
 
-  describe "incr" do
+  describe "#incr" do
     before { Song.skip_callback(:create, :after, :send_notifications) }
 
     it "increases the number of visits to this song" do
@@ -25,6 +25,23 @@ describe Song do
       song.views.should == 0
       song.incr
       song.reload.views.should == 1
+    end
+  end
+
+  context "loves" do
+    describe "#lovers" do
+      let(:song) { FactoryGirl.create(:song) }
+      let(:first) { FactoryGirl.create(:user) }
+      let(:second) { FactoryGirl.create(:user) }
+
+      before do
+        first.love(song)
+        second.love(song)
+      end
+
+      it "returns a list of the users that loved a song" do
+        song.lovers.should == [first, second]
+      end
     end
   end
 end

@@ -37,6 +37,13 @@ describe User do
       end
     end
 
+    describe "#loves_received" do
+      it "returns a list of the user's songs that have been loved by someone else" do
+        user.love(song)
+        song.user.reload.loves_received.should include(song)
+      end
+    end
+
     describe "#love" do
       it "adds a song to the list of loved songs" do
         user.love(song)
@@ -46,6 +53,12 @@ describe User do
       it "does not allow a user to love his own songs" do
         song.user.love(song)
         song.user.loved_songs.should_not include(song)
+      end
+
+      it "does not allow a user to love a song multiple times" do
+        user.love(song)
+        user.love(song)
+        song.lovers.should == [user]
       end
     end
   end

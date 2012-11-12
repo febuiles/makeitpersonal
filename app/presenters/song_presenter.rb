@@ -1,4 +1,7 @@
 module SongPresenter
+  include ActionView::Helpers::UrlHelper
+  Rails.application.routes.url_helpers
+
   SIDENOTE_REGEX = /\[\[(.*?)\]\]/m
 
   def embed
@@ -12,6 +15,14 @@ module SongPresenter
 
   def name
     "#{artist.titleize_with_caps} &mdash; #{title.titleize_with_caps}".html_safe
+  end
+
+  def list_of_lovers
+    links = []
+    lovers.each do |lover|
+      links << link_to(lover.username, Rails.application.routes.url_helpers.user_path(lover))
+    end
+    links.join(", ").html_safe
   end
 
   def sidenotes

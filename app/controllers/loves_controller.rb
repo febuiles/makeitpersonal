@@ -5,6 +5,10 @@ class LovesController < ApplicationController
     @songs = current_user.loved_songs
   end
 
+  def loves
+    @songs = current_user.loves_received
+  end
+
   def create
     song = Song.find(params[:id])
     current_user.love(song)

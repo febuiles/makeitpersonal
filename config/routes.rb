@@ -21,6 +21,7 @@ Makeitpersonal::Application.routes.draw do
   # user
   get "/account", :to => "users#show", :as => :account
   get "/loved", :to => "loves#loved", :as => :loved_songs
+  get "/loves", :to => "loves#loves", :as => :loves_received
 
   resources :songs, except: [:index, :show]
   resources :relationships, only: [:create, :destroy]

@@ -88,12 +88,16 @@ class User < ActiveRecord::Base
   end
 
   def love(song)
-    return if owns?(song)
+    return if owns?(song) or loves?(song)
     loves.create!(:song_id => song.id)
   end
 
   def loved_songs
     loves.map(&:song)
+  end
+
+  def loves_received
+    Love.find_all_by_owner_id(id).map(&:song)
   end
 
   def loves?(song)
