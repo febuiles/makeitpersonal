@@ -13,13 +13,13 @@
     </div>
 
     <div class="span3 offset1 notes">
+
       <p>
         <%= @song.embed %>
+        <%= render "love" %>
       </p>
 
       <div class="sidenotes">
-        <%= render "love" %>
-
         <% @song.sidenotes.each_with_index do |note, i| %>
           <%= note %>
         <% end %>
