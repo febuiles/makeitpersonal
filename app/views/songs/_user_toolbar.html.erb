@@ -1,0 +1,8 @@
+<% if current_user %>
+  <% if  current_user.owns?(@song) %>
+    <p class="user-toolbar">
+      (<%= link_to "edit song", edit_song_path(@song) %> |
+      <%= link_to "delete", song_path(@song), :method => :delete, :style => "color: red" %>)
+    </p>
+  <% end %>
+<% end %>

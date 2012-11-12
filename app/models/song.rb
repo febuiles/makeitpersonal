@@ -4,6 +4,7 @@ class Song < ActiveRecord::Base
 
   friendly_id :title, :use => :scoped, :scope => :user
 
+  has_many :loves
   belongs_to :user
 
   validates_presence_of :artist, :title, :lyrics

@@ -39,3 +39,10 @@ Makeitpersonal::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'makeitpersonal.dev' }
 end
+
+# no-op so we don't get CookieOverflow errors.
+module Mixpanel
+  class Tracker
+    def append_track(*args); end
+  end
+end

@@ -6,14 +6,8 @@
   <div class="row">
     <div class="span6 lyric">
 
-      <% if current_user and current_user.owns?(@song) %>
-        <p>
-          (<%= link_to "edit song", edit_song_path(@song) %> |
-          <%= link_to "delete", song_path(@song), :method => :delete, :style => "color: red" %>)
-        </p>
-      <% end %>
+      <%= render "user_toolbar" %>
       <p>
-
         <%= @song.body %>
       </p>
     </div>
@@ -24,9 +18,11 @@
       </p>
 
       <div class="sidenotes">
-      <% @song.sidenotes.each_with_index do |note, i| %>
+        <%= render "love" %>
+
+        <% @song.sidenotes.each_with_index do |note, i| %>
           <%= note %>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>

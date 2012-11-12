@@ -3,5 +3,6 @@ FactoryGirl.define do
     artist "Talking Heads"
     title "Wild Gravity"
     lyrics "I get wild..."
+    user
   end
 end

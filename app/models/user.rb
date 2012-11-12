@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   friendly_id :username, :use => :slugged
 
   has_many :songs
+  has_many :loves
   has_many :relationships, foreign_key: "follower_id", :dependent => :destroy
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship"
   has_many :followed_users, through: :relationships, source: :followed
@@ -84,6 +85,19 @@ class User < ActiveRecord::Base
       return false if send(field).present?
     end
     true
+  end
+
+  def love(song)
+    return if owns?(song)
+    loves.create!(:song_id => song.id)
+  end
+
+  def loved_songs
+    loves.map(&:song)
+  end
+
+  def loves?(song)
+    loved_songs.include?(song)
   end
 
   private

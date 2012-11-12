@@ -19,6 +19,37 @@ describe User do
     end
   end
 
+  context "loves" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:song) { FactoryGirl.create(:song) }
+
+    describe "#loves?" do
+      it "returns true if the user loves the song" do
+        user.love(song)
+        user.loves?(song).should be_true
+      end
+    end
+
+    describe "#loved_songs" do
+      it "returns a list of loved songs" do
+        Love.create!(:user_id => user.id, :song_id => song.id)
+        user.loved_songs.should include(song)
+      end
+    end
+
+    describe "#love" do
+      it "adds a song to the list of loved songs" do
+        user.love(song)
+        user.loved_songs.should include(song)
+      end
+
+      it "does not allow a user to love his own songs" do
+        song.user.love(song)
+        song.user.loved_songs.should_not include(song)
+      end
+    end
+  end
+
   context "following" do
     let(:follower) { FactoryGirl.create(:user) }
     let(:followed) { FactoryGirl.create(:user) }

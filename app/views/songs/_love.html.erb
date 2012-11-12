@@ -1,0 +1,9 @@
+<% unless current_user.owns?(@song) %>
+  <div class="love-song">
+    <% if current_user.loves?(@song) %>
+      <%= link_to "Unlove", love_path(@song.id), :id => "love-song", :method => :delete %>
+    <% else %>
+      <%= link_to "Love", loves_path(:id => @song.id), :id => "unlove-song", :method => :post %>
+    <% end %>
+  </div>
+<% end %>
