@@ -16,13 +16,13 @@
 
       <p>
         <%= @song.embed %>
-        <%= render "love" %>
       </p>
 
       <div class="sidenotes">
         <% @song.sidenotes.each_with_index do |note, i| %>
           <%= note %>
         <% end %>
+        <%= render "love" %>
       </div>
     </div>
   </div>
