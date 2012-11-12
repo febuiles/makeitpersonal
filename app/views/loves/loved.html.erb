@@ -1,0 +1,28 @@
+<% title "loved songs" %>
+
+<%= render "users/user_header" %>
+
+<div class="row-fluid">
+  <div class="span6 offset1 account-header">
+    <h2>loved songs</h2>
+    <%= render "shared/notices" %>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span8 song-list">
+    <div class="row-fluid row-jump">
+      <div class="span10 offset1 bordered">
+        <p>
+          <% @songs.each do |song| %>
+            <%= render song %><br/><br/>
+          <% end %>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <%= render "users/user_sidebar" %>
+</div>
+

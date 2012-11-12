@@ -1,6 +1,6 @@
 <% title "your profile" %>
 
-<%= render "user_header" %>
+<%= render "users/user_header" %>
 
 <div class="row-fluid">
   <div class="span6 offset1 account-header">
@@ -36,12 +36,7 @@
       </div>
     <% end %>
   </div>
-  <div class="span3 bordered profile">
-    <h2>actions</h2>
-    <h3><%= link_to "Create new song", new_song_path %></h3>
-    <h3><%= link_to "View your profile", user_path(current_user) %></h3>
-    <h3><%= link_to "Account information", edit_user_registration_path %></h3>
-  </div>
 
+  <%= render "users/user_sidebar" %>
 </div>
 

@@ -18,12 +18,14 @@ Makeitpersonal::Application.routes.draw do
   get "/:username/followers", to: "relationships#followers", :as => :followers
   get "/:username/following", to: "relationships#following", :as => :followings
 
+  # user
+  get "/account", :to => "users#show", :as => :account
+  get "/loved", :to => "loves#loved", :as => :loved_songs
+
   resources :songs, except: [:index, :show]
   resources :relationships, only: [:create, :destroy]
   resources :loves, only: [:create, :destroy]
 
-  # user
-  get "/account", :to => "users#show", :as => "account"
 
   root :to => "pages#index"
 

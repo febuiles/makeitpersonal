@@ -1,5 +1,9 @@
 class LovesController < ApplicationController
-  before_filter :authenticate_user!, only: [:create, :destroy]
+  before_filter :authenticate_user!
+
+  def loved
+    @songs = current_user.loved_songs
+  end
 
   def create
     song = Song.find(params[:id])
