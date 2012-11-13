@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def track_visit
+    return if request.xhr?
     mixpanel.append_track "Visit"
   end
 
