@@ -70,6 +70,7 @@ var Lyric = function(outputField) {
     }
     activateStep("step3");
     $("#song_youtube_url").show();
+    $("#youtube-help").show();
     $("#publish").show();
     $("#set-video").replaceWith($("#publish"));
   }
@@ -80,7 +81,7 @@ var Lyric = function(outputField) {
 
   var setHintLinks = function() {
     var google = $(".google-hint");
-    var youtube = $("#youtube-hint");
+    var youtube = $(".youtube-hint");
     var googleUrl = String.prototype.concat("http://www.google.com/search?q=", artist, " ", title, " lyrics");
     var youtubeUrl = String.prototype.concat("http://www.youtube.com/results?search_query=", artist, " ", title);
 

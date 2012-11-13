@@ -11,11 +11,15 @@
 
         <%= f.text_field :title, :placeholder => "Song Title" %>
 
-        <div id="lyrics-help">
-          We don't have lyrics for this song. <%= link_to "Click here to find them on Google.", "", :target => "_blank", :class => "google-hint" %>
+        <div class="help-box" id="lyrics-help">
+          We don't have lyrics for this song. <%= link_to "Search them on Google", "", :target => "_blank", :class => "google-hint" %>.
         </div>
 
         <%= f.text_area :lyrics, :placeholder => "Paste the lyrics here..." %>
+
+        <div class="help-box" id="youtube-help">
+          <%= link_to "Search for the video in YouTube", "", :target => "_blank", :class => "youtube-hint"%>.
+        </div>
 
         <%= f.text_field :youtube_url, :placeholder => "YouTube URL (optional)" %>
 
@@ -87,7 +91,7 @@
             We're almost done!
           </p>
           <p>
-            If you want the song's page to include audio you should <%= link_to "find a video of the song in YouTube", "", :target => "_blank", :id => "youtube-hint"%>, copy the URL and paste them in the <em>YouTube URL</em> field.
+            If you want the song's page to include audio you should <%= link_to "find a video of the song in YouTube", "", :target => "_blank", :class => "youtube-hint"%>, copy the URL and paste them in the <em>YouTube URL</em> field.
           </p>
 
           <p>
