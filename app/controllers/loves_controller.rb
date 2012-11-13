@@ -11,6 +11,7 @@ class LovesController < ApplicationController
 
   def create
     @song = Song.find(params[:id])
+    mixpanel.track 'Love', { from: current_user.username  }
     current_user.love(@song)
     NotificationsMailer.loved(current_user, @song).deliver
   end
