@@ -15,6 +15,7 @@ module ApplicationHelper
                  "Well, well, isn't this #{user}...",
                  "And on the third day #{user} came back.",
                  "Good ole #{user} is back in town.",
+                 "omigod omigod omigod, #{user} is here!!!"
                 ]
     content_tag(:p, greetings.sample.html_safe)
   end
