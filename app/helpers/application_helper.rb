@@ -12,6 +12,9 @@ module ApplicationHelper
                  "Hey #{user}, how\'s it going?",
                  "Buongiorno, Principessa, err... #{user}.",
                  "Welcome back #{user}. We still think music can heal any wound.",
+                 "Well, well, isn't this #{user}...",
+                 "And on the third day #{user} came back.",
+                 "Good ole #{user} is back in town.",
                 ]
     content_tag(:p, greetings.sample.html_safe)
   end
