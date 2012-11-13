@@ -1,0 +1,9 @@
+<% if current_user and current_user != user %>
+  <div id="following">
+    <% if current_user.follows?(user) %>
+      <%= link_to "Unfollow", relationship_path(user), :class => "button", :method => :delete, :remote => true %>
+    <% else %>
+      <%= link_to "Follow", relationships_path(:followed_id => user.id), :class => "button button-primary", :method => :post, :remote => true %>
+    <% end %>
+  </div>
+<% end %>
