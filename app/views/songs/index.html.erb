@@ -22,7 +22,7 @@
             <p>
 
               <%= link_to(user_song_path(@user, song), :class => "song song-dropdown") do %>
-                <%= song.name %>
+                <%= truncate(song.name, :length => 55).html_safe %>
                 <i class="icon-arrow-right"></i>
               <% end %>
             </p>

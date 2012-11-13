@@ -1,6 +1,5 @@
 module SongPresenter
   include ActionView::Helpers::UrlHelper
-  Rails.application.routes.url_helpers
 
   SIDENOTE_REGEX = /\[\[(.*?)\]\]/m
 

@@ -1,6 +1,6 @@
 <% if current_user.owns?(song) %>
   <%= link_to("javascript:void(0)", :class => "song song-dropdown") do %>
-    <%= song.name %>
+    <%= truncate(song.name, :length => 55).html_safe %>
     <i class="icon-arrow-down icon-white"></i>
   <% end %>
 
@@ -35,7 +35,7 @@
 
 <% else %>
   <%= link_to(user_song_path(song.user, song), :class => "song song-borrowed") do %>
-    <%= song.name %>
+    <%= truncate(song.name, :length => 55).html_safe %>
     <i class="icon-arrow-right"></i>
   <% end %>
   <span class="by">(by <%= link_to song.user.username, song.user %>)</span>
