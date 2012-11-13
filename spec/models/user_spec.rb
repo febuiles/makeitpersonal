@@ -42,6 +42,13 @@ describe User do
         user.love(song)
         song.user.reload.loves_received.should include(song)
       end
+
+      it "doesn't repeat songs" do
+        another_user = FactoryGirl.create(:user)
+        user.love(song)
+        another_user.love(song)
+        song.user.loves_received.count.should == 1
+      end
     end
 
     describe "#love" do

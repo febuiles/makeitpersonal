@@ -97,7 +97,7 @@ class User < ActiveRecord::Base
   end
 
   def loves_received
-    Love.find_all_by_owner_id(id).map(&:song)
+    Love.find_all_by_owner_id(id).map(&:song).uniq
   end
 
   def loves?(song)
