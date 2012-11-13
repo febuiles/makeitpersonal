@@ -13,7 +13,7 @@ describe LovesController do
     end
 
     it "creates a love" do
-      post :create, { :id => song.id }
+      post :create, { id: song.id, format: "js" }
       user.reload.loved_songs.should include(song)
     end
   end
@@ -21,7 +21,7 @@ describe LovesController do
   describe "destroy" do
     it "removes a love" do
       user.love(song)
-      delete :destroy, { :id => song.id }
+      delete :destroy, { id: song.id, format: "js" }
       user.reload.loved_songs.should_not include(song)
     end
   end
