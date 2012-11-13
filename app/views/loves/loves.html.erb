@@ -14,7 +14,6 @@
   <div class="span8 song-list">
     <div class="row-fluid row-jump">
       <div class="span10 offset1 bordered">
-        <%= current_user.loves_received.count %>
         <p>
           <% @songs.each do |song| %>
             <%= link_to(user_song_path(song.user, song), :class => "song song-dropdown") do %>
