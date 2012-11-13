@@ -11,7 +11,11 @@
 
         <%= f.text_field :title, :placeholder => "Song Title" %>
 
-        <%= f.text_area :lyrics, :placeholder => "Lyrics go here..." %>
+        <div id="lyrics-help">
+          We don't have lyrics for this song. <%= link_to "Click here to find them on Google.", "", :target => "_blank", :class => "google-hint" %>
+        </div>
+
+        <%= f.text_area :lyrics, :placeholder => "Paste the lyrics here..." %>
 
         <%= f.text_field :youtube_url, :placeholder => "YouTube URL (optional)" %>
 

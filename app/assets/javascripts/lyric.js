@@ -36,14 +36,15 @@ var Lyric = function(outputField) {
     loader.stop();
     showLyrics();
     $("#set-video").show();
-    if (data === "Sorry, We don't have lyrics for this song yet.") {
+    if (data == "Sorry, We don't have lyrics for this song yet." || data == "Sorry, Gracedown has taken down this song.") {
       activateStep("step2-nolyrics");
+      $("#lyrics-help").show();
     } else {
+      $("#lyrics-help").hide();
       $("#fetch-lyrics").hide();
       activateStep("step2");
+      write(data);
     }
-
-    write(data);
   };
 
   var write = function(data) {
@@ -78,7 +79,7 @@ var Lyric = function(outputField) {
   }
 
   var setHintLinks = function() {
-    var google = $("#google-hint");
+    var google = $(".google-hint");
     var youtube = $("#youtube-hint");
     var googleUrl = String.prototype.concat("http://www.google.com/search?q=", artist, " ", title, " lyrics");
     var youtubeUrl = String.prototype.concat("http://www.youtube.com/results?search_query=", artist, " ", title);
