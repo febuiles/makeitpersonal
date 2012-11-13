@@ -1,11 +1,13 @@
-<% unless current_user.owns?(@song) %>
-  <div id="love-song">
-    <% if current_user.loves?(@song) %>
-      <i class='icon-heart unlove'></i>
-      <%= link_to "Unlove".html_safe, love_path(@song.id), :id => "love-song", :method => :delete, :remote => true %>
-    <% else %>
-      <i class='icon-heart'></i>
-      <%= link_to "Love", loves_path(:id => @song.id), :id => "unlove-song", :method => :post, :remote => true %>
-    <% end %>
-  </div>
+<% if current_user %>
+  <% unless current_user.owns?(@song) %>
+    <div id="love-song">
+      <% if current_user.loves?(@song) %>
+        <i class='icon-heart unlove'></i>
+        <%= link_to "Unlove".html_safe, love_path(@song.id), :id => "love-song", :method => :delete, :remote => true %>
+      <% else %>
+        <i class='icon-heart'></i>
+        <%= link_to "Love", loves_path(:id => @song.id), :id => "unlove-song", :method => :post, :remote => true %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
