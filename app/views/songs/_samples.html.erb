@@ -1,7 +1,7 @@
 <% if @user.sample_songs.present? %>
   <%= image_tag "s-icon.png" %>
   <p>
-    Check out <%= link_to @user.username, user_path(@user) %> notes on:<br/>
+    Check out <%= link_to @user.username.possessive, user_path(@user) %> notes on:<br/>
     <% @user.sample_songs.each do |song| %>
       <%= link_to song.name, user_song_path(@user, song), :class => "italic" %><br/>
     <% end %>
