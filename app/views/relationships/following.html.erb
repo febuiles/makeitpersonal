@@ -11,7 +11,7 @@
 
 <div class="row-fluid">
   <div class="span7 offset1 profile-content">
-    <%= render partial: "user", collection: @user.followed_users  %>
+    <%= render partial: "users/user_card", collection: @user.followed_users  %>
   </div>
 
   <%= render "shared/profile_sidebar" %>

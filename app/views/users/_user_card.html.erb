@@ -1,0 +1,23 @@
+<% user = user_card %>
+
+<div class="user-card">
+  <%= link_to user.gravatar, user %>
+  <div class="user-card-info">
+    <strong><%= link_to user.display_name, user, :class => "title" %></strong><br/>
+    <em><%= user.bio %></em><br/>
+    <% if user.recent_songs.present? %>
+      Most recent song: <%= link_to user.recent_songs.first.name, user_song_path(user, user.recent_songs.first) %><br/>
+    <% end %>
+    <div class="user-card-links">
+      <%= link_to "View Profile", user %>
+      <% if current_user and current_user != user %>
+        <% if current_user.follows?(user) %>
+          <%= link_to "Unfollow", relationship_path(user), :method => :delete  %>
+        <% else %>
+          <%= link_to "Follow", relationships_path(:followed_id => user.id), :method => :post  %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<hr />

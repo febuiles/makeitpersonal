@@ -20,9 +20,7 @@
 
       <div class="sidenotes">
         <% @song.sidenotes.each_with_index do |note, i| %>
-          <p class="sidenote-outer">
           <%= note %>
-          </p>
         <% end %>
         <%= render "love" %>
       </div>

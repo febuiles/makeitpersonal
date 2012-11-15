@@ -3,6 +3,8 @@
 @import "songs/sidebar"
 @import "songs/header"
 @import "songs/footer"
+@import "songs/loves"
+@import "users/user_card"
 
 body
   background-color: white
@@ -48,6 +50,9 @@ div.lyric-extra
   a.italic
     font-style: italic
 
+iframe.youtube-embed
+  border: 10px solid $dark
+
 p.user-toolbar
   a.btn
     font-size: 18px
@@ -57,18 +62,37 @@ p.user-toolbar
     font-size: 1.5em
     color: red !important
 
-
 div.notes
   font-size: 13px
+  h2
+    margin-bottom: 25px
+    color: $gray
+    width: 100px
   em
     color: $green
   span.spacer
     display: block
     margin: 0 auto
     width: 10px
-  h2#tips-title
-    width: 100px
+  p
+    margin-top: 1em
+    color: $dark
+    &.big
+      font-size: 1.25em
+      a
+        color: $dark
 
+      i
+        line-height: normal !important
+        display: inline
+        margin-right: 3px
+  a
+    text-decoration: underline
+  div.sidenotes
+    p
+      border-left: 1px solid #e5e5e5
+      padding-left: 20px
+      width: 250px
 
 /* User profile
 div.content-heading
@@ -119,9 +143,6 @@ div.song-list
         i
           color: $gray
 
-
-
-
 div.song-links
   display: none
   margin-top: 10px
@@ -138,9 +159,6 @@ div.song-links
     font-family: $serif
     text-decoration: underline
 
-div.modal-body
-  input[type="text"]
-    width: 450px
 
 div.new-song
   h2
@@ -165,57 +183,12 @@ div.new-song
     display: none
 
 
-div.notes
-  h2
-    margin-bottom: 25px
-    color: $gray
-  p
-    margin-top: 1em
-    color: $lightGray
-    &.big
-      font-size: 1.25em
-      a
-        color: $dark
-
-      i
-        line-height: normal !important
-        display: inline
-        margin-right: 3px
-  a
-    text-decoration: underline
-  div.sidenotes
-    p
-      border-left: 1px solid #e5e5e5
-      padding-left: 20px
-
-/* Following
-img.avatar
-  border-radius: 3px
-
-div.user-info
-  clear: both
-  margin-bottom: 30px
-  height: 80px
-  img, p
-    float: left
-  p
-    margin-left: 15px
-    max-width: 500px
-  strong
-    font-size: 1.25em
-  a.title
-    color: $dark
-
-
-
 #step1, #step2, #step2-nolyrics, #step3, #set-video, #publish
   display: none
 
 .step-active
   display: block !important
 
-.white
-  color: #e1e1e1 !important
 
 #youtube-help, #lyrics-help
   display: none
@@ -232,59 +205,11 @@ div.help-box
   a
     text-decoration: underline
 
-span.sidenote
+span.sidenote-ref
   color: $green
   font-size: 13px
   font-weight: bold
 
-p.sidenote-outer
-  width: 250px
-
 textarea#user_bio
   width: 265px
   height: 150px
-
-.bordered
-  border-left: 1px solid #e5e5e5
-  padding-left: 20px
-
-.centered
-  text-align: center
-
-.right
-  float: right
-
-.dark
-  color: $dark
-  text-decoration: underline
-  margin-right: 15px
-  &:hover
-    background-color: #dfdfdf
-    color: $dark
-
-.p-small
-  font-size: 0.85em !important
-
-div#love-song
-  height: 30px
-  line-height: 30px
-  margin-bottom: 30px
-  margin-top: 20px
-  a
-    margin-right: 10px
-    text-align: right
-    color: $dark !important
-    font-size: 18px
-    &:hover
-      text-decoration: underline !important
-  i
-    margin-left: 20px
-    font-size: 14px
-    margin-right: 3px
-    color: $green
-    &.unlove
-      color: #aaa
-
-
-iframe.youtube-embed
-  border: 10px solid $dark

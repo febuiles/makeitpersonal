@@ -1,11 +1,11 @@
 <div class="span3 header-links">
   <% if current_user %>
-    <span class="icon white">K</span>
-    <%= link_to "new song", new_song_path, :class => "white" %> |
+    <span class="icon light-gray">K</span>
+    <%= link_to "new song", new_song_path, :class => "light-gray" %> |
     <%= link_to "account", account_path %> |
     <%= link_to "logout", destroy_user_session_path, :method => :delete %>
   <% else %>
-    <%= link_to "about", "/", :class => "white" %> |
+    <%= link_to "about", "/", :class => "light-gray" %> |
     <%= link_to "sign up", new_user_registration_path %> |
     <%= link_to "login", new_user_session_path %>
   <% end %>

@@ -29,7 +29,7 @@ module SongPresenter
     markdown = Redcarpet::Markdown.new(renderer, :autolink => true, :space_after_headers => true)
     notes = lyrics.scan(SIDENOTE_REGEX).flatten || []
     notes.each_with_index.map do |note, i|
-      span = "<span class='sidenote'>[#{i + 1}]</span>"
+      span = "**[#{i + 1}]**"
       markdown.render("#{span} #{note}").html_safe
     end
   end
@@ -37,7 +37,7 @@ module SongPresenter
   def body
     body = lyrics.gsub(/\*(.*?)\*/m, '<em>\1</em>') # emph
     body.scan(SIDENOTE_REGEX).count.times do |i|
-      body.sub!(SIDENOTE_REGEX, "<span class='sidenote'>[#{i + 1}]</span>")
+      body.sub!(SIDENOTE_REGEX, "<span class='sidenote-ref'>[#{i + 1}]</span>")
     end
     body.replace_newlines
   end
