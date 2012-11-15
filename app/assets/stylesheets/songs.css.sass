@@ -1,28 +1,10 @@
-$gray: #222
-$dark: #222
-$lightGray: #7f7f7f
-$green: #7fcc41
-$serif: "pt-serif", serif
-$sans:  "proxima-nova", sans-serif
-$icons: "ModernPictogramsNormal"
-
-html, body
-  height: 100%
-
-h3
-  font-weight: normal
-  text-decoration: underline
-  font-size: 1.5em
-.icon
-  font-family: $icons
-  color: $green
-.icon-white
-  color: white
-.green
-  color: $green
+@import "mixins"
+@import "general"
+@import "songs/sidebar"
+@import "songs/header"
+@import "songs/footer"
 
 body
-  padding-top: 0 !important
   background-color: white
   font-family: $sans !important
   font-size: 15px
@@ -33,21 +15,6 @@ div.wrap
 div.main
   overflow: auto
   padding-bottom: 85px
-
-div.header
-  color: white
-  background-color: $gray
-  height: 60px
-  font-size: 1.25em
-  line-height: 60px
-  margin-bottom: 50px
-  img
-    margin-left: 15px
-  div.toolbar
-    color: white
-    a
-      display: inline
-
 
 div.lyric
   font-size: 18px
@@ -90,27 +57,6 @@ p.user-toolbar
     font-size: 1.5em
     color: red !important
 
-.container-fluid
-  margin-bottom: 50px
-
-
-footer
-  margin-top: -85px
-  position: relative
-  clear: both
-  width: 100%
-  height: 70px
-  padding-top: 15px
-  background-color: $gray
-  color: white
-  & > *
-    float: left
-    display: block
-  .mid
-    text-align: center
-    margin-top: 10px
-    font-size: 48px
-
 
 div.notes
   font-size: 13px
@@ -124,25 +70,14 @@ div.notes
     width: 100px
 
 
-div.user-sidebar
-  color: $lightGray
-  font-size: 13px
-  a
-    color: $lightGray !important
-    text-decoration: underline
-    &.important
-      font-weight: 600
-      text-decoration: none
-
 /* User profile
-div.account-header
+div.content-heading
   margin-bottom: 40px
   h2
     color: $gray
   p
     font-size: 1.25em
 
-div.profile-content
 div.song-list
   span.date
     text-align: center
@@ -184,27 +119,6 @@ div.song-list
         i
           color: $gray
 
-div.profile
-  h3 a
-    text-decoration: underline !important
-  margin-top: -100px
-  a.button
-    text-decoration: none !important
-    padding: 10px
-    display: inline
-    background-color: $gray
-    text-decoration: none
-    &:hover
-      text-decoration: underline !important
-  a.button-primary
-    background-color: $green !important
-    color: white !important
-    padding: 10px
-    display: inline
-  p.profile-followers
-    font-size: 18px
-    line-height: 24px
-    color: black
 
 
 
@@ -268,7 +182,7 @@ div.notes
         display: inline
         margin-right: 3px
   a
-    text-decoration: underline !important
+    text-decoration: underline
   div.sidenotes
     p
       border-left: 1px solid #e5e5e5
