@@ -17,13 +17,14 @@
 
   <body>
     <%= render "pages/landing_left" %>
-    <div class="manifesto">
+
+    <div class="landing-body">
       <div class="notices">
         <% flash.each do |name, msg| %>
           <%= msg %><br/>
         <% end %>
       </div>
-    <%= yield %>
+      <%= yield %>
     </div>
   </body>
 </html>
