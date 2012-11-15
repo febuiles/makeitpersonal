@@ -1,6 +1,4 @@
 class PagesController < ApplicationController
-  layout 'landing'
-
   def index
     if current_user
       redirect_to account_path
