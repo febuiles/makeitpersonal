@@ -11,14 +11,14 @@
     </p>
 
     <% if @user.twitter.present? %>
-      <p class="big">
+      <p class="profile-link">
         <i class="icon-twitter"></i>
         <%= link_to "@#{@user.twitter}", "http://twitter.com/#{@user.twitter}" %>
       </p>
     <% end %>
 
     <% if @user.website.present? %>
-      <p class="big">
+      <p class="profile-link">
         <i class="icon-home"></i>
         <%= link_to @user.website, "http://#{@user.website}" %>
       </p>

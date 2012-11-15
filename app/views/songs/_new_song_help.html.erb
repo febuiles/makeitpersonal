@@ -1,4 +1,4 @@
-<div class="span3 offset1 notes">
+<div class="span3 offset1 lower-sidebar">
   <% if current_user.songs.present? %>
     <h2>tips</h2>
   <% else %>
@@ -9,7 +9,7 @@
     </script>
   <% end %>
 
-  <div class="bordered">
+  <div class="bordered steps">
     <div id="step1" class="step-active">
       <p>
         Start by typing the artist's name and the song's title. Click <%= link_to "Fetch Lyrics", "javascript:void(0);", :class => "fetch-lyrics" %> so we can automatically fill them in for you.</p>

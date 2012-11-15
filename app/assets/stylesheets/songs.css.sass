@@ -6,53 +6,14 @@
 @import "songs/loves"
 @import "songs/song_list"
 @import "songs/forms"
+@import "songs/lyrics"
+@import "songs/sidenotes"
 @import "users/user_card"
 
 body
   background-color: white
   font-family: $sans !important
   font-size: 15px
-
-div.lyric
-  font-size: 18px
-  line-height: 24px
-  margin-bottom: 20px
-  p
-    color: #bbb
-    font-family: "pt-sans"
-  em
-    font-family: "pt-serif", sans-serif !important
-    font-weight: 500
-    font-style: normal !important
-    color: black
-
-div.lyric-extra
-  width: 100%
-  text-align: center
-  font-size: 22px
-  line-height: 28px
-  margin-bottom: 55px
-  img
-    margin: 30px
-  span
-    color: $green
-    font-weight: 600
-  .input-share
-    height: 40px
-    font-family: $sans
-    font-size: 32px
-    width: 600px
-  a.italic
-    font-style: italic
-
-iframe.youtube-embed
-  border: 10px solid $dark
-
-span.sidenote-ref
-  color: $green
-  font-size: 13px
-  font-weight: bold
-
 
 p.user-toolbar
   a.btn
@@ -62,39 +23,6 @@ p.user-toolbar
     line-height: 1em
     font-size: 1.5em
     color: red !important
-
-div.notes
-  font-size: 13px
-  h2
-    margin-bottom: 25px
-    color: $gray
-    width: 100%
-  em
-    color: $green
-  span.spacer
-    display: block
-    margin: 0 auto
-    width: 10px
-  a
-    text-decoration: underline
-  p
-    margin-top: 1em
-    color: $dark
-    &.big
-      font-size: 1.25em
-      a
-        color: $dark
-
-      i
-        line-height: normal !important
-        display: inline
-        margin-right: 3px
-  div.sidenotes
-    p
-      border-left: 1px solid #e5e5e5
-      padding-left: 20px
-      width: 250px
-
 
 div.content-heading
   margin-bottom: 40px
