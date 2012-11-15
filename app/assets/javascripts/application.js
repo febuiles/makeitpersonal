@@ -11,11 +11,9 @@
 
 $(function() {
   $("#toggle-login-form").click(function(){
-    $("div.login").slideToggle();
+    $("form.login").slideToggle();
   });
 
   // fix the tooltip on :method => :delete links
- $(function() {
-    $('a[rel="nofollow"]').tooltip();
-  });
+  $('a[rel="nofollow"]').tooltip();
 });
