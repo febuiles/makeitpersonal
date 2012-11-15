@@ -15,4 +15,12 @@ class NotificationsMailer < ActionMailer::Base
     subject = "#{@lover.username} loved one of your songs"
     mail(to: @loved.email, subject: subject)
   end
+
+  def contact(name, email, message)
+    @name = name
+    @email = email
+    @message = message
+    subject = "Contact form"
+    mail(to: "federico@mheroin.com", subject: subject)
+  end
 end

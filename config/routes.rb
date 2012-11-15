@@ -13,6 +13,7 @@ Makeitpersonal::Application.routes.draw do
   get "/lyrics", :to => "lyrics#lyrics", :as => "fetch_lyrics"
   get "/disclaimer", to: "pages#disclaimer"
   get "/contact", to: "pages#contact"
+  post "/contact", to: "pages#contact_form"
   get "/credits", to: "pages#credits"
   get "/manifesto", to: "pages#manifesto"
   get "/:username/followers", to: "relationships#followers", :as => :followers

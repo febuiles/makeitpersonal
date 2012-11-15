@@ -11,7 +11,8 @@ class PagesController < ApplicationController
     render :index
   end
 
-  def disclaimer; end
-  def credits; end
-  def contacts; end
+  def contact_form
+    NotificationsMailer.contact(params[:name], params[:email], params[:message]).deliver
+    redirect_to "/contact", :notice => "Thanks. We'll reply if necessary as soon as possible"
+  end
 end

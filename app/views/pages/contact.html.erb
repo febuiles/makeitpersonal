@@ -1,5 +1,17 @@
-<% title("contact") %>
+<% title("contact us") %>
 
 <p>
-  You can email me at: <a href="mailto:federico@mheroin.com">federico@mheroin.com</a>. <br/>Twitter is also an option, my username is <a href="http://twitter.com/febuiles">@febuiles</a>.
+We'd love to hear back from you. If you have any questions, suggestions or death threats please fill the form below or <%= link_to "email us directly", "mailto:federico@mheroin.com" %>.
 </p>
+<%= form_tag "/contact", :method => :post do %>
+  <%= label_tag :name, "What's your name?" %>
+  <%= text_field_tag :name %>
+
+  <%= label_tag :email, "What's your email?" %>
+  <%= text_field_tag :email %>
+
+  <%= label_tag :message %>
+  <%= text_area_tag :message, nil, :rows => 10, :cols => 51 %>
+
+  <%= submit_tag "Send" %>
+<% end %>
