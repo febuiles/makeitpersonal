@@ -80,13 +80,6 @@ class User < ActiveRecord::Base
     songs.sample(3)
   end
 
-  def blank_profile?
-    [:twitter, :website, :name, :bio].each do |field|
-      return false if send(field).present?
-    end
-    true
-  end
-
   def love(song)
     return if owns?(song) or loves?(song)
     loves.create!(:song_id => song.id)
