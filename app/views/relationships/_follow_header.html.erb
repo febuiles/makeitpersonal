@@ -9,11 +9,11 @@
         <div class="span8">
           <% if current_user %>
             <% if current_user.follows?(@user) %>
-              Looks like you're already following <%= @user.username %>. Good, good indeed...
+              Looks like you're already following <%= link_to @user.username, @user %>. Good, good indeed...
             <% elsif current_user == @user %>
               This is your corner on the site. There are many others like it, but this one's yours.
             <% else %>
-              <%= @user.username %> is a rather interesting fellow, wanna <%= link_to "follow him".html_safe, relationships_path(:followed_id => @user.id) %>?
+              <%= @user.username %> is a rather interesting fellow, wanna <%= link_to "follow him".html_safe, relationships_path(:followed_id => @user.id), :method => :post %>?
             <% end %>
           <% else %>
             <%= random_sign_up_request %>

@@ -8,15 +8,6 @@
  *= require ./buttons
 */
 
-em {
-  font-style: italic !important;
-}
-
-strong {
-  font-weight: bold !important;
-}
-
-
 @font-face {
     font-family: 'ModernPictogramsNormal';
     src: url(<%= asset_path 'modernpics-webfont.eot' %>);
@@ -26,6 +17,29 @@ strong {
          url(<%= 'modernpics-webfont.svg#ModernPictogramsNormal' %>) format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+body {
+  background-color: white;
+  font-family: $sans !important;
+  font-size: 15px;
+}
+
+div.wrap {
+  min-height: 100%;
+}
+
+div.main {
+  overflow: auto;
+  padding-bottom: 85px;
+}
+
+em {
+  font-style: italic !important;
+}
+
+strong {
+  font-weight: bold !important;
 }
 
 div#spinner {
@@ -54,8 +68,4 @@ div.overlay {
   top: 0;
   left: 0;
   z-index: 2;
-}
-
-div.clear {
-  clear: both;
 }

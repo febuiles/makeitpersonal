@@ -1,0 +1,15 @@
+<div class="modal hide fade" id="share-modal-<%= song.id%>">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3>Share</h3>
+  </div>
+
+  <div class="modal-body">
+    <p>You can share this link with your friends, foes and pets:</p>
+    <input type="text" value="<%= user_song_url(@user, song) %>" />
+  </div>
+
+  <div class="modal-footer">
+    <a href="#" data-dismiss="modal" class="button">Close</a>
+  </div>
+</div>

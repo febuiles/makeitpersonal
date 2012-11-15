@@ -6,18 +6,6 @@
 @import "songs/loves"
 @import "users/user_card"
 
-body
-  background-color: white
-  font-family: $sans !important
-  font-size: 15px
-
-div.wrap
-  min-height: 100%
-
-div.main
-  overflow: auto
-  padding-bottom: 85px
-
 div.lyric
   font-size: 18px
   line-height: 24px
@@ -74,6 +62,8 @@ div.notes
     display: block
     margin: 0 auto
     width: 10px
+  a
+    text-decoration: underline
   p
     margin-top: 1em
     color: $dark
@@ -86,15 +76,13 @@ div.notes
         line-height: normal !important
         display: inline
         margin-right: 3px
-  a
-    text-decoration: underline
   div.sidenotes
     p
       border-left: 1px solid #e5e5e5
       padding-left: 20px
       width: 250px
 
-/* User profile
+
 div.content-heading
   margin-bottom: 40px
   h2
