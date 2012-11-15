@@ -12,20 +12,19 @@
 
 <div class="row-fluid">
   <div class="span8 song-list">
-    <div class="row-fluid row-jump">
+    <div class="row-fluid">
       <div class="span10 offset1 bordered">
-        <p>
-          <% @songs.each do |song| %>
-            <%= link_to(user_song_path(song.user, song), :class => "song song-dropdown") do %>
+        <% @songs.each do |song| %>
+          <div class="song-cell">
+            <%= link_to(user_song_path(song.user, song), :class => "song-cell-dark") do %>
               <%= song.name %>
               <i class="icon-arrow-right"></i>
             <% end %>
             <span class="by">
               (loved by <%= song.list_of_lovers %>)
             </span>
-            <br/><br/>
-          <% end %>
-        </p>
+          </div>
+        <% end %>
       </div>
     </div>
 

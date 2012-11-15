@@ -4,7 +4,14 @@
 @import "songs/header"
 @import "songs/footer"
 @import "songs/loves"
+@import "songs/song_list"
+@import "songs/forms"
 @import "users/user_card"
+
+body
+  background-color: white
+  font-family: $sans !important
+  font-size: 15px
 
 div.lyric
   font-size: 18px
@@ -41,6 +48,12 @@ div.lyric-extra
 iframe.youtube-embed
   border: 10px solid $dark
 
+span.sidenote-ref
+  color: $green
+  font-size: 13px
+  font-weight: bold
+
+
 p.user-toolbar
   a.btn
     font-size: 18px
@@ -55,7 +68,7 @@ div.notes
   h2
     margin-bottom: 25px
     color: $gray
-    width: 100px
+    width: 100%
   em
     color: $green
   span.spacer
@@ -90,114 +103,3 @@ div.content-heading
   p
     font-size: 1.25em
 
-div.song-list
-  span.date
-    text-align: center
-    color: #c8c8c8
-
-  .row-jump
-    margin-left: 30px
-    margin-bottom: 20px
-    .bordered p
-      margin-top: 15px
-      margin-bottom: 20px
-
-    span.by
-      color: $gray
-      margin-left: 10px
-      a
-        color: $gray
-        text-decoration: underline
-    a.song
-      padding: 5px 10px 5px 10px
-      margin-top: 12px
-      height: 30px
-      font-size: 18px
-      font-family: $serif
-      i
-        margin-left: 20px
-        font-size: 0.7em
-        line-height: 23px
-      &:hover
-        text-decoration: none
-      &.song-dropdown
-        background-color: $gray
-        color: white !important
-        i
-          color: $green
-      &.song-borrowed
-        background-color: #e8e8e8 !important
-        color: black !important
-        i
-          color: $gray
-
-div.song-links
-  display: none
-  margin-top: 10px
-  font-size: 16px
-  line-height: 22px
-  em
-    font-family: $serif
-  span.icon
-    margin-right: 5px
-    color: $green
-    font-size: 1.5em
-  a, a:hover
-    color: $gray
-    font-family: $serif
-    text-decoration: underline
-
-
-div.new-song
-  h2
-    margin-bottom: 30px
-
-  input[type="text"]
-    border: 1px solid #999
-    border-radius: 0
-    width: 100%
-    height: 55px
-    line-height: 55px
-    font-size: 36px
-    font-weight: 600
-    padding-left: 5px
-    font-family: $sans !important
-    margin-bottom: 25px
-  textarea
-    border-radius: 0
-    border: 1px solid #999
-    width: 100%
-  #song_lyrics, #song_youtube_url
-    display: none
-
-
-#step1, #step2, #step2-nolyrics, #step3, #set-video, #publish
-  display: none
-
-.step-active
-  display: block !important
-
-
-#youtube-help, #lyrics-help
-  display: none
-
-div.help-box
-  width: 583px
-  line-height: 50px
-  font-size: 1.25em
-  text-align: center
-  height: 50px
-  background-color: $dark
-  color: white
-  margin-bottom: 25px
-  a
-    text-decoration: underline
-
-span.sidenote-ref
-  color: $green
-  font-size: 13px
-  font-weight: bold
-
-textarea#user_bio
-  width: 265px
-  height: 150px

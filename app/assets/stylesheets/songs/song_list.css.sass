@@ -1,0 +1,59 @@
+@mixin song-cell-link
+  padding: 5px 10px 5px 10px
+  height: 30px
+  font-size: 18px
+  font-family: $serif
+  i
+    margin-left: 20px
+    font-size: 0.7em
+    line-height: 23px
+  &:hover
+    text-decoration: none
+
+
+div.song-list
+  & > div.row-fluid
+    margin-left: 30px
+    margin-bottom: 20px
+
+  span.date
+    text-align: center
+    color: #c8c8c8
+
+  span.by
+    color: $gray
+    margin-left: 10px
+    a
+      color: $gray
+      text-decoration: underline
+
+div.song-cell
+  margin-top: 12px
+  margin-bottom: 20px
+  a.song-cell-dark
+    @include song-cell-link
+    background-color: $gray
+    color: white !important
+    i
+      color: $green
+  a.song-cell-light
+    @include song-cell-link
+    background-color: #e8e8e8 !important
+    color: black !important
+    i
+      color: $gray
+  div.song-links
+    display: none
+    margin-top: 10px
+    font-size: 16px
+    line-height: 22px
+    em
+      font-family: $serif
+    span.icon
+      margin-right: 5px
+      color: $green
+      font-size: 1.5em
+    a, a:hover
+      color: $gray
+      font-family: $serif
+      text-decoration: underline

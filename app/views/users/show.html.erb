@@ -23,14 +23,18 @@
 <div class="row-fluid">
   <div class="span8 song-list">
     <% current_user.timeline_songs.each do |date, songs| %>
-      <div class="row-fluid row-jump">
+      <div class="row-fluid">
         <div class="span1 centered">
           <span class="date"><%= date.strftime("%b. %d").downcase %></span>
         </div>
 
         <div class="span10 bordered">
           <% songs.each do |song| %>
-            <p><%= render song %></p>
+            <% if current_user.owns?(song) %>
+              <%= render "songs/owned_song", song: song %>
+            <% else %>
+              <%= render song %>
+            <% end %>
           <% end %>
         </div>
       </div>

@@ -1,0 +1,20 @@
+<div class="song-cell" >
+  <%= link_to("javascript:void(0)", :class => "song-cell-dark song-dropdown") do %>
+    <%= truncate(song.name, :length => 55).html_safe %>
+    <i class="icon-arrow-down"></i>
+  <% end %>
+
+  <div class="song-links">
+    <span class="icon">w</span>
+    <%= link_to "Share this song", "#share-modal-#{song.id}", data: { toggle: "modal", keyboard: true } %>
+    &mdash;
+    <em><%= link_to user_song_url(@user, song), user_song_url(@user, song) %></em><br/>
+
+    <span class="icon">V</span>
+    <%= link_to "Edit your highlights and comments", edit_song_path(song) %><br/>
+
+    <span class="icon">I</span>
+    <%= link_to "Delete this song", song_path(song), :method => :delete %><br/>
+  </div>
+  <%= render "songs/share_song_modal", song: song %>
+</div>
