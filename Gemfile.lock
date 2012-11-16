@@ -97,6 +97,8 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails3_acts_as_paranoid (0.2.4)
+      activerecord (~> 3.2)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -163,6 +165,7 @@ DEPENDENCIES
   pg
   rack-timeout
   rails (= 3.2.8)
+  rails3_acts_as_paranoid (~> 0.2.0)
   redcarpet
   rspec-rails
   sass-rails (~> 3.2.3)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112202947) do
+ActiveRecord::Schema.define(:version => 20121116030608) do
 
   create_table "api_requests", :force => true do |t|
     t.string   "endpoint"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20121112202947) do
     t.string   "twitter"
     t.string   "website"
     t.string   "slug"
+    t.datetime "deleted_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

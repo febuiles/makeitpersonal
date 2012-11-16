@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable
   friendly_id :username, :use => :slugged
+  acts_as_paranoid
 
   has_many :songs
   has_many :loves
