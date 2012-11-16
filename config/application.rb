@@ -32,6 +32,6 @@ module Makeitpersonal
     end
 
     config.assets.initialize_on_precompile = false
-    config.assets.precompile += ["song/song.css", "landing.css"]
+    config.assets.precompile += ["song/song.css", "landing.css", "pages.css"]
   end
 end
