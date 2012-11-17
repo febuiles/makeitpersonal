@@ -12,6 +12,7 @@ class NotificationsMailer < ActionMailer::Base
     @lover = user
     @loved = song.user
     @song = song
+    @adjective = ["awesome", "neat", "nifty", "lovely", "nice"].sample
     subject = "#{@lover.username} loved one of your songs"
     mail(to: @loved.email, subject: subject)
   end
