@@ -3,16 +3,17 @@
 <html>
   <head>
     <title>
+
       makeitpersonal
     </title>
-
     <link href="/assets/pages.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="/assets/application.js" type="text/javascript"></script>
     <link href="/assets/favicon.ico" rel="icon">
     <script type="text/javascript" src="//use.typekit.net/asb5tix.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-    <script type="text/javascript">
+    <meta name="description" content="Annotate your favorite songs, highlight them and share them with the world. Express yourself through music." />
 
+    <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-23513652-4']);
       _gaq.push(['_trackPageview']);
@@ -22,9 +23,7 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-
     </script>
-
   </head>
 
   <body>
@@ -32,24 +31,8 @@
       <a href="/"><img alt="Logo-big" src="/assets/logo-big.png" /></a>
 
       <div class="landing-links">
-        <a href="javascript:void(0)" id="toggle-login-form">Login</a>
-        <div class="login">
-          <form accept-charset="UTF-8" action="/login" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="9+TIJkTLepPkae6frzoQHq2hqpUPsID8GBHEE4PCROQ=" /></div>
-            <label for="user_login">Username or email:</label>
-            <input id="user_login" name="user[login]" size="30" type="text" />
-
-            <label for="user_password">Password:</label>
-            <input id="user_password" name="user[password]" size="30" type="password" />
-
-            <input id="user_remember_me" name="user[remember_me]" type="hidden" value="1" />
-
-            <button type="submit">
-              <i class="icon-arrow-right"></i>
-            </button>
-
-          </form>        <div style="clear: both"></div>
-        </div>
-        <a href="/signup">Sign Up</a>
+        <a href="/account" class="big-box">my profile</a>
+        <a href="/logout" class="big-box" data-method="delete" rel="nofollow">logout</a>
       </div>
 
       <footer>
@@ -60,7 +43,7 @@
       </footer>
     </div>
 
-    <div class="manifesto">
+    <div class="landing-body">
       <h1>oh noes!</h1>
       <p>
         Something went wrong!!! :-(
