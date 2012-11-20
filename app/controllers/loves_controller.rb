@@ -2,7 +2,7 @@ class LovesController < ApplicationController
   before_filter :authenticate_user!
 
   def loved
-    @songs = current_user.loved_songs
+    @songs = current_user.loves_by_date
   end
 
   def loves

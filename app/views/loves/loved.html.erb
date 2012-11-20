@@ -12,16 +12,18 @@
 
 <div class="row-fluid">
   <div class="span8 song-list">
-    <div class="row-fluid">
-      <div class="span10 offset1 bordered">
-        <p>
-          <% @songs.each do |song| %>
-            <%= render song %>
+    <% @songs.each do |date, loves| %>
+      <div class="row-fluid">
+        <div class="span1 centered">
+          <span class="date"><%= date.strftime("%b. %d").downcase %></span>
+        </div>
+        <div class="span10 bordered">
+          <% loves.each do |love| %>
+            <%= render love.song %>
           <% end %>
-        </p>
+        </div>
       </div>
-    </div>
-
+    <% end %>
   </div>
 
   <%= render "users/user_sidebar" %>

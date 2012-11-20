@@ -90,6 +90,10 @@ class User < ActiveRecord::Base
     loves.map(&:song)
   end
 
+  def loves_by_date
+    loves.order("created_at desc").group_by { |love| love.created_at.to_date }
+  end
+
   def loves_received
     Love.find_all_by_owner_id(id).map(&:song).uniq
   end
