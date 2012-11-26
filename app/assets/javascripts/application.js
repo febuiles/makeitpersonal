@@ -9,6 +9,8 @@
 //= require twitter/bootstrap
 //= require_tree .
 
+loader = new Loader();
+
 $(function() {
   $("#toggle-login-form").click(function(){
     $("form.login").slideToggle();

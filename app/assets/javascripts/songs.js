@@ -23,6 +23,8 @@ $(function(){
   });
 
   $(".input-share").click(function(){ this.select(); })
+
+  $('#love-song, #unlove-song').click(loader.start);
 })
 
 
