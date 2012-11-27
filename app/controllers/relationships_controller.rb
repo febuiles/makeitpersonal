@@ -12,6 +12,7 @@ class RelationshipsController < ApplicationController
   def create
     @user = User.find(params[:followed_id])
     current_user.follow(@user)
+    mixpanel.track 'Follow', { from: current_user.username, to: @user.username  }
     NotificationsMailer.followed(current_user, @user).deliver
     respond_to do |format|
       format.html { redirect_to :back, :notice => "You're now following #{@user.username}"}
