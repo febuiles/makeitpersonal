@@ -3,13 +3,10 @@ require 'lyrics/parser'
 
 describe Lyric do
   let(:params) { { :artist => "The Gaslight Anthem", :title => "Great Expectations" } }
-  let(:fetcher) { double }
 
   before do
     result = Lyrics::ParserResult.new(:ok, "ZOMGLYRICS")
-    fetcher.stub!(:result).and_return(result)
-    Lyrics::Fetcher.stub!(:new).and_return(fetcher)
-    Lyric.destroy_all
+    Lyrics::WikiaService.stub(:lyrics_for).and_return(result)
   end
 
   context "callbacks" do
@@ -54,7 +51,7 @@ describe Lyric do
     end
 
     it "doesn't save invalid lyrics in the database" do
-      fetcher.stub(:result).and_return(Lyrics::ParserResult.new(:fail))
+    Lyrics::WikiaService.stub(:lyrics_for).and_return(Lyrics::ParserResult.new(:fail))
       lyric.fetch_and_save.should be_false
     end
   end

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'fast_spec_helper'
 require 'lyrics/text_processor'
-require 'lyrics/fetcher'
+require 'lyrics/text_fetcher'
 require 'nokogiri'
 include Lyrics
 
