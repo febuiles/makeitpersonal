@@ -11,10 +11,13 @@ class Lyric < ActiveRecord::Base
 
   def fetch_and_save
     return true if text.present?
-    result = Lyrics::Fetcher.new(artist, title).result
-    return false if result == ""
+
+    result = Lyrics::WikiaService.lyrics_for(artist, title)
+
+    return false if result.status.empty?
 
     self.text = result.lyrics
+
     if result.status == :ok
       self.save
     else

@@ -1,3 +1,5 @@
+require 'parser_result'
+
 module Lyrics
   class Parser
     attr_reader :text
@@ -54,5 +56,5 @@ module Lyrics
     end
   end
 
-  ParserResult = Struct.new(:status, :lyrics)
+
 end

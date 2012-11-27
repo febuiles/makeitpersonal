@@ -12,12 +12,18 @@ class String
     gsub(/(\r?\n)/, "<br/>").html_safe
   end
 
+  # we can't use Rails' #titleize since we need to deal with stuff like
+  # "LCD Soundsystem"
   def titleize_with_caps
     strings = split
     strings.each do |str|
       str[0] = str[0].capitalize
     end
     strings.join(" ")
+  end
+
+  def underscored
+    gsub(" ", "_")
   end
 
   def possessive
