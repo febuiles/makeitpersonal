@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_filter :track_visit
   protect_from_forgery
   def after_sign_in_path_for(resource)
     account_path
@@ -10,10 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-  def track_visit
-    return if request.xhr?
-    mixpanel.append_track "Visit"
-  end
 
   def mixpanel
     env = {

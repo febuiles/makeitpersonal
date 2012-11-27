@@ -1,5 +1,4 @@
 class LyricsController < ApplicationController
-  skip_before_filter :track_visit
   before_filter :validate_params
 
   def lyrics
