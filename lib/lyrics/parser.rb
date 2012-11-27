@@ -31,12 +31,17 @@ module Lyrics
 
     def operations
       {
+        /{{Instrumental}}/ => :instrumental,
         /{{gracenote_takedown}}/ => :gracedown_notice,
         /PUT LYRICS HERE/ => :no_lyrics_notice,
         /<sup>.*?<\/sup>/ => :sup_tags,
         /''/ => :quote,
         /&quot;/ => :quote
       }
+    end
+
+    def instrumental
+      [:ok, "Instrumental"]
     end
 
     def gracedown_notice
