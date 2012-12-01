@@ -2,7 +2,7 @@
   <% if  current_user.owns?(@song) %>
     <p class="user-toolbar">
       (<%= link_to "edit song", edit_song_path(@song) %> |
-      <%= link_to "delete", song_path(@song), :method => :delete, :style => "color: red" %>)
+      <%= link_to "delete", song_path(@song), :method => :delete, :style => "color: red", :confirm => "Are you sure you want to delete this song?" %>)
     </p>
   <% end %>
 <% end %>
