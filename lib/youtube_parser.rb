@@ -11,13 +11,13 @@ class YoutubeParser
 
   def embed_code
     return nil if url_invalid?
-    "<iframe class='youtube-embed' src='#{src}?#{default_params}' frameborder='0' ></iframe>"
+    "<iframe class='youtube-embed' src='#{embed_url} frameborder='0' ></iframe>"
   end
 
   private
 
-  def src
-    "http://www.youtube.com/embed/#{video_id}"
+  def embed_url
+    "http://www.youtube.com/embed/#{video_id}?#{default_params}"
   end
 
   def video_id
