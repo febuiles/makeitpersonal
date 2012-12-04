@@ -7,11 +7,6 @@ class String
     self.strip.downcase.gsub(/-/, " ")
   end
 
-  def replace_newlines
-    gsub!(/(\r?\n){2,}/, "<br/><br/>")
-    gsub(/(\r?\n)/, "<br/>").html_safe
-  end
-
   # we can't use Rails' #titleize since we need to deal with stuff like
   # "LCD Soundsystem"
   def titleize_with_caps

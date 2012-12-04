@@ -76,8 +76,7 @@ class User < ActiveRecord::Base
   end
 
   def sample_songs
-    samples = []
-    return samples if songs.length < 2
+    return [] if songs.length < 2
     songs.sample(3)
   end
 

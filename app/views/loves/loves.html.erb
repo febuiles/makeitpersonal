@@ -21,7 +21,7 @@
               <i class="icon-arrow-right"></i>
             <% end %>
             <span class="by">
-              (loved by <%= song.list_of_lovers %>)
+              <%= render "lovers", song: song %>
             </span>
           </div>
         <% end %>

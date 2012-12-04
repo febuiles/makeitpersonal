@@ -1,0 +1,5 @@
+(loved by
+<%= song.lovers.map do |lover| %>
+  <% link_to(lover.username, lover) %>
+<% end.join(", ").html_safe %>
+)
