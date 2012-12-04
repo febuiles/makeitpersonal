@@ -6,7 +6,7 @@ module SongPresenter
   end
 
   def embed
-    YoutubeParser.new(youtube_url).embed_code.try(:html_safe)
+    YoutubeParser.new(youtube_url).embed_code.html_safe
   end
 
   def sidenotes

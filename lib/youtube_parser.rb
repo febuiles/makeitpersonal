@@ -10,7 +10,7 @@ class YoutubeParser
   end
 
   def embed_code
-    return nil if url_invalid?
+    return "" if url_invalid?
     "<iframe class='youtube-embed' src='#{embed_url} frameborder='0' ></iframe>"
   end
 
