@@ -1,5 +1,4 @@
 @mixin sidebar
-  margin-top: -12px
   a
     text-decoration: underline
   i
@@ -40,6 +39,9 @@
 
 div.sidebar
   @include sidebar
+
+div.vertical-correction
+  margin-top: -100px
 
 div.lower-sidebar
   @include sidebar

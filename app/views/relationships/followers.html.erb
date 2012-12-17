@@ -3,17 +3,14 @@
 <%= render "follow_header" %>
 
 <div class="row-fluid">
-  <div class="span6 offset1 content-heading">
-    <h2><%= "#{@user.username.possessive} followers" %></h2>
-    <%= render "shared/notices" %>
-  </div>
-</div>
-
-<div class="row-fluid">
   <div class="span7 offset1 profile-content">
+    <div class="profile-heading">
+      <h2><%= "#{@user.username.possessive} followers" %></h2>
+      <%= render "shared/notices" %>
+    </div>
+
     <%= render partial: "users/user_card", collection: @user.followers  %>
   </div>
-
-  <%= render "shared/profile_sidebar" %>
+    <%= render "shared/profile_sidebar" %>
 </div>
 
