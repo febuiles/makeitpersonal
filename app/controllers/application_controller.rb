@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_filter :show_welcome_notice
 
   protect_from_forgery
+
   def after_sign_in_path_for(resource)
     account_path
   end
