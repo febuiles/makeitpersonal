@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem "airbrake"
 gem "devise"
 gem "twitter-bootstrap-rails", "2.1.4"
-gem "friendly_id"
+gem "friendly_id", ">= 4.0.9"
 gem "redcarpet"
 gem "rack-timeout"
 gem "mixpanel"
