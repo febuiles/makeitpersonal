@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Makeitpersonal::Application.config.secret_token = ENV['secret'] || 'development_token'
+Makeitpersonal::Application.config.secret_token = ENV['secret'] || '26e3af10ac38dfb80d5a9262c634896e'
