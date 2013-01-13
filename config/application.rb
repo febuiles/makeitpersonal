@@ -22,7 +22,7 @@ module Makeitpersonal
     config.autoload_paths += %W(#{config.root}/app/presenters)
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/lib/lyrics)
-    config.assets.version = '1.0'
+    config.assets.version = '1.1'
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.assets.precompile += %w( .svg .eot .woff .ttf )
 
