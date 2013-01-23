@@ -13,7 +13,7 @@ gem "redcarpet"
 gem "rack-timeout"
 gem "mixpanel"
 gem "rails3_acts_as_paranoid", "~> 0.2.0"
-
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem "rspec-rails"
