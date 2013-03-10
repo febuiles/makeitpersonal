@@ -79,7 +79,6 @@ GEM
       json
       rack
     multi_json (1.5.1)
-    newrelic_rpm (3.5.5.38)
     nokogiri (1.5.5)
     orm_adapter (0.4.0)
     pg (0.14.1)
@@ -169,7 +168,6 @@ DEPENDENCIES
   friendly_id (>= 4.0.9)
   jquery-rails
   mixpanel
-  newrelic_rpm
   nokogiri
   pg
   rack-timeout
