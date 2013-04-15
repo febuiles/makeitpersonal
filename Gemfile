@@ -13,7 +13,8 @@ gem "redcarpet"
 gem "rack-timeout"
 gem "mixpanel"
 gem "rails3_acts_as_paranoid", "~> 0.2.0"
-gem "thin"
+gem "unicorn"
+gem "capistrano"
 
 group :development, :test do
   gem "rspec-rails"

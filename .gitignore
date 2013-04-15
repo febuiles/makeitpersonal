@@ -4,3 +4,5 @@
 .DS_Store
 psd/
 config/database.yml
+config/
+deploy.rb
