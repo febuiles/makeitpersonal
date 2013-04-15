@@ -5,4 +5,4 @@
 psd/
 config/database.yml
 config/
-deploy.rb
+config/deploy.rb

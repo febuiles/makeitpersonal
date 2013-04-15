@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-server "72.14.183.209", :web, :app, :db, primary: true
+server "50.97.51.122", :web, :app, :db, primary: true
 
 set :application, "makeitpersonal"
 set :user, "mip"
