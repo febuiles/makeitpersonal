@@ -64,7 +64,7 @@ Makeitpersonal::Application.configure do
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com'
+    :domain         => 'makeitpersonal.co'
   }
   ActionMailer::Base.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'makeitpersonal.co' }
