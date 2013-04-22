@@ -45,7 +45,7 @@ module Lyrics
     end
 
     def gracedown_notice
-      [:taken_down, "Sorry, Gracedown has taken down this song."]
+      [:taken_down, "Sorry, Gracenote has taken down this song."]
     end
 
     def no_lyrics_notice

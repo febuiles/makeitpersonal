@@ -36,7 +36,7 @@ var Lyric = function(outputField) {
     loader.stop();
     showLyrics();
     $("#set-video").show();
-    if (data == "Sorry, We don't have lyrics for this song yet." || data == "Sorry, Gracedown has taken down this song.") {
+    if (data == "Sorry, We don't have lyrics for this song yet." || data == "Sorry, Gracenote has taken down this song.") {
       activateStep("step2-nolyrics");
       $("#lyrics-help").show();
     } else {
