@@ -1,0 +1,19 @@
+<% @songs.group_by { |x| x.created_at.to_date }.each do |date, songs| %>
+  <div class="row-fluid">
+    <div class="span1 centered" >
+      <span class="date"><%= date.strftime("%b. %d").downcase %></span>
+    </div>
+
+    <div class="span10 bordered">
+      <% songs.each do |song| %>
+
+        <div class="song-cell">
+          <%= link_to(user_song_path(@user, song), :class => "song-cell-light") do %>
+            <%= truncate(song.name, :length => 55).html_safe %>
+            <i class="icon-arrow-right"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

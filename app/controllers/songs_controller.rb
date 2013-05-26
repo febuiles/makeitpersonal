@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :edit, :update, :create]
+  before_filter :authenticate_user!, :only => [:new, :edit, :update, :create, :destroy]
   before_filter :find_user, :only => [:index, :show]
 
   def new
@@ -29,6 +29,7 @@ class SongsController < ApplicationController
 
   def index
     render_not_found unless @user
+    @songs = @user.recent_songs.page(params[:page]).per(15)
   end
 
   def show

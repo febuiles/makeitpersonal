@@ -15,6 +15,7 @@ gem "mixpanel"
 gem "rails3_acts_as_paranoid", "~> 0.2.0"
 gem "unicorn"
 gem "capistrano"
+gem "kaminari"
 
 group :production do
   gem "sitemap_generator"
