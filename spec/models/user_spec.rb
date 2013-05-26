@@ -143,21 +143,19 @@ describe User do
       end
 
       it "returns the songs the user has uploaded" do
-        follower.songs.each_with_index do |song, i|
-          follower.timeline_songs[i][0].should == song.created_at.to_date
-          follower.timeline_songs[i][1].should include(song)
+        follower.songs.each do |song|
+          follower.timeline_songs.should include(song)
         end
       end
 
       it "returns the songs that the followed_users have uploaded" do
-        followed.songs.each_with_index do |song, i|
-          follower.timeline_songs[i][0].should == song.created_at.to_date
-          follower.timeline_songs[i][1].should include(song)
+        followed.songs.each do |song, |
+          follower.timeline_songs.should include(song)
         end
       end
 
       it "sorts the songs by descending date" do
-        follower.timeline_songs.sort.should == follower.timeline_songs.reverse
+        follower.timeline_songs.first.created_at.to_i.should be >= follower.timeline_songs.last.created_at.to_i
       end
     end
   end
