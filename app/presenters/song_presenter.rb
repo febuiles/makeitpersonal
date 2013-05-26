@@ -2,7 +2,11 @@ module SongPresenter
   include ActionView::Helpers::UrlHelper
 
   def name
-    "#{artist.titleize_with_caps} &mdash; #{title.titleize_with_caps}".html_safe
+    if user.trustable?
+      "#{artist} &mdash; #{title}".html_safe
+    else
+      "#{artist.titleize_with_caps} &mdash; #{title.titleize_with_caps}".html_safe
+    end
   end
 
   def embed

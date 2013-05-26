@@ -65,7 +65,6 @@ class User < ActiveRecord::Base
   def timeline_songs
     songs = recent_songs + followed_users.map(&:recent_songs).flatten
     songs.sort_by { |song| song.created_at.to_date }.reverse
-#    songs.group_by { |x| x.created_at.to_date }.sort.reverse
   end
 
   def recent_songs
@@ -75,6 +74,10 @@ class User < ActiveRecord::Base
   def sample_songs
     return [] if songs.length < 2
     songs.sample(3)
+  end
+
+  def trustable?
+    songs.count > 30
   end
 
   def love(song)

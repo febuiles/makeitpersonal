@@ -6,7 +6,6 @@
 
     <div class="span10 bordered">
       <% songs.each do |song| %>
-
         <div class="song-cell">
           <%= link_to(user_song_path(@user, song), :class => "song-cell-light") do %>
             <%= truncate(song.name, :length => 55).html_safe %>
