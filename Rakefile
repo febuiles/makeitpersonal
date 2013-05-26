@@ -15,4 +15,6 @@ task generate_sitemap: :environment do
       add "/#{user.username}", :changefreq => "daily"
     end
   end
+
+  SitemapGenerator::Sitemap.ping_search_engines
 end
