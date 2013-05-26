@@ -21,23 +21,12 @@
 
 <div class="row-fluid">
   <div class="span8 song-list">
-    <% current_user.timeline_songs.each do |date, songs| %>
-      <div class="row-fluid">
-        <div class="span1 centered">
-          <span class="date"><%= date.strftime("%b. %d").downcase %></span>
-        </div>
-
-        <div class="span10 bordered">
-          <% songs.each do |song| %>
-            <% if current_user.owns?(song) %>
-              <%= render "songs/owned_song", song: song %>
-            <% else %>
-              <%= render song %>
-            <% end %>
-          <% end %>
-        </div>
+    <%= render "timeline_songs_by_date" %>
+    <div class="row-fluid">
+      <div class="span8 offset1">
+        <%= paginate @songs %>
       </div>
-    <% end %>
+    </div>
   </div>
 
   <%= render "users/user_sidebar" %>

@@ -10,7 +10,9 @@
   <nav class="pagination">
     <%= first_page_tag unless current_page.first? %>
     <% each_page do |page| -%>
-      <%= page_tag page %>
+      <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+        <%= page_tag page %>
+      <% end -%>
     <% end -%>
     <%= last_page_tag unless current_page.last? %>
   </nav>

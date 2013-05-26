@@ -1,0 +1,18 @@
+<% @songs.group_by { |song| song.created_at.to_date }.each do |date, songs| %>
+  <div class="row-fluid">
+    <div class="span1 centered">
+      <span class="date"><%= date.strftime("%b. %d").downcase %></span>
+    </div>
+
+    <div class="span10 bordered">
+      <% songs.each do |song| %>
+        <% if current_user.owns?(song) %>
+          <%= render "songs/owned_song", song: song %>
+        <% else %>
+          <%= render song %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
