@@ -18,3 +18,15 @@ task generate_sitemap: :environment do
 
   SitemapGenerator::Sitemap.ping_search_engines
 end
+
+namespace :db do
+  task :pull => :environment do
+    desc "Drops the database and recreates it from the dump file"
+    system "cap db:download && gunzip dump.gz"
+    system %q{psql -h localhost -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE  pid <> pg_backend_pid() AND datname = 'makeitpersonal_development'"}
+    system "rake db:drop db:create"
+    system "psql -U federico -h localhost -d makeitpersonal_development -f dump"
+    system "rm dump"
+  end
+end
+
