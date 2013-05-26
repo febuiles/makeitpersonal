@@ -7,7 +7,7 @@
         </div>
 
         <div class="span8">
-          <% if current_user and current_user.trustable? %>
+          <% if @song.user.trustable? %>
             <span>These are <%= link_to "#{@user.username.possessive}", user_path(@user) %> notes on <strong><%= @song.title %></strong> by <strong><%= @song.artist %></strong>.</span>
           <% else %>
             <span>These are <%= link_to "#{@user.username.possessive}", usxer_path(@user) %> notes on <strong><%= @song.title.titleize_with_caps %></strong> by <strong><%= @song.artist.titleize_with_caps %></strong>.</span>
