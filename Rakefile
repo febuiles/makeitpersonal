@@ -5,3 +5,14 @@
 require File.expand_path('../config/application', __FILE__)
 
 Makeitpersonal::Application.load_tasks
+
+task generate_sitemap: :environment do
+  desc "Generates a sitemap.xml file for the site"
+  SitemapGenerator::Sitemap.default_host = 'http://makeitpersonal.co'
+  SitemapGenerator::Sitemap.create do
+    add '/', :changefreq => 'weekly'
+    User.all.each do |user|
+      add "/#{user.username}", :changefreq => "daily"
+    end
+  end
+end

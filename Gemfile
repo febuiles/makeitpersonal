@@ -16,6 +16,10 @@ gem "rails3_acts_as_paranoid", "~> 0.2.0"
 gem "unicorn"
 gem "capistrano"
 
+group :production do
+  gem "sitemap_generator"
+end
+
 group :development, :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
