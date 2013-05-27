@@ -26,6 +26,20 @@ $(function(){
 
   $('#love-song, #unlove-song').click(loader.start);
   $('div#following a').click(loader.start);
+
+
+  // Inline song editing
+
+  $("#inline-edit-song").click(function(e){
+    $("#song-body, #inline-edit-form, #user-toolbar").toggle();
+  })
+
+  var $inlineForm = $("#inline-edit-form form");
+  $inlineForm.data("remote", true);
+  $inlineForm.on("ajax:complete", function(e, status){
+    $("#song-body, #inline-edit-form, #user-toolbar").toggle();
+    $("p#song-body").replaceWith(status.responseText);
+  })
 })
 
 

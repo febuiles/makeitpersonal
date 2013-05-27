@@ -13,7 +13,10 @@ class SongsController < ApplicationController
   def update
     @song = current_user.songs.find(params[:id])
     if @song.update_attributes(params[:song])
-      redirect_to user_song_path(current_user.username, @song), :notice => "The song's been updated."
+      respond_to do |format|
+        format.html { redirect_to user_song_path(current_user.username, @song), :notice => "The song's been updated." }
+        format.js
+      end
     end
   end
 

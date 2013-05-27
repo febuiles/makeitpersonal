@@ -1,0 +1,22 @@
+<div class="span6 new-song">
+  <h2>edit</h2>
+  <%= form_for @song do |f| %>
+    <%= f.text_field :artist, :autofocus => true %>
+
+    <%= f.text_field :title %>
+
+    <%= f.text_area :lyrics, :placeholder => "Lyrics go here...", :id => "lyrics" %>
+
+    <% if @song.youtube_url.empty? %>
+      <div class="help-box">
+        <%= link_to "Search for the video in YouTube", "http://www.youtube.com/results?search_query=#{@song.artist} #{@song.title}", :target => "_blank", :class => "youtube-hint"%>.
+      </div>
+    <% end %>
+
+    <%= f.text_field :youtube_url, :placeholder => "YouTube URL (optional)", :id => "youtube" %>
+
+    <div class="clear">
+    </div>
+    <%= f.submit "Update", :class => "button-inline right button-primary" %>
+  <% end %>
+</div>

@@ -7,7 +7,10 @@
     <div class="span6 lyric">
       <%= render "shared/welcome_notice" %>
       <%= render "user_toolbar" %>
-      <p>
+      <div id="inline-edit-form" style="display: none">
+        <%= render "edit" %>
+      </div>
+      <p id="song-body">
         <%= @song.body %>
       </p>
     </div>
