@@ -34,11 +34,17 @@ $(function(){
     $("#song-body, #inline-edit-form, #user-toolbar").toggle();
   })
 
+
   var $inlineForm = $("#inline-edit-form form");
   $inlineForm.data("remote", true);
+  $inlineForm.on("submit", function(e, status){
+    loader.start();
+  })
+
   $inlineForm.on("ajax:complete", function(e, status){
     $("#song-body, #inline-edit-form, #user-toolbar").toggle();
     $("p#song-body").replaceWith(status.responseText);
+    loader.stop();
   })
 })
 
