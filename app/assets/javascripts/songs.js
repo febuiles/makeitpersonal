@@ -43,7 +43,9 @@ $(function(){
 
   $inlineForm.on("ajax:complete", function(e, status){
     $("#song-body, #inline-edit-form, #user-toolbar").toggle();
-    $("p#song-body").replaceWith(status.responseText);
+    var response = $("<div/>").html(status.responseText)
+    $("#song-body").replaceWith(response.find("#song-body"));
+    $(".sidenotes").replaceWith(response.find(".sidenotes"));
     loader.stop();
   })
 })
