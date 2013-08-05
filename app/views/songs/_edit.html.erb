@@ -1,6 +1,7 @@
 <div class="span6 new-song">
-  <h2>edit</h2>
   <%= form_for @song do |f| %>
+  <h2>edit <%= f.submit "Update", :class => "button-inline button-primary button-without-margin right" %></h2>
+
     <%= f.text_field :artist, :autofocus => true %>
 
     <%= f.text_field :title %>
