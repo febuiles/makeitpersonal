@@ -11,15 +11,16 @@
 
         <%= f.text_field :title, :placeholder => "Song Title" %>
 
-        <div class="help-box" id="lyrics-help">
-          We don't have lyrics for this song. <%= link_to "Search them on Google", "", :target => "_blank", :class => "google-hint" %>.
-        </div>
+        <%= link_to("", target: "_blank", class: "google-hint") do %>
+          <div class="help-box" id="lyrics-help">Search for the lyrics on Google</div>
+        <% end %>
 
         <%= f.text_area :lyrics, :placeholder => "Paste the lyrics here..." %>
 
-        <div class="help-box" id="youtube-help">
-          <%= link_to "Search for the video in YouTube", "", :target => "_blank", :class => "youtube-hint"%>.
-        </div>
+        <%= link_to("", target: "_blank", class: "youtube-hint") do %>
+          <div class="help-box" id="youtube-help">Search for the video in YouTube</div>
+        <% end %>
+
 
         <%= f.text_field :youtube_url, :placeholder => "YouTube URL (optional)" %>
 
