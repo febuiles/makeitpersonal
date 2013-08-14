@@ -12,12 +12,11 @@
 <div class="row-fluid">
   <div class="span8 song-list profile-content">
     <%= render "songs_by_date" %>
-    <div class="row-fluid">
-      <div class="span8 offset1">
-        <%= paginate @songs %>
-      </div>
-    </div>
   </div>
   <%= render "shared/profile_sidebar" %>
+  <div class="span8 offset1">
+    <%= paginate @songs %>
+  </div>
+
 </div>
 

@@ -1,0 +1,6 @@
+$('.song-list').append('<div class="row-fluid"><%= j render("songs_by_date") %></div>')
+if ($(".pagination a[rel=next]").next()) {
+  var next = $(".pagination a[rel=next]").next()
+  $(".pagination a[rel=next]").attr("rel", "")
+  next.attr("rel", "next")
+}
