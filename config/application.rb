@@ -24,8 +24,8 @@ module Makeitpersonal
     config.autoload_paths += %W(#{config.root}/lib/lyrics)
     config.assets.version = '2.0'
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.assets.paths << "#{Rails.root}/vendor/assets/javascripts"
     config.assets.precompile += %w( .svg .eot .woff .ttf )
-
 
     config.generators do |g|
       g.orm :active_record
