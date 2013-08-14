@@ -49,5 +49,3 @@ $(function(){
     loader.stop();
   })
 })
-
-

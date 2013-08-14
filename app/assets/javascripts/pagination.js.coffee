@@ -10,6 +10,6 @@ jQuery ->
         $.getScript url, ->
           window.paginating = false
           loader.stop()
-        window.paginating = true
         loader.start()
+        window.paginating = true
     $(window).scroll()
