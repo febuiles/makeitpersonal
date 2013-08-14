@@ -15,7 +15,7 @@
   </div>
   <%= render "shared/profile_sidebar" %>
   <div class="span8 offset1">
-    <%= paginate @songs %>
+    <%= paginate @songs, window: 100 %>
   </div>
 
 </div>

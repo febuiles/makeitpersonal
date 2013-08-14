@@ -24,7 +24,7 @@
     <%= render "timeline_songs_by_date" %>
     <div class="row-fluid">
       <div class="span8 offset1">
-        <%= paginate @songs %>
+        <%= paginate @songs, window: 100 %>
       </div>
     </div>
   </div>
