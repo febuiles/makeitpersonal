@@ -3,4 +3,7 @@ if ($(".pagination a[rel=next]").next()) {
   var next = $(".pagination a[rel=next]").next()
   $(".pagination a[rel=next]").attr("rel", "")
   next.attr("rel", "next")
+  $("a.song-dropdown").click(function(){
+    $(this).siblings(".song-links").slideToggle();
+  });
 }
