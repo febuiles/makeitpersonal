@@ -8,6 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    return if resource.new_record?
     NotificationsMailer.new_user(resource).deliver
     mixpanel.append_track "User Signup", { :user_id => resource.id }
   end
