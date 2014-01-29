@@ -139,23 +139,32 @@ describe User do
       before do
         FactoryGirl.create(:song, :user_id => followed.id)
         FactoryGirl.create(:song, :user_id => follower.id)
+        FactoryGirl.create(:song, :user_id => follower.id, hidden: true)
         follower.follow(followed)
       end
 
       it "returns the songs the user has uploaded" do
-        follower.songs.each do |song|
+        follower.songs.visible.each do |song|
           follower.timeline_songs.should include(song)
+          song.should_not be_hidden
         end
       end
 
       it "returns the songs that the followed_users have uploaded" do
-        followed.songs.each do |song, |
+        followed.songs.visible.each do |song, |
           follower.timeline_songs.should include(song)
         end
       end
 
       it "sorts the songs by descending date" do
         follower.timeline_songs.first.created_at.to_i.should be >= follower.timeline_songs.last.created_at.to_i
+      end
+
+      it "doesn't show followd_users' hidden songs" do
+        followed.songs.hidden.each do |song, |
+          follower.timeline_songs.should_not include(song)
+          song.should be_hidden
+        end
       end
     end
   end

@@ -63,12 +63,12 @@ class User < ActiveRecord::Base
   end
 
   def timeline_songs
-    songs = recent_songs + followed_users.map(&:recent_songs).flatten
-    songs.sort_by { |song| song.created_at.to_date }.reverse
+    _songs = songs.recent + followed_users.map(&:visible_recent_songs).flatten
+    _songs.sort_by { |song| song.created_at.to_date }.reverse
   end
 
-  def recent_songs
-    songs.order("created_at DESC")
+  def visible_recent_songs
+    songs.visible.recent
   end
 
   def sample_songs
