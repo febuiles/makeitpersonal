@@ -16,6 +16,8 @@ class Song < ActiveRecord::Base
   after_create :send_notifications
 
   scope :recent, order("created_at DESC")
+  scope :hidden, where(:hidden => true)
+  scope :visible, where(:hidden => false)
   scope :count_grouped_by_day, select("count(*), date(created_at)").group("date(created_at)").order(:date)
 
   def should_generate_new_friendly_id?
