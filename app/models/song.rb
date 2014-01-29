@@ -11,7 +11,7 @@ class Song < ActiveRecord::Base
 
   validates_presence_of :artist, :title, :lyrics
 
-  before_save :create_secret_slug, :if => :secret?
+  before_save :create_secret_slug, :if => :hidden?
   before_save :strip_song_info
   after_create :send_notifications
 

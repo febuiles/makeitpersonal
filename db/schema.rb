@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20140129034552) do
     t.integer  "user_id"
     t.string   "slug"
     t.integer  "views",       :default => 0
-    t.boolean  "secret",      :default => false
+    t.boolean  "hidden",      :default => false
   end
 
   add_index "songs", ["slug"], :name => "index_songs_on_slug"

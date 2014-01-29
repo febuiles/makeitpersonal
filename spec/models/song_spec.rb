@@ -15,9 +15,9 @@ describe Song do
         song.title.should == "On Any Other Day"
       end
 
-      it "creates a random token if the song is secret" do
+      it "creates a random token if the song is hidden" do
         SecureRandom.should_receive(:hex)
-        song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...", secret: true)
+        song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...", hidden: true)
       end
     end
   end
