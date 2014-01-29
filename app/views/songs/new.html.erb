@@ -11,6 +11,11 @@
 
         <%= f.text_field :title, :placeholder => "Song Title" %>
 
+        <div class='form-group'>
+          <%= f.check_box :hidden, :placeholder => "Song Title" %>
+          <%= f.label :hidden, "Hidden Song" %>
+        </div>
+
         <%= link_to("", target: "_blank", class: "google-hint") do %>
           <div class="help-box" id="lyrics-help">Search for the lyrics on Google</div>
         <% end %>
