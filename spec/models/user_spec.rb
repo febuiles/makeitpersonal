@@ -139,18 +139,18 @@ describe User do
       before do
         FactoryGirl.create(:song, :user_id => followed.id)
         FactoryGirl.create(:song, :user_id => follower.id)
-        FactoryGirl.create(:song, :user_id => follower.id, hidden: true)
+        FactoryGirl.create(:song, :user_id => followed.id, hidden: true)
+        FactoryGirl.create(:song, :user_id => followed.id, hidden: true)
         follower.follow(followed)
       end
 
-      it "returns the songs the user has uploaded" do
-        follower.songs.visible.each do |song|
+      it "returns all the songs the user has uploaded" do
+        follower.songs.each do |song|
           follower.timeline_songs.should include(song)
-          song.should_not be_hidden
         end
       end
 
-      it "returns the songs that the followed_users have uploaded" do
+      it "returns the visible songs that the followed_users have uploaded" do
         followed.songs.visible.each do |song, |
           follower.timeline_songs.should include(song)
         end
