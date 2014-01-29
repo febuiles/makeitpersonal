@@ -32,7 +32,7 @@ class SongsController < ApplicationController
 
   def index
     render_not_found unless @user
-    @songs = @user.visible_recent_songs.page(params[:page]).per(15)
+    @songs = @user.songs_visible_to(current_user).page(params[:page]).per(15)
 
     respond_to do |format|
       format.html

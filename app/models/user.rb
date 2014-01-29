@@ -71,6 +71,10 @@ class User < ActiveRecord::Base
     songs.visible.recent
   end
 
+  def songs_visible_to(user)
+    self == user ? songs.recent : visible_recent_songs
+  end
+
   def sample_songs
     return [] if songs.length < 2
     songs.sample(3)
