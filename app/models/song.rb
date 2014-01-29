@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class Song < ActiveRecord::Base
   include SongPresenter
   extend FriendlyId
@@ -9,6 +11,7 @@ class Song < ActiveRecord::Base
 
   validates_presence_of :artist, :title, :lyrics
 
+  before_save :create_secret_slug, :if => :secret?
   before_save :strip_song_info
   after_create :send_notifications
 
@@ -29,6 +32,10 @@ class Song < ActiveRecord::Base
 
 
   private
+  def create_secret_slug
+    self.slug = SecureRandom.hex(32)
+  end
+
   def send_notifications
     SongMailer.new_song(self).deliver
   end
