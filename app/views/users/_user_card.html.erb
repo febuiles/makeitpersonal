@@ -5,8 +5,8 @@
   <div class="user-card-info">
     <strong><%= link_to user.display_name, user, :class => "title" %></strong><br/>
     <em><%= user.bio %></em><br/>
-    <% if user.recent_songs.present? %>
-      Most recent song: <%= link_to user.recent_songs.first.name, user_song_path(user, user.recent_songs.first) %><br/>
+    <% if user.visible_recent_songs.present? %>
+      Most recent song: <%= link_to user.visible_recent_songs.first.name, user_song_path(user, user.visible_recent_songs.first) %><br/>
     <% end %>
     <div class="user-card-links">
       <%= link_to "View Profile", user %>

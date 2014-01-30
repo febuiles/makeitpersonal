@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116030608) do
+ActiveRecord::Schema.define(:version => 20140129034552) do
 
   create_table "api_requests", :force => true do |t|
     t.string   "endpoint"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20121116030608) do
     t.integer  "user_id"
     t.string   "slug"
     t.integer  "views",       :default => 0
+    t.boolean  "hidden",      :default => false
   end
 
   add_index "songs", ["slug"], :name => "index_songs_on_slug"

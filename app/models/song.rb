@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class Song < ActiveRecord::Base
   include SongPresenter
   extend FriendlyId
@@ -9,10 +11,13 @@ class Song < ActiveRecord::Base
 
   validates_presence_of :artist, :title, :lyrics
 
+  before_save :create_secret_slug, :if => :hidden?
   before_save :strip_song_info
   after_create :send_notifications
 
   scope :recent, order("created_at DESC")
+  scope :hidden, where(:hidden => true)
+  scope :visible, where(:hidden => false)
   scope :count_grouped_by_day, select("count(*), date(created_at)").group("date(created_at)").order(:date)
 
   def should_generate_new_friendly_id?
@@ -29,6 +34,10 @@ class Song < ActiveRecord::Base
 
 
   private
+  def create_secret_slug
+    self.slug = SecureRandom.hex(32)
+  end
+
   def send_notifications
     SongMailer.new_song(self).deliver
   end
