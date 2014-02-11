@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   end
 
   def owns?(song)
-    songs.include?(song)
+    songs.exists?(id: song.id)
   end
 
   def follow(user)
@@ -76,8 +76,8 @@ class User < ActiveRecord::Base
   end
 
   def sample_songs
-    return [] if songs.length < 2
-    songs.sample(3)
+    return [] if visible_recent_songs.length < 2
+    visible_recent_songs.sample(3)
   end
 
   def trustable?
