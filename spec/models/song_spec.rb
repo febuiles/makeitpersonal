@@ -14,11 +14,18 @@ describe Song do
         song.artist.should == "The Police"
         song.title.should == "On Any Other Day"
       end
+    end
 
-      it "creates a random token if the song is hidden" do
-        SecureRandom.should_receive(:hex)
-        song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...", hidden: true)
-      end
+    it "creates a random token if the song is hidden" do
+      SecureRandom.should_receive(:hex)
+      song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...", hidden: true)
+    end
+
+    it "doesn't update the slug of a private song on update" do
+      song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...", hidden: true)
+      original_slug = song.slug
+      song.update_attributes(lyrics: "Some new lyrics with different markdown comments")
+      song.reload.slug.should == original_slug
     end
   end
 
