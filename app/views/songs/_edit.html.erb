@@ -10,7 +10,7 @@
 
     <% if @song.youtube_url.empty? %>
       <div class="help-box">
-        <%= link_to "Search for the video in YouTube", "http://www.youtube.com/results?search_query=#{@song.artist} #{@song.title}", :target => "_blank", :class => "youtube-hint"%>.
+        <%= link_to "Search for the video on YouTube", "http://www.youtube.com/results?search_query=#{@song.artist} #{@song.title}", :target => "_blank", :class => "youtube-hint"%>.
       </div>
     <% end %>
 
