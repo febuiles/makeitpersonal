@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 require "sitemap_generator"
 
-server "50.97.51.122", :web, :app, :db, primary: true
+server "107.170.105.41", :web, :app, :db, primary: true
 
 set :application, "makeitpersonal"
 set :user, "mip"
