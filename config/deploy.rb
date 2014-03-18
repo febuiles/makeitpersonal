@@ -1,7 +1,7 @@
 set :application, "makeitpersonal"
 set :repo_url, "git@github.com:febuiles/makeitpersonal.git"
 
-set :deploy_to, "/home/mip/makeitpersonal"
+set :deploy_to, "/var/www/makeitpersonal"
 set :scm, :git
 set :branch, "master"
 
