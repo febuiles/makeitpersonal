@@ -13,8 +13,14 @@ gem "rack-timeout"
 gem "mixpanel"
 gem "rails3_acts_as_paranoid", "~> 0.2.0"
 gem "unicorn"
-gem "capistrano"
 gem "kaminari"
+
+group :development do
+  gem "capistrano"
+  gem "capistrano-rails", "~> 1.0.0"
+  gem "capistrano-bundler"
+  gem "capistrano-rbenv" , github: "capistrano/rbenv"
+end
 
 group :production do
   gem "sitemap_generator"
