@@ -1,9 +1,9 @@
-source 'http://rubygems.org'
+source "http://rubygems.org"
 
-gem 'rails', '3.2.16'
+gem "rails", "3.2.18"
 gem "pg"
 gem "nokogiri"
-gem 'jquery-rails'
+gem "jquery-rails"
 gem "airbrake"
 gem "devise", "2.1.3"
 gem "twitter-bootstrap-rails", "2.1.4"
@@ -32,7 +32,7 @@ group :development, :test do
 end
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem "sass-rails",   "~> 3.2.3"
+  gem "uglifier", ">= 1.0.3"
+  gem "coffee-rails", "~> 3.2.1"
 end
