@@ -1,17 +1,5 @@
 <% title("contact us") %>
 
 <p>
-We'd love to hear back from you. If you have any questions, suggestions or death threats please fill the form below or <%= link_to "email us directly", "mailto:federico@mheroin.com" %>.
+Hi. If you have any questions, lawsuits or death threats please send an email to <%= link_to "federico@mheroin.com", "mailto:federico@mheroin.com" %>.
 </p>
-<%= form_tag "/contact", :method => :post do %>
-  <%= label_tag :name, "What's your name?" %>
-  <%= text_field_tag :name %>
-
-  <%= label_tag :email, "What's your email?" %>
-  <%= text_field_tag :email %>
-
-  <%= label_tag :message %>
-  <%= text_area_tag :message, nil, :rows => 10, :cols => 51 %>
-
-  <%= submit_tag "Send" %>
-<% end %>
