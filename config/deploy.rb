@@ -34,9 +34,9 @@ namespace :deploy do
   #   end
   # end
 
-  before "deploy", "deploy:check_revision"
-  # after "deploy", "deploy:generate_sitemap"
-  after "deploy", "deploy:cleanup"
+  after :publishing, :restart
+  after :finishing, 'deploy:cleanup'
+  # after :finishing, 'deploy:generate_sitemap'
 end
 
 namespace :db do
