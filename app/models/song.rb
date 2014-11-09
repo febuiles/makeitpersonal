@@ -4,16 +4,14 @@ class Song < ActiveRecord::Base
   include SongPresenter
   extend FriendlyId
 
-  friendly_id :title, :use => :scoped, :scope => :user
+  friendly_id :slug_creator, :use => :scoped, :scope => :user
 
   has_many :loves
   belongs_to :user
 
   validates_presence_of :artist, :title, :lyrics
-
   before_save   :strip_song_info
   after_create  :send_notifications, :unless => :hidden?
-  before_create :create_secret_slug, :if => :hidden?
 
   scope :recent, order("created_at DESC")
   scope :hidden, where(:hidden => true)
@@ -34,8 +32,13 @@ class Song < ActiveRecord::Base
 
 
   private
-  def create_secret_slug
-    self.slug = SecureRandom.hex(32)
+
+  def should_generate_new_friendly_id?
+    self.new_record? || self.hidden_changed?
+  end
+
+  def slug_creator
+    hidden? ? SecureRandom.hex(32) : title
   end
 
   def send_notifications

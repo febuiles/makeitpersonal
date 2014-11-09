@@ -6,6 +6,11 @@
 
     <%= f.text_field :title %>
 
+    <div class='form-group'>
+      <%= f.check_box :hidden %>
+      <%= f.label :hidden, "Hidden Song" %>
+    </div>
+
     <%= f.text_area :lyrics, :placeholder => "Lyrics go here...", :id => "lyrics" %>
 
     <% if @song.youtube_url.empty? %>

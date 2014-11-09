@@ -44,8 +44,10 @@ $(function(){
   $inlineForm.on("ajax:complete", function(e, status){
     $("#song-body, #inline-edit-form, #user-toolbar").toggle();
     var response = $("<div/>").html(status.responseText)
+    var newUrl = response.find("#new-url").text();
     $("#song-body").replaceWith(response.find("#song-body"));
     $(".sidenotes").replaceWith(response.find(".sidenotes"));
+    history.replaceState({}, response.find('#new-title').text(), newUrl);
     loader.stop();
   })
 })

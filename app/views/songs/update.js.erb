@@ -4,4 +4,12 @@
 
 <div class="sidenotes">
   <%= @song.sidenotes %>
-</p>
+</div>
+
+<div id='new-url'>
+  <%= user_song_url(@song.user, @song) %>
+</div>
+
+<div id='new-title'>
+  <%= @song.name %>
+</div>

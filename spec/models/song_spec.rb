@@ -27,6 +27,23 @@ describe Song do
       song.update_attributes(lyrics: "Some new lyrics with different markdown comments")
       song.reload.slug.should == original_slug
     end
+
+    it "lets you update the song and creates a new slug if `hidden` changed" do
+      SecureRandom.stub(hex: 'foo')
+      song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...")
+      song.hidden = true
+      song.save
+      song.reload.slug.should == 'foo'
+    end
+
+    it "creaets a readable slug if the song was hidden and is now public" do
+      SecureRandom.stub(hex: 'foo')
+      song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...", hidden: true)
+      song.slug.should == 'foo'
+      song.hidden = false
+      song.save
+      song.reload.slug.should == 'on-any-other-day'
+    end
   end
 
   describe "#incr" do
