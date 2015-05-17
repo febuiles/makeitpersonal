@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "3.2.20"
+gem "rails", "3.2.21"
 gem "pg"
 gem "nokogiri"
 gem "jquery-rails"
@@ -8,12 +8,12 @@ gem "airbrake"
 gem "devise", "2.1.3"
 gem "twitter-bootstrap-rails", "2.1.4"
 gem "friendly_id", ">= 4.0.9", '< 5.0'
-gem "redcarpet"
+gem "redcarpet", "2.2.2"
 gem "rack-timeout"
 gem "mixpanel"
-gem "rails3_acts_as_paranoid", "~> 0.2.0"
+gem "rails3_acts_as_paranoid"
 gem "unicorn"
-gem "kaminari"
+gem "kaminari", "0.14.1"
 
 group :development do
   gem "capistrano"
@@ -23,12 +23,12 @@ group :development do
 end
 
 group :production do
-  gem "sitemap_generator"
+  gem "sitemap_generator", "4.0.1"
 end
 
 group :development, :test do
-  gem "rspec-rails"
-  gem "factory_girl_rails"
+  gem "rspec-rails", "2.11.4"
+  gem "factory_girl_rails", "~> 4.1.0"
 end
 
 group :assets do
