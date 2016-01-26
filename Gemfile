@@ -19,7 +19,7 @@ group :development do
   gem "capistrano"
   gem "capistrano-rails", "~> 1.0.0"
   gem "capistrano-bundler"
-  gem "capistrano-rbenv" , github: "capistrano/rbenv"
+  gem "capistrano-rbenv"
 end
 
 group :production do

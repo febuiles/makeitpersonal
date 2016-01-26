@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/capistrano/rbenv.git
-  revision: 4640ad165db98e9f9d95ac102cb6430c5feaa81e
-  specs:
-    capistrano-rbenv (2.0.2)
-      capistrano (~> 3.1)
-      sshkit (~> 1.3)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -51,6 +43,9 @@ GEM
       sshkit (~> 1.2)
     capistrano-rails (1.0.0)
       capistrano
+    capistrano-rbenv (2.0.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -206,7 +201,7 @@ DEPENDENCIES
   capistrano
   capistrano-bundler
   capistrano-rails (~> 1.0.0)
-  capistrano-rbenv!
+  capistrano-rbenv
   coffee-rails (~> 3.2.1)
   devise (= 2.1.3)
   factory_girl_rails (~> 4.1.0)
