@@ -1,12 +1,23 @@
 module SongPresenter
   include ActionView::Helpers::UrlHelper
+  include ActionView::Helpers::SanitizeHelper
+
+  def self.included(base)
+    base.extend(ClassMethods)
+  end
+
+  module ClassMethods
+    def white_list_sanitizer
+      HTML::WhiteListSanitizer.new
+    end
+  end
 
   def name
     if user.trustable?
-      "#{artist} &mdash; #{title}".html_safe
+      "#{artist} &mdash; #{title}"
     else
-      "#{artist.titleize_with_caps} &mdash; #{title.titleize_with_caps}".html_safe
-    end
+      "#{artist.titleize_with_caps} &mdash; #{title.titleize_with_caps}"
+    end.html_safe
   end
 
   def embed
@@ -18,7 +29,7 @@ module SongPresenter
   end
 
   def body
-    parser.lyrics.html_safe
+    sanitize(parser.lyrics, tags: %w(span strong em br), attributes: %w(class))
   end
 
   private
