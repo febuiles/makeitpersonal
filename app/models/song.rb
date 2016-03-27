@@ -30,7 +30,6 @@ class Song < ActiveRecord::Base
     loves.map(&:user)
   end
 
-
   private
 
   def should_generate_new_friendly_id?
