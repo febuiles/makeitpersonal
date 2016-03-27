@@ -17,17 +17,4 @@ class ApplicationController < ActionController::Base
       session[:first_time] = false
     end
   end
-
-  protected
-
-  def mixpanel
-    env = {
-      'REMOTE_ADDR' => request.env['REMOTE_ADDR'],
-      'HTTP_X_FORWARDED_FOR' => request.env['HTTP_X_FORWARDED_FOR'],
-      'rack.session' => request.env['rack.session'],
-      'mixpanel_events' => request.env['mixpanel_events']
-    }
-
-    @mixpanel ||= Mixpanel::Tracker.new ENV["MIXPANEL_TOKEN"], { env: env, persist: true }
-  end
 end

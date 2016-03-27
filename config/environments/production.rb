@@ -69,6 +69,4 @@ Makeitpersonal::Application.configure do
   }
   ActionMailer::Base.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'makeitpersonal.co' }
-  config.middleware.use("Mixpanel::Middleware", ENV["MIXPANEL_TOKEN"], { insert_js_last: true, persist: true})
-
 end

@@ -23,7 +23,6 @@ class SongsController < ApplicationController
   def create
     @song = current_user.songs.build(params[:song])
     if @song.save
-      mixpanel.append_track "New Song", { artist: @song.artist, title: @song.title, user_id: @song.user.id }
       redirect_to user_song_path(current_user.username, @song)
     else
       render :new
@@ -41,9 +40,7 @@ class SongsController < ApplicationController
   end
 
   def show
-    redirect_to root_path if params[:username] == "user_lyrics"
     @song = @user.songs.find(params[:id])
-    mixpanel.append_track "Song View", { artist: @song.artist, title: @song.title }
   end
 
   def destroy

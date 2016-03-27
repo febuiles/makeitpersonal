@@ -3,14 +3,12 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
     super
-    mixpanel.append_track "Visit Signup Form"
   end
 
   def create
     super
     return if resource.new_record?
     NotificationsMailer.new_user(resource).deliver
-    mixpanel.append_track "User Signup", { :user_id => resource.id }
   end
 
   def update
@@ -35,16 +33,5 @@ class RegistrationsController < Devise::RegistrationsController
 
   def set_layout
     action_name == "edit" ? "application" : "devise"
-  end
-
-  def mixpanel
-    env = {
-      'REMOTE_ADDR' => request.env['REMOTE_ADDR'],
-      'HTTP_X_FORWARDED_FOR' => request.env['HTTP_X_FORWARDED_FOR'],
-      'rack.session' => request.env['rack.session'],
-      'mixpanel_events' => request.env['mixpanel_events']
-    }
-
-    @mixpanel ||= Mixpanel::Tracker.new ENV["MIXPANEL_TOKEN"], { env: env, persist: true }
   end
 end

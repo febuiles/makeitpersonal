@@ -10,7 +10,6 @@ gem "twitter-bootstrap-rails", "2.1.4"
 gem "friendly_id", ">= 4.0.9", '< 5.0'
 gem "redcarpet", "2.2.2"
 gem "rack-timeout"
-gem "mixpanel"
 gem "rails3_acts_as_paranoid"
 gem "unicorn"
 gem "kaminari", "0.14.1"

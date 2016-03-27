@@ -3,7 +3,6 @@ class LyricsController < ApplicationController
 
   def lyrics
     @lyric = Lyric.by_params(params[:lyric] || params)
-    mixpanel.track 'API Request', { artist: @lyric.artist, title: @lyric.title }
     if @lyric.fetch_and_save
       render @lyric
     else
