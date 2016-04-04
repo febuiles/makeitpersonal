@@ -14,10 +14,10 @@ module SongPresenter
 
   def name
     if user.trustable?
-      "#{artist} &mdash; #{title}"
+      "#{artist} — #{title}"
     else
-      "#{artist.titleize_with_caps} &mdash; #{title.titleize_with_caps}"
-    end.html_safe
+      "#{artist.titleize_with_caps} — #{title.titleize_with_caps}"
+    end
   end
 
   def embed

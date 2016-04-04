@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>
-      <%= "#{yield(:title)} &mdash; ".html_safe if yield(:title).present? %>
+      <%= "#{yield(:title)} — " if yield(:title).present? %>
       makeitpersonal
     </title>
+    <meta charset="UTF-8" />
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <link href="/assets/favicon.ico" rel="icon">

@@ -3,10 +3,11 @@ require 'cgi'
 require 'active_support/core_ext/object'
 
 class YoutubeParser
+  include ActionView::Helpers::SanitizeHelper
   attr_reader :url
 
   def initialize(url)
-    @url = url
+    @url = sanitize(url)
   end
 
   def embed_code

@@ -1,6 +1,6 @@
 <div class="song-cell" >
   <%= link_to("javascript:void(0)", :class => "song-cell-dark song-dropdown") do %>
-    <%= truncate(song.name, :length => 55).html_safe %>
+    <%= truncate(song.name, :length => 55) %>
     <i class="icon-arrow-down"></i>
   <% end %>
 
