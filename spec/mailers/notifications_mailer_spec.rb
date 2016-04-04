@@ -23,7 +23,7 @@ describe NotificationsMailer do
 
       email.to.should == [target.email]
       email.subject.should == "#{origin.username} loved one of your songs"
-      assert_match(/loved your notes on/, email.encoded)
+      assert_match(/loved your notes on/, email.body.decoded)
     end
   end
 end
