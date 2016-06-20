@@ -40,11 +40,16 @@ namespace :deploy do
 end
 
 namespace :db do
-  desc "Pull the database to localhost"
+  desc "Creates a dump of the database"
   task :download do
-    local = "/Users/federico/dev/makeitpersonal"
-    run "pg_dump -U mip makeitpersonal_production | gzip -c > #{current_path}/dump.gz"
-    system "scp mip@mip:#{current_path}/dump.gz #{local}"
-    run "rm #{current_path}/dump.gz"
+    on roles(:app) do
+      within(release_path) do
+        with rails_env: "production" do
+          rake "db:dump"
+          download! "#{deploy_to}/current/dump.gz", "dump.gz"
+          execute :rm, "dump.gz"
+        end
+      end
+    end
   end
 end
