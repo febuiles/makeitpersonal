@@ -10,7 +10,7 @@ describe SongPresenter do
 
   describe "#embed" do
     it "doesn't raise an error if the youtube_url is empty" do
-      expect { Song.new.embed }.not_to raise_error
+      expect { Song.new.youtube_embed }.not_to raise_error
     end
 
     it "is careful with XSS in the body of the song" do
