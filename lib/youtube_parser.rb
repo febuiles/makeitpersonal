@@ -19,7 +19,7 @@ class YoutubeParser
   private
 
   def embed_url
-    "http://www.youtube.com/embed/#{video_id}?#{default_params}"
+    "https://www.youtube.com/embed/#{video_id}?#{default_params}"
   end
 
   def video_id
