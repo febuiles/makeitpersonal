@@ -3,6 +3,8 @@ require 'cgi'
 require 'markdown_renderer'
 
 class SongParser
+  include ActionView::Helpers::SanitizeHelper
+
   attr_reader :lyrics, :sidenotes
   SIDENOTE_REGEX = /\[\[(.*?)\]\]/m
 
@@ -18,10 +20,11 @@ class SongParser
 
   def get_sidenotes
     sidenotes = lyrics.scan(SIDENOTE_REGEX).flatten
-    sidenotes.each_with_index.map do |note, i|
+    res = sidenotes.each_with_index.map do |note, i|
       index = "**[#{i + 1}]**"
       markdown.render("#{index} #{note}")
-    end
+    end.join
+    sanitize(res, tags: %w(strong em a img p code pre), attributes: %w(href src))
   end
 
   def clean_lyrics

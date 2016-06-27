@@ -7,12 +7,13 @@ class YoutubeParser
   attr_reader :url
 
   def initialize(url)
-    @url = sanitize(url)
+    @url = url
   end
 
   def embed_code
     return "" if url_invalid?
-    "<iframe class='youtube-embed' src='#{embed_url} frameborder='0' ></iframe>"
+    url = "<iframe class='youtube-embed' src='#{embed_url}' frameborder='0' ></iframe>"
+    sanitize(url, tags: %w(iframe), attributes: %w(class src frameborder))
   end
 
   private

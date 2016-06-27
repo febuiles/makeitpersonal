@@ -20,16 +20,16 @@ module SongPresenter
     end
   end
 
-  def embed
-    YoutubeParser.new(youtube_url).embed_code.html_safe
+  def youtube_embed
+    YoutubeParser.new(youtube_url).embed_code
   end
 
   def sidenotes
-    parser.sidenotes.join.html_safe
+    parser.sidenotes
   end
 
   def body
-    sanitize(parser.lyrics, tags: %w(span strong em br), attributes: %w(class))
+    sanitize(parser.lyrics, tags: %w(span strong em br p), attributes: %w(class))
   end
 
   private

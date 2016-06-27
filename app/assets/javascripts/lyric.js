@@ -82,8 +82,8 @@ var Lyric = function(outputField) {
   var setHintLinks = function() {
     var google = $(".google-hint");
     var youtube = $(".youtube-hint");
-    var googleUrl = String.prototype.concat("http://www.google.com/search?q=", artist, " ", title, " lyrics");
-    var youtubeUrl = String.prototype.concat("http://www.youtube.com/results?search_query=", artist, " ", title);
+    var googleUrl = String.prototype.concat("https://www.google.com/search?q=", artist, " ", title, " lyrics");
+    var youtubeUrl = String.prototype.concat("https://www.youtube.com/results?search_query=", artist, " ", title);
 
     google.attr("href", googleUrl);
     youtube.attr("href", youtubeUrl);
