@@ -14,10 +14,11 @@ module SongPresenter
 
   def name
     if user.trustable?
-      "#{artist} — #{title}"
+      text = "#{artist} — #{title}"
     else
-      "#{artist.titleize_with_caps} — #{title.titleize_with_caps}"
+      text = "#{artist.titleize_with_caps} — #{title.titleize_with_caps}"
     end
+    sanitize(text)
   end
 
   def youtube_embed
