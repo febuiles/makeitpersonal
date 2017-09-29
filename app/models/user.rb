@@ -14,11 +14,11 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships
 
   attr_accessor :login
-  attr_accessible :email, :password, :remember_me, :login, :username, :twitter, :website, :name, :bio
+#  attr_accessible :email, :password, :remember_me, :login, :username, :twitter, :website, :name, :bio
 
   validates_presence_of :username
   validates_uniqueness_of :username
-  validates_format_of :username, :with => /^[\w_]+$/
+  validates_format_of :username, :with => /\A[\w_]+\z/
 
   after_create :send_welcome_email
 
