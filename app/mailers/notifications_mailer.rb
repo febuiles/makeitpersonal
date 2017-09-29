@@ -1,6 +1,4 @@
 class NotificationsMailer < ActionMailer::Base
-  default from: "makeitpersonal <no-reply@makeitpersonal.co>"
-
   def followed(follower, followed)
     @follower = follower
     @followed = followed
