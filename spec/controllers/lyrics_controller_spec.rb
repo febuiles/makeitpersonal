@@ -28,13 +28,13 @@ describe LyricsController do
   context "missing params" do
     it "returns an error message if the song title is empty" do
       get :lyrics, { :artist => "Fubar" }
-      response.body.should == "title is empty"
+      response.body.should == "Invalid params"
       response.code.should == "422"
     end
 
     it "returns an error message if the artist is empty" do
       get :lyrics, { :title => "Fubar" }
-      response.body.should == "artist is empty"
+      response.body.should == "Invalid params"
       response.code.should == "422"
     end
   end

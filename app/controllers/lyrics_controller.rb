@@ -1,4 +1,5 @@
 class LyricsController < ApplicationController
+  before_filter :set_params
   before_filter :validate_params
 
   def lyrics
@@ -13,12 +14,16 @@ class LyricsController < ApplicationController
   protected
 
   def validate_params
-    [:artist, :title].each do |field|
-      return empty_field(field) if params[field].blank?
+    if @artist.blank? ||
+        @title.blank? ||
+        @artist.length > 72 ||
+        @title.length > 72
+      return render(:text => "Invalid params", :status => 422)
     end
   end
 
-  def empty_field(field)
-    render :text => "#{field} is empty", :status => 422
+  def set_params
+    @artist = params[:artist]
+    @title = params[:title]
   end
 end
