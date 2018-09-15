@@ -14,7 +14,12 @@ module Lyrics
     end
 
     def text
-      document = Nokogiri::HTML(open(lyrics_url))
+      begin
+        document = Nokogiri::HTML(open(lyrics_url))
+      rescue OpenURI::HTTPError
+        return nil
+      end
+
       textarea = document.css("#wpTextbox1").first
       textarea ? textarea.text : nil
     end

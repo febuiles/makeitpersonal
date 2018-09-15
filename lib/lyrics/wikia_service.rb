@@ -9,10 +9,10 @@ module Lyrics
     def self.lyrics_for(artist, title)
       response = TextFetcher.new(artist, title).text
 
-      if response.empty?
-        Lyrics::ParserResult.new(:empty, "Sorry, We don't have lyrics for this song yet.")
-      else
+      if response.present?
         TextProcessor.new(response).clean_result
+      else
+        Lyrics::ParserResult.new(:empty, "Sorry, We don't have lyrics for this song yet.")
       end
     end
   end
