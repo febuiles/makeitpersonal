@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140129034552) do
+ActiveRecord::Schema.define(:version => 20180915102640) do
 
   create_table "api_requests", :force => true do |t|
     t.string   "endpoint"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20140129034552) do
     t.string "title"
   end
 
+  add_index "lyrics", ["title"], :name => "index_lyrics_on_title"
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -43,7 +45,6 @@ ActiveRecord::Schema.define(:version => 20140129034552) do
 
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
-  add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
