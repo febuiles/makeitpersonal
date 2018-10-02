@@ -7,8 +7,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    return if resource.new_record?
-    NotificationsMailer.new_user(resource).deliver
   end
 
   def update

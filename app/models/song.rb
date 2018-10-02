@@ -11,7 +11,6 @@ class Song < ActiveRecord::Base
 
   validates_presence_of :artist, :title, :lyrics
   before_save   :strip_song_info
-  after_create  :send_notifications, :unless => :hidden?
 
   scope :recent, order("created_at DESC")
   scope :hidden, where(:hidden => true)
@@ -38,10 +37,6 @@ class Song < ActiveRecord::Base
 
   def slug_creator
     hidden? ? SecureRandom.hex(32) : title
-  end
-
-  def send_notifications
-    SongMailer.new_song(self).deliver
   end
 
   def strip_song_info

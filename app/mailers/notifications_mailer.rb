@@ -24,10 +24,4 @@ class NotificationsMailer < ActionMailer::Base
     subject = "Contact form"
     mail(to: "federico@mheroin.com", subject: subject)
   end
-
-  def new_user(user)
-    @user = user
-    subject = "New user on makeitpersonal"
-    mail(to: "federico@mheroin.com", subject: subject)
-  end
 end
