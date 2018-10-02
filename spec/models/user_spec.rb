@@ -2,20 +2,19 @@ require 'spec_helper'
 
 describe User do
   context "validations" do
-    it "verify the username " do
-
-      User.new(username: "foobuiles").should have(0).errors_on(:username)
-      User.new(username: "foo_builes9").should have(0).errors_on(:username)
-      User.new(username: "foob.uiles").should have(1).errors_on(:username)
-      User.new(username: "foo-bar").should have(1).error_on(:username)
-      User.new(username: "foo bar").should have(1).error_on(:username)
+    it "verifies the username" do
+      expect(User.create(username: "foobuiles").errors[:username].size).to eq(0)
+      expect(User.create(username: "foo_builes9").errors[:username].size).to eq(0)
+      expect(User.create(username: "foob.uiles").errors[:username].size).to eq(1)
+      expect(User.create(username: "foo-bar").errors[:username].size).to eq(1)
+      expect(User.create(username: "foo bar").errors[:username].size).to eq(1)
     end
   end
 
   describe "#blank_profile?" do
     it "returns true if all the profile fields are empty" do
-      FactoryGirl.build(:user).blank_profile?.should be_true
-      FactoryGirl.build(:user, :twitter => "@mahavishnu").blank_profile?.should be_false
+      FactoryGirl.build(:user).blank_profile?.should be_truthy
+      FactoryGirl.build(:user, :twitter => "@mahavishnu").blank_profile?.should be_falsey
     end
   end
 
@@ -26,7 +25,7 @@ describe User do
     describe "#loves?" do
       it "returns true if the user loves the song" do
         user.love(song)
-        user.loves?(song).should be_true
+        expect(user.loves?(song)).to be_truthy
       end
     end
 
@@ -109,9 +108,9 @@ describe User do
 
     describe "#follows?" do
       it "returns true if a user follows another user" do
-        follower.follows?(followed).should be_false
+        follower.follows?(followed).should be_falsey
         follower.follow(followed)
-        follower.follows?(followed).should be_true
+        follower.follows?(followed).should be_truthy
       end
     end
 

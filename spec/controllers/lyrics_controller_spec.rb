@@ -10,7 +10,7 @@ describe LyricsController do
     end
 
     it "returns the lyrics if they exists" do
-      lyric.stub!(:fetch_and_save).and_return(true)
+      expect(lyric).to receive(:fetch_and_save).and_return(true)
 
       get :lyrics, params
       response.should render_template("lyrics/_lyric")
@@ -18,7 +18,7 @@ describe LyricsController do
 
     it "returns an error message if the lyrics weren't found" do
       lyric.text = "ohnoes"
-      lyric.stub!(:fetch_and_save).and_return(false)
+      expect(lyric).to receive(:fetch_and_save).and_return(false)
 
       get :lyrics, params
       response.body.should == "ohnoes"
