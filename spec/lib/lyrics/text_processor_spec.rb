@@ -12,7 +12,7 @@ describe TextProcessor do
 
   describe "#clean_result" do
     it "parses the document and returns the lyrics" do
-      processor.clean_result.lyrics.should == "\nZOMGLYRICS\n"
+      expect(processor.clean_result.lyrics).to eq("\nZOMGLYRICS\n")
     end
   end
 
@@ -20,7 +20,7 @@ describe TextProcessor do
     it "doesn't return duplicate lyrics" do
       fake_document = File.dirname(__FILE__) + "/../../fixtures/song_with_duplicates.html"
       processor = TextProcessor.new(File.read(fake_document, :encoding => "UTF-8"))
-      processor.clean_result.lyrics.should == "\nThis is so fun\n"
+      expect(processor.clean_result.lyrics).to eq("\nThis is so fun\n")
     end
   end
 

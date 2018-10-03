@@ -5,7 +5,7 @@ describe MarkdownRenderer do
     let(:renderer) { MarkdownRenderer.new }
 
     it "converts Markdown to HTML" do
-      renderer.render("*testing*").should == "<p><em>testing</em></p>\n"
+      expect(renderer.render("*testing*")).to eq("<p><em>testing</em></p>\n")
     end
   end
 end

@@ -10,8 +10,8 @@ describe NotificationsMailer do
       NotificationsMailer.followed(origin, target).deliver
       email = ActionMailer::Base.deliveries.last
 
-      email.to.should == [target.email]
-      email.subject.should == "#{origin.username} is now following you on makeitpersonal"
+      expect(email.to).to eq([target.email])
+      expect(email.subject).to eq("#{origin.username} is now following you on makeitpersonal")
       assert_match(/is now following you/, email.encoded)
     end
   end
@@ -21,8 +21,8 @@ describe NotificationsMailer do
       NotificationsMailer.loved(origin, song).deliver
       email = ActionMailer::Base.deliveries.last
 
-      email.to.should == [target.email]
-      email.subject.should == "#{origin.username} loved one of your songs"
+      expect(email.to).to eq([target.email])
+      expect(email.subject).to eq("#{origin.username} loved one of your songs")
       assert_match(/loved your notes on/, email.body.decoded)
     end
   end

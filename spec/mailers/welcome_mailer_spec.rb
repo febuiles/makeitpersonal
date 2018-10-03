@@ -7,8 +7,8 @@ describe WelcomeMailer do
     WelcomeMailer.welcome(user).deliver
     email = ActionMailer::Base.deliveries.first
 
-    email.to.should == ["foo@bar.com"]
-    email.subject.should == "Hello from makeitpersonal"
+    expect(email.to).to eq(["foo@bar.com"])
+    expect(email.subject).to eq("Hello from makeitpersonal")
     assert_match(/Hey #{user.username}/, email.encoded)
   end
 end
