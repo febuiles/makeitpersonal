@@ -7,14 +7,14 @@ describe LovesController do
 
   describe "create" do
     before do
-      mail = stub
-      mail.should_receive(:deliver)
-      NotificationsMailer.should_receive(:loved).with(user, song).and_return(mail)
+      mail = double
+      allow(mail).to receive(:deliver)
+      expect(NotificationsMailer).to receive(:loved).with(user, song) { mail }
     end
 
     it "creates a love" do
       post :create, { id: song.id, format: "js" }
-      user.reload.loved_songs.should include(song)
+      expect(user.reload.loved_songs).to include(song)
     end
   end
 
@@ -22,7 +22,7 @@ describe LovesController do
     it "removes a love" do
       user.love(song)
       delete :destroy, { id: song.id, format: "js" }
-      user.reload.loved_songs.should_not include(song)
+      expect(user.reload.loved_songs).not_to include(song)
     end
   end
 end

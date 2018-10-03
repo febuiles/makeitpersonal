@@ -26,10 +26,10 @@ describe TextProcessor do
 
   context "redirects" do
     describe "#clean_result" do
-      let(:fetcher) { stub }
+      let(:fetcher) { double }
       before do
-        fetcher.should_receive(:text)
-        TextFetcher.should_receive(:new).and_return(fetcher)
+        expect(fetcher).to receive(:text)
+        expect(TextFetcher).to receive(:new) { fetcher }
       end
 
       it "follows redirects" do
