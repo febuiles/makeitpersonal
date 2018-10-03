@@ -31,7 +31,7 @@ group :production do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.99'
+  gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.1.0'
 end
 
