@@ -6,7 +6,7 @@ describe Lyric do
 
   before do
     result = Lyrics::ParserResult.new(:ok, "ZOMGLYRICS")
-    Lyrics::WikiaService.stub(:lyrics_for).and_return(result)
+    allow(Lyrics::WikiaService).to receive(:lyrics_for).and_return(result)
   end
 
   context "callbacks" do
@@ -51,8 +51,8 @@ describe Lyric do
     end
 
     it "doesn't save invalid lyrics in the database" do
-    Lyrics::WikiaService.stub(:lyrics_for).and_return(Lyrics::ParserResult.new(:fail))
-      lyric.fetch_and_save.should be_false
+      allow(Lyrics::WikiaService).to receive(:lyrics_for) { Lyrics::ParserResult.new(:fail) }
+      expect(lyric.fetch_and_save).to eq(false)
     end
   end
 end

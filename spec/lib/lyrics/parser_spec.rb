@@ -7,26 +7,27 @@ describe Parser do
   context "symbol replacement" do
     it "recognizes the gracenote takedown notice" do
       parser = Parser.new("{{gracenote_takedown}}")
-      parser.result.status.should == :taken_down
+      expect(parser.result.status).to eq(:taken_down)
     end
 
     it "removes <sup> content in the lyrics" do
       parser = Parser.new("Oh<sup>hai  ()</sup>noway<sup>wai</sup>")
-      parser.result.lyrics.should == "Ohnoway"
+      expect(parser.result.lyrics).to eq("Ohnoway")
     end
 
     it "replaces '' with real quotes" do
       parser = Parser.new(%q[''Oh hai''])
-      parser.result.lyrics.should == %q["Oh hai"]
+      expect(parser.result.lyrics).to eq(%q["Oh hai"])
     end
 
     it "replaces &quot; with real quotes" do
       parser = Parser.new("&quot;")
-      parser.result.lyrics.should == '"'
+      expect(parser.result.lyrics).to eq('"')
     end
 
     it "recognizes non-existent lyrics" do
       parser = Parser.new("PUT LYRICS HERE")
+      expect(parser.result.status).to eq(:empty)
       parser.result.status.should == :empty
     end
   end
