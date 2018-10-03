@@ -8,16 +8,18 @@ describe Song do
     describe "strip_song_info" do
       it "strips the artist and the song title before saving the record" do
         song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...")
-        song.artist.should == "The Police"
-        song.title.should == "On Any Other Day"
+        expect(song.artist).to eq("The Police")
+        expect(song.title).to eq("On Any Other Day")
+
         song.update_attributes(artist: " The Police", title: "On Any Other Day ")
-        song.artist.should == "The Police"
-        song.title.should == "On Any Other Day"
+
+        expect(song.artist).to eq("The Police")
+        expect(song.title).to eq("On Any Other Day")
       end
     end
 
     it "creates a random token if the song is hidden" do
-      SecureRandom.should_receive(:hex)
+      expect(SecureRandom).to receive(:hex)
       song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...", hidden: true)
     end
 
@@ -25,24 +27,26 @@ describe Song do
       song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...", hidden: true)
       original_slug = song.slug
       song.update_attributes(lyrics: "Some new lyrics with different markdown comments")
-      song.reload.slug.should == original_slug
+      expect(song.reload.slug).to eq(original_slug)
     end
 
     it "lets you update the song and creates a new slug if `hidden` changed" do
-      SecureRandom.stub(hex: 'foo')
+      allow(SecureRandom).to receive(:hex) { 'foo' }
       song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...")
       song.hidden = true
-      song.save
-      song.reload.slug.should == 'foo'
+      song.save!
+
+      expect(song.reload.slug).to eq('foo')
     end
 
-    it "creaets a readable slug if the song was hidden and is now public" do
-      SecureRandom.stub(hex: 'foo')
+    it "creates a readable slug if the song was hidden and is now public" do
+      allow(SecureRandom).to receive(:hex) { 'foo' }
       song = Song.create!(artist: " The Police", title: "On Any Other Day ", lyrics: "There's a house on my street...", hidden: true)
-      song.slug.should == 'foo'
+      expect(song.slug).to eq('foo')
       song.hidden = false
       song.save
-      song.reload.slug.should == 'on-any-other-day'
+
+      expect(song.reload.slug).to eq('on-any-other-day')
     end
   end
 
@@ -51,9 +55,9 @@ describe Song do
 
     it "increases the number of visits to this song" do
       song = Song.create(artist: "Talking Heads", title: "Once in a Lifetime", lyrics: "And you may find yourself living in a shotgun shack...")
-      song.views.should == 0
+      expect(song.views).to eq(0)
       song.incr
-      song.reload.views.should == 1
+      expect(song.reload.views).to eq(1)
     end
   end
 
@@ -69,7 +73,7 @@ describe Song do
       end
 
       it "returns a list of the users that loved a song" do
-        song.lovers.should == [first, second]
+        expect(song.lovers).to eq([first, second])
       end
     end
   end

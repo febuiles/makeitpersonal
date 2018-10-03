@@ -28,7 +28,6 @@ describe Parser do
     it "recognizes non-existent lyrics" do
       parser = Parser.new("PUT LYRICS HERE")
       expect(parser.result.status).to eq(:empty)
-      parser.result.status.should == :empty
     end
   end
 end
