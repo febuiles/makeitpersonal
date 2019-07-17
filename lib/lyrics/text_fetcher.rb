@@ -25,7 +25,7 @@ module Lyrics
     end
 
     def lyrics_url
-      "http://lyrics.wikia.com/index.php?title=#{@artist}:#{@title}&action=edit"
+      "https://lyrics.wikia.com/index.php?title=#{@artist}:#{@title}&action=edit"
     end
   end
 end
