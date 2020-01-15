@@ -31,6 +31,10 @@ module Makeitpersonal
       g.orm :active_record
     end
 
+    Raven.configure do |config|
+      config.dsn = ENV["SENTRY_DSN"]
+    end
+
     config.assets.initialize_on_precompile = false
     config.assets.precompile += ["song/song.css", "landing.css", "pages.css"]
   end

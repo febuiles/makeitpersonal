@@ -9,6 +9,7 @@ gem 'friendly_id', '>= 4.0.9', '< 5.0'
 gem 'redcarpet', '2.2.2'
 gem 'rails3_acts_as_paranoid'
 gem 'unicorn'
+gem "sentry-raven"
 
 # legacy
 gem 'kaminari', '0.14.1'
