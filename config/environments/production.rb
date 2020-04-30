@@ -69,4 +69,6 @@ Makeitpersonal::Application.configure do
   }
   ActionMailer::Base.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'makeitpersonal.co' }
+
+  config.logger = Logger.new(config.paths["log"].first, 30, 10 * 1024 * 1024)
 end
