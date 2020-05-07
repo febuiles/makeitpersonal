@@ -12,7 +12,7 @@ module Lyrics
       if response.present?
         TextProcessor.new(response).clean_result
       else
-        Lyrics::ParserResult.new(:empty, "Sorry, We don't have lyrics for this song yet.")
+        Lyrics::ParserResult.new(:empty, "Sorry, We don't have lyrics for this song yet. Add them to https://lyrics.wikia.com")
       end
     end
   end
