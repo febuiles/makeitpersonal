@@ -20,8 +20,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_format_of :username, :with => /^[\w_]+$/
 
-  after_create :send_welcome_email
-
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -105,9 +103,4 @@ class User < ActiveRecord::Base
     loved_songs.include?(song)
   end
 
-  private
-
-  def send_welcome_email
-    WelcomeMailer.welcome(self).deliver
-  end
 end
