@@ -6,7 +6,7 @@ gem 'jquery-rails'
 gem 'devise', '2.1.3'
 gem 'twitter-bootstrap-rails', '2.1.4'
 gem 'friendly_id', '>= 4.0.9', '< 5.0'
-gem 'redcarpet', '2.2.2'
+gem 'redcarpet', '3.5.1'
 gem 'rails3_acts_as_paranoid'
 gem 'unicorn'
 
